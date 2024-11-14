@@ -87,6 +87,13 @@ const LookAround = () => {
     },
   };
 
+  const handleCountrySelect = (country) => {
+    const flagPath = countryData[country];
+    if (flagPath) {
+      navigate('/Virtual2', { state: { flag: flagPath } });
+    }
+  };
+
   const handleCountryClick = (country) => {
     setSelectedCountry(country);
     setSelectedProvince(null); // Reset province selection
@@ -98,7 +105,7 @@ const LookAround = () => {
 
   const handleCityClick = (city) => {
     navigate('/Virtual2', {
-      state: { selectedCountry, selectedProvince, city } // Pass city along with country and province
+      state: { selectedCountry, selectedProvince, selectedCity: city },
     });
   };
 
@@ -107,7 +114,7 @@ const LookAround = () => {
       setSelectedProvince(null); // Go back to province selection
     } else if (selectedCountry) {
       setSelectedCountry(null); // Go back to country selection
-    }else {
+    } else {
       navigate(-1); // Navigate to the previous page
     }
   };
@@ -223,12 +230,8 @@ const LookAround = () => {
                     onClick={() => handleCountryClick(country)}
                   >
                     <div className="flex p-1 items-center cursor-pointer rounded-3xl hover:pl-5 hover:pr-5 hover:border-solid hover:border-2 hover:border-blue-400 hover:text-blue-800">
-                      <img
-                        className="w-10 mr-2 rounded"
-                        src={countryData[country].flag}
-                        alt={country}
-                      />
-                      <h2 className="text-xl md:text-2xl font-bold">{country}</h2>
+                      <img className="w-10 rounded" src={countryData[country].flag} alt={country} />
+                      <h2 className="ml-2 text-xl md:text-2xl font-bold">{country}</h2>
                     </div>
                   </li>
                 ))

@@ -69,9 +69,6 @@ const RegistrationForm31 = () => {
                 style={{ fontSize: '1.5rem' }} 
                 className="flex-1 p-6 pl-6 rounded-3xl bg-white bg-opacity-[0.2] border border-x-4 border-y-4 border-yellow-500 focus:outline-none placeholder-black font-extrabold text-center placeholder:font-extrabold placeholder:text-5xl"
               />
-              <span className="absolute hidden group-hover:flex mt-3 group-hover:items-center -top-2 left-full w-full px-6 py-6 bg-yellow-500 rounded-3xl text-center font-extrabold text-black !text-3xl">
-                Enter your email address
-              </span>
             </div>
 
             {/* Country Input */}
@@ -85,9 +82,7 @@ const RegistrationForm31 = () => {
                 className="flex-1 p-6 pl-6 rounded-3xl bg-white bg-opacity-[0.2] border border-x-4 border-y-4 border-yellow-500 focus:outline-none placeholder-black font-extrabold text-center placeholder:font-extrabold placeholder:text-5xl"
                 readOnly // Make it read-only if you want to prevent changes
               />
-              <span className="absolute hidden group-hover:flex mt-3 group-hover:items-center -top-2 left-full w-full px-6 py-6 bg-yellow-500 rounded-3xl text-center font-extrabold text-black !text-3xl">
-                Enter your country
-              </span>
+          
             </div>
 
             {/* Province Input */}
@@ -101,9 +96,7 @@ const RegistrationForm31 = () => {
                 className="flex-1 p-6 pl-6 rounded-3xl bg-white bg-opacity-[0.2] border border-x-4 border-y-4 border-yellow-500 focus:outline-none placeholder-black font-extrabold text-center placeholder:font-extrabold placeholder:text-5xl"
                 readOnly // Make it read-only if you want to prevent changes
               />
-              <span className="absolute hidden group-hover:flex mt-3 group-hover:items-center -top-2 left-full w-full px-6 py-6 bg-yellow-500 rounded-3xl text-center font-extrabold text-black !text-3xl">
-                Enter your Province or State
-              </span>
+
             </div>
 
             {/* City Input */}
@@ -113,13 +106,11 @@ const RegistrationForm31 = () => {
                 type="text"
                 value={city || ''} // Use state to fill city
                 placeholder="City"
-                style={{ fontSize: '1.5rem' }} 
-                className="flex-1 p-6 pl-6 rounded-3xl bg-white bg-opacity-[0.2] border border-x-4 border-y-4 border-yellow-500 focus:outline-none placeholder-black font-extrabold text-center placeholder:font-extrabold placeholder:text-5xl"
+                style={{ fontSize: '1.6rem' }} 
+                className="flex-1 p-6 pl-6 rounded-3xl bg-white bg-opacity-[0.2] border border-x-4 border-y-4 border-yellow-500 focus:outline-none placeholder-black font-extrabold text-center placeholder:font-extrabold placeholder:text-6xl"
                 readOnly // Make it read-only if you want to prevent changes
               />
-              <span className="absolute hidden group-hover:flex mt-3 group-hover:items-center -top-2 left-full w-full px-6 py-6 bg-yellow-500 rounded-3xl text-center font-extrabold text-black !text-3xl">
-                Enter your city
-              </span>
+              
             </div>
 
             {/* Service Input */}
@@ -135,59 +126,53 @@ const RegistrationForm31 = () => {
                     e.preventDefault();
                   }
                 }}
-                placeholder="Your Service"
+                placeholder="Your Service List"
                 style={{ fontSize: '1.5rem' }} 
                 className="flex-1 p-6 pl-6 rounded-3xl bg-white bg-opacity-[0.2] border border-x-4 border-y-4 border-yellow-500 focus:outline-none placeholder-black font-extrabold text-center placeholder:font-extrabold placeholder:text-3xl"
               />
-              <span className="absolute hidden group-hover:flex mt-3 group-hover:items-center -top-2 left-full w-full px-6 py-6 bg-yellow-500 rounded-3xl text-center font-extrabold text-black !text-3xl">
-                Enter the service you offer
-              </span>
+            
             </div>
+            <div className="flex flex-wrap gap-2 mt-4">
+  {services.map((service, index) => (
+    <span
+      key={index}
+      className="bg-blue-500 text-black px-4 py-2 rounded-full flex items-center space-x-2 text-3xl md:text-3xl font-bold"
+    >
+      <span>{service}</span>
+      <button
+        type="button"
+        onClick={() => handleRemoveService(service)}
+        className="text-white font-bold ml-2"
+      >
+        x
+      </button>
+    </span>
+  ))}
+</div>
 
             <div className="relative group flex items-center">
               <span className="font-bold text-4xl mx-2">I</span>
               <input
                 type="text"
-                placeholder="Username"
+                placeholder="Enter Username"
                 style={{ fontSize: '1.5rem' }} 
                 className="flex-1 p-6 pl-6 rounded-3xl bg-white bg-opacity-[0.2] border border-x-4 border-y-4 border-yellow-500 focus:outline-none placeholder-black font-extrabold text-center placeholder:font-extrabold placeholder:text-3xl"
               />
-              <span className="absolute hidden group-hover:flex mt-3 group-hover:items-center -top-2 left-full w-full px-6 py-6 bg-yellow-500 rounded-3xl text-center font-extrabold text-black !text-3xl">
-                Enter your username
-              </span>
             </div>
 
             <div className="relative group flex items-center">
               <span className="font-bold text-4xl mx-2">J</span>
               <input
                 type="password"
-                placeholder="PIN Code"
+                placeholder="Create Pin code"
                 style={{ fontSize: '1.5rem' }} 
                 className="flex-1 p-6 pl-6 rounded-3xl bg-white bg-opacity-[0.2] border border-x-4 border-y-4 border-yellow-500 focus:outline-none placeholder-black font-extrabold text-center placeholder:font-extrabold placeholder:text-3xl"
               />
-              <span className="absolute hidden group-hover:flex mt-3 group-hover:items-center -top-2 left-full w-full px-8 py-6 bg-yellow-500 rounded-3xl  text-center font-extrabold text-black !text-3xl">
-                Enter your PIN code
-              </span>
             </div>
 
 
 
-            {/* Service Display Section */}
-            <div className="flex flex-wrap gap-2">
-              {services.map((service, index) => (
-                <span key={index} className="bg-blue-500 text-white px-3 py-1 rounded-full flex items-center space-x-2">
-                  <span>{service}</span>
-                  <button
-                    type="button"
-                    onClick={() => handleRemoveService(service)}
-                    className="text-white font-bold"
-                  >
-                    x
-                  </button>
-                </span>
-              ))}
-            </div>
-
+            
             {/* Submit Buttons */}
             <div className="flex justify-between items-center mt-6">
               <img src="/assets/images/button back.webp" alt="Back" className="w-21 h-20 cursor-pointer" onClick={handleBackClick} />

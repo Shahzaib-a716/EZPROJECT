@@ -1,11 +1,18 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const VirtualHouse2 = () => {
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const { selectedCity = 'GRAZ', selectedCountryFlag } = location.state || {}; // Default to 'GRAZ' if no city is selected
 
   const handleBackClick = () => {
     navigate(-1); // Navigate back to the previous page
+  };
+
+  const handleNavigateToVirtualHouse = () => {
+    navigate('/VirtualHouse', { state: { selectedCity, selectedCountryFlag } });
   };
 
   return (
@@ -81,12 +88,12 @@ const VirtualHouse2 = () => {
         {/* CTA Section */}
         <div className="mt-1 flex justify-center">
           <div>
-            <a
-              className="flex flex-col mt-3 justify-center"
-              href="https://hm.ez123.eu/VirtualHouses/GRAZ"
+            <div
+              className="flex flex-col mt-3 justify-center cursor-pointer"
+              onClick={handleNavigateToVirtualHouse}
             >
               <span className="border-sky-600 border-2 text-3xl w-full rounded-full text-center bg-white text-sky-600 p-2">
-                Experience <span className="text-[#FF00FE] font-bold">GRAZ's </span>VirtualHouse
+                Experience <span className="text-[#FF00FE] font-bold">{selectedCity}'s </span>VirtualHouse
               </span>
               <div className="flex justify-center flex-col items-center">
                 <div className="flex justify-between w-full -mb-20 mt-2">
@@ -95,7 +102,7 @@ const VirtualHouse2 = () => {
                 </div>
                 <img className="w-70" src="/assets/images/vh.png" alt="VirtualHouse" />
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>

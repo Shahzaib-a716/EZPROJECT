@@ -6,7 +6,8 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
-      welcomeMessage: "I am living proof: if you are organized & you have my system, you can accomplish almost anything! Click on me to see the proof!",
+      welcomeMessagePart1: "SEE WHAT I HAVE ACCOMPLISHED IN ",
+      welcomeMessagePart2:"MY LIFE, USING MY OWN SOFTWARE",
       footerText: "All Rights reserved • Service Hub by Total Mizers Ltd. Toronto, Ontario CANADA (416) 333.FAST (3278) Copyright © 2016 - 2024, Les The Handyman.",
     },
   },

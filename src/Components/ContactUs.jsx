@@ -1,95 +1,83 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-const MyComponent = () => {
+function VirtualHousePage() {
   const navigate = useNavigate();
-
-  const handleBackClick = () => {
-    navigate(-1); // Navigate back to the previous page
-  };
 
   return (
     <div className="min-h-screen bg-day bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url("/assets/images/day.jpg")' }}>
-      <div className="flex flex-col md:p-4 w-full h-full items-center">
-        <div className="bg-white p-1 md:p-2 text-2xl md:text-3xl text-center md:rounded-xl border-2 border-gray-700">
-          <div className="flex justify-center">
-            <img
-              src="/assets/images/speaker.jpg"
-              className="w-24 hover:scale-105"
-              alt="Speaker"
-            />
-          </div>
-          <h1>
-            If you cannot see your country, province, or{' '}
-            <span className="text-white px-2 hover:px-3 cursor-pointer hover:text-4xl bg-green-700 rounded-full">
-              &gt;
-            </span>
-          </h1>
-          <a
-            className="flex justify-center items-center"
-            href="https://hm.ez123.eu/VirtualHouse?country=en&vh_name=TestHouse"
-          >
-            <img src="/assets/images/arrow.gif" className="w-24" alt="Arrow" />
-            <div className="tooltip-container">
-              <img
-                src="/assets/images/vh.png"
-                className="w-40 hover:scale-105"
-                alt="Virtual House"
-              />
-            </div>
-            <img
-              src="/assets/images/arrow.gif"
-              className="w-24 rotate-180"
-              alt="Arrow"
-            />
-          </a>
-          <h1>
-            CUSTOMERS FIND GOODS + SERVICES FAST +{' '}
-            <span className="text-white px-2 hover:px-3 cursor-pointer hover:text-4xl bg-green-700 rounded-full">
-              &gt;
-            </span>
-          </h1>
-          <div className="flex pt-2 justify-evenly items-center">
-            <div className="tooltip-container transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 duration-300">
-              <img
-                className="w-16 rounded-full"
-                src="/assets/images/play_video.jpg"
-                alt="Play Video"
-              />
-            </div>
-            <div
-              className="tooltip-container transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 duration-300 cursor-pointer"
-              onClick={handleBackClick}
-            >
-              <img
-                className="w-20 rounded-full"
-                src="/assets/images/button back.webp"
-                alt="Back"
-              />
-            </div>
-            <div className="tooltip-container transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 duration-300">
-              <img
-                className="w-16 rounded-full"
-                src="/assets/images/button help.webp"
-                alt="Question Mark"
-              />
-            </div>
-          </div>
+    <div className="max-w-xl mx-auto mt- p-8 bg-gray-100 shadow-lg rounded-lg">
+      {/* Top Section */}
+      <div className="flex justify-between items-center">
+        <div className="text-center flex-1">
+          <p className="text-3xl font-extrabold">
+            Sorry you did
+          </p>
+          <p className="text-3xl font-extrabold">
+            not find what
+          </p>
+          <p className="text-3xl font-extrabold">
+         you were looking for.
+          </p>
+          <hr className="mt-2 mb- border-t-2 border-black" />
         </div>
+        <img
+          src="/assets/images/les.webp"
+          alt="Person"
+          className="w-32 h-32 object-cover rounded-full"
+        />
       </div>
 
-      <div
-        className="text-center pt-1 w-full text-xl text-white font-bold"
-        style={{
-          textShadow:
-            'rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 0px -1px 0px, rgb(0, 0, 0) 0px 1px 0px, rgb(0, 0, 0) -1px 0px 0px',
-        }}
-      >
-        All Rights reserved • Service Hub by Total Mizers Ltd. Toronto, Ontario CANADA (416) 333.FAST (3278) Copyright ©
-        2016 - 2024, Les The Handyman.
+      {/* Content Section */}
+      <div className="mt-4 text-xl font-bold">
+        <p>
+          If you cannot find what you are looking for,
+          you can help us create virtual house in
+          your community. You need at least 100,000
+          people living near you to be eligible. It 
+          costs you nothing. However, it will take time 
+          to find  all  the different types of goods,
+          services in
+          your area, promoting your own small business at the same time. We will
+          help you do this, and that too is free, because we have a proven
+          system that works.
+        </p>
       </div>
-    </div>
+
+      {/* Link with Forward Icon */}
+      <div className="flex items-center mt-6 text-xl font-bold cursor-pointer">
+        <p>Click here for more information</p>
+        <img
+          src="/assets/images/button next.webp"
+          alt="Forward Icon"
+          className="ml-[350px] w-16 h-18"
+        />
+      </div>
+
+      {/* Bottom Section with House Image and Back Icon */}
+      <div className="flex items-center mt-8">
+  <Link to="/VirtualPage">
+    <img
+      src="/assets/images/vh.png"
+      alt="Virtual House"
+      className="w-46 h-32 cursor-pointer"
+    />
+  </Link>
+        <button
+          onClick={() => navigate(-1)}
+          className=""
+        >
+          <img
+            src="/assets/images/button back.webp"
+            alt="Back Icon"
+            className="ml-[300px] w-16 h-18 flex "
+          />
+        </button>
+      </div>
+      </div>
+      </div>
   );
-};
+}
 
-export default MyComponent;
+export default VirtualHousePage

@@ -14,10 +14,21 @@ import Proof from './Components/Proof';
 import ContactUs from './Components/ContactUs';
 import VBEnd from './Components/VBEnd';
 import i18n from './Components/i18n.jsx';
-import Calculator from './Components/Calculator.jsx';
-import Callback from './Components/Callback.jsx';
-
-
+import Calculator from './Components/Calculator';
+import Callback from './Components/Callback';
+import VirtualPage from './Components/VirtualPage';
+import TradePerson from './Components/TradePerson';
+import Enter from './Components/Enter';
+import Unrecognized from './Components/Unrecognized';
+import Enter1 from './Components/Enter1';
+import SalutationPage from './Components/SalutationPage';
+import StepComponent from './Components/StepComponent';
+import Apartment from './Components/Apartment';
+import Step2 from './Components/Step2';
+import Emergency from './Components/Emergency';
+import VirtualHouse from './Components/VirtualHouse';
+import Parking from './Components/Parking';
+import Booking from './Components/Booking';
 
 
 function App() {
@@ -42,6 +53,21 @@ function App() {
           <Route path="/i18n" element={<i18n />}/>
           <Route path="/Calculator" element={<Calculator />}/>
           <Route path="/Callback" element={<Callback />}/>
+          <Route path="/VirtualPage" element={<VirtualPage/>}/>
+          <Route path="/TradePerson" element={<TradePerson/>}/>
+          <Route path="/Enter" element={<Enter/>}/>
+          <Route path="/Unrecognized" element={<Unrecognized/>}/>
+          <Route path="/Enter1" element={<Enter1/>}/>
+          <Route path="/SalutationPage" element={<SalutationPage/>}/>
+          <Route path="StepComponent" element={<StepComponent/>}/>
+          <Route path="Apartment" element={<Apartment/>}/>
+          <Route path="Step2" element={<Step2/>}/>
+          <Route path="Emergency" element={<Emergency/>}/>
+          <Route path="/VirtualHouse" element={<VirtualHouse/>}/>
+          <Route path="/Parking" element={<Parking/>}/>
+          <Route path="/Booking" element={<Booking/>}/>
+
+      
 
 
 
