@@ -106,7 +106,7 @@ const VirtualPage = () => {
       link2: '',
     },
     11: {
-      title: 'TRY OUR FREE BOOKING SYSTEM',
+      title: 'TRY OUR FREE BUSINESS MANAGEMENT SYSTEM ',
       description:
         'IT WILL SAVE A BUSY PERSON AT LEAST 60 DAYS WORTH OF TIME A YEAR',
 

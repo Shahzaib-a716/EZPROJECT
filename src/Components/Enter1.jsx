@@ -16,7 +16,7 @@ const RegisterReminderPage = () => {
       <div className="flex flex-col gap-6 justify-center items-center min-h-screen">
         <div className="flex p-2 bg-yellow-500 md:p-20 rounded-2xl flex-col gap-6 justify-center items-center">
           <img
-            src="/assets/images/happy.jpg"
+            src="/assets/images/smile.png"
             className="w-28 md:w-40 rounded-full"
             alt="Happy Emoji"
           />
