@@ -32,7 +32,7 @@ const CustomLayout = () => {
     <div className="bg-white min-h-screen flex flex-col items-center p-5">
       {/* Top Logo and Title */}
       <div className="text-center mb-10">
-        <img src="/assets/images/logo.webp" alt="Logo" className="w-50 h-52 mx-auto" />
+        <img src="/assets/images/head logo.webp" alt="Logo" className="w-50 h-52 mx-auto" />
         <h1 className="text-black text-4xl font-bold ">Trades Persons Perfect Business System</h1>
       </div>
 
