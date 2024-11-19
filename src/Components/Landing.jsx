@@ -90,7 +90,7 @@ function Home() {
           <form className="rounded-3xl" onSubmit={handleSubmit}>
             <div className="flex justify-center mb-2 items-center gap-2 border-6 border-yellow-500 bg-yellow-700 rounded-5xl">
               <input
-                className="border-yellow-300 w-full dark:border-gray-700 bg-yellow-400 dark:text-yellow-700 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md text-4xl border-none p-6 focus:outline-none text-center placeholder:text-4xl w-full md:w-[32rem] font-bold"
+                className="border-yellow-300 w-full dark:border-gray-700 bg-yellow-400 dark:text-yellow-700 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md text-5xl border-none p-6 focus:outline-none text-center placeholder:text-6xl placeholder:font-black placeholder:text-black md:w-[32rem] font-bold"
                 id="email"
                 type="email"
                 placeholder="@"

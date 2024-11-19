@@ -29,7 +29,15 @@ const CustomLayout = () => {
   });
 
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center p-5">
+    <div
+      className="min-h-screen flex flex-col items-center p-5"
+      style={{
+        backgroundImage: "url('/assets/images/background metal texture light blue.webp')", // Path to your background image
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       {/* Top Logo and Title */}
       <div className="text-center mb-10">
         <img src="/assets/images/head logo.webp" alt="Logo" className="w-50 h-52 mx-auto" />
@@ -69,7 +77,7 @@ const CustomLayout = () => {
           <img src="/assets/images/button right countdown.webp" className="w-16 h-32" />
           <img src="/assets/images/button right brain.webp" className="w-16 h-32" />
           <img src="assets/images/button right training.webp" className="w-16 h-32" />
-          <img src="/assets/images/button right blank.webp" className="w-16 h-28" />
+          <img src="/assets/images/right lawyer.webp" className="w-16 h-28" />
           <img src="/assets/images/button help dark yellow.webp" className="w-16 h-16" />
         </div>
 

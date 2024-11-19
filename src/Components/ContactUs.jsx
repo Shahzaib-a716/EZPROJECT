@@ -1,13 +1,16 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function VirtualHousePage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-day bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url("/assets/images/day.jpg")' }}>
-      <div className="max-w-xl mx-auto  p-8 bg-gray-100 shadow-lg rounded-lg">
+    <div
+      className="min-h-screen bg-day bg-no-repeat bg-center bg-cover"
+      style={{ backgroundImage: 'url("/assets/images/day.jpg")' }}
+    >
+      <div className="max-w-xl mx-auto p-10 bg-gray-100 shadow-lg rounded-lg">
         {/* Top Section */}
         <div className="flex justify-between items-center">
           <div className="text-center flex-1">
@@ -33,22 +36,20 @@ function VirtualHousePage() {
           </p>
         </div>
 
-        {/* Link with Forward Icon */}
-        <div className="flex items-center mt-6 text-xl font-bold cursor-pointer">
-          <p>Click here for more information</p>
-          <img
-            src="/assets/images/button next.webp"
-            alt="Forward Icon"
-            className="ml-[350px] w-16 h-18"
-          />
-        </div>
+        {/* Bottom Section with Three Icons */}
+        <div className="flex items-center justify-between mt-8">
+          {/* Back Button */}
+          <button onClick={() => navigate(-1)}>
+            <img
+              src="/assets/images/button back.webp"
+              alt="Back Icon"
+              className="w-16 h-18"
+            />
+          </button>
 
-        {/* Bottom Section with House Image and Back Icon */}
-        <div className="flex items-center mt-8">
-          {/* Sliding Virtual House Icon */}
+          {/* Virtual House Icon */}
           <Link to="/VirtualPage">
             <div className="relative group">
-              {/* Virtual House Image */}
               <img
                 src="/assets/images/vh.png"
                 alt="Virtual House"
@@ -57,14 +58,14 @@ function VirtualHousePage() {
             </div>
           </Link>
 
-          {/* Back Button */}
-          <button onClick={() => navigate(-1)} className="">
+          {/* Forward Button */}
+          <div className="flex items-center text-xl font-bold cursor-pointer">
             <img
-              src="/assets/images/button back.webp"
-              alt="Back Icon"
-              className="ml-[300px] w-16 h-18 flex"
+              src="/assets/images/button next.webp"
+              alt="Forward Icon"
+              className="ml-4 w-16 h-18"
             />
-          </button>
+          </div>
         </div>
       </div>
     </div>

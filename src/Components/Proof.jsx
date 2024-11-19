@@ -2,18 +2,14 @@ import React from 'react';
 
 const Proof = () => {
   return (
-    <div className="min-h-screen bg-day bg-no-repeat bg-center bg-cover">
-      <div className="min-h-screen w-full md:pt-3">
+    <div className="min-h-screen bg-day bg-no-repeat bg-center bg-cover
+    "  style={{ backgroundImage: 'url("/assets/images/day.jpg")' }}
+    >
+      <div className="min-h-screen w-full md:pt-6">
         <div className="max-w-6xl bg-black bg-opacity-[70%] rounded-md flex justify-center mx-auto">
           {/* Left Panel */}
           <div className="basis-32 flex flex-col items-center">
-            <a href="https://proof.ez123.eu/royal/">
-              <img
-                className="transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 duration-300"
-                src="/assets/images/royal.png"
-                alt="Royal Icon"
-              />
-            </a>
+           
             {[...Array(9)].map((_, index) => (
               <a
                 key={index}
@@ -72,13 +68,8 @@ const Proof = () => {
 
           {/* Right Panel */}
           <div className="basis-32 flex flex-col items-center">
-            <a href="https://proof.ez123.eu/coming-soon/">
-              <img
-                className="transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 duration-300"
-                src="/assets/images/ww2.png"
-                alt="WW2 Icon"
-              />
-            </a>
+          
+
             {[...Array(9)].map((_, index) => (
               <a
                 key={index + 9}
@@ -101,7 +92,7 @@ const Proof = () => {
 
       {/* Footer */}
       <div
-        className="text-center pt-1 w-full text-xl text-white font-bold"
+        className="text-center pt-1 w-full text-3xl font-bold text-white font-bold"
         style={{
           textShadow:
             'rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 0px -1px 0px, rgb(0, 0, 0) 0px 1px 0px, rgb(0, 0, 0) -1px 0px 0px',

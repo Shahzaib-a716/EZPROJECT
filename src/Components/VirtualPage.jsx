@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const VirtualPage = () => {
-  const [selectedIcon, setSelectedIcon] = useState(null); // Track which icon is hovered or clicked
-  const [isModalPersistent, setIsModalPersistent] = useState(false); // Track if modal should persist
+  const [selectedIcon, setSelectedIcon] = useState(null);
+  const [isModalPersistent, setIsModalPersistent] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  // Details for each icon
   const iconDetails = {
     1: {
       title: 'HANDYMAN / WOMAN',
@@ -67,9 +65,9 @@ const VirtualPage = () => {
     },
 
     7: {
-      title: 'PET SERVICE',
+      title: 'HEATING + cooling',
       description:
-        'Includes vets, animal hospitals, dog walkers, animal groomers, animal photographers, handy-people to make animal enclosures, or the removal of animals from your attic, or inside your garage like skunks, raccoons, squirrels and other rodents.',
+      'Is a person who can usually takes care of your furnace, your BBQ, your air- conditioner by repairing them or installing them and sometimes cleaning them as well. They must be licensed plumbers , electricians and gas fitters. Let our system find the right trades person for you.',
       img1: '/assets/images/single.png',
       img2: '/assets/images/multiple.png',
       link1: 'TradePerson',
@@ -97,40 +95,32 @@ const VirtualPage = () => {
     },
 
     10: {
-      title: 'HEATING + cooling',
+      title: 'PET SERVICE',
       description:
-        'Is a person who can usually takes care of your furnace, your BBQ, your air- conditioner by repairing them or installing them and sometimes cleaning them as well. They must be licensed plumbers , electricians and gas fitters. Let our system find the right trades person for you.',
-      img1: '/assets/images/single.png',
-      img2: '/assets/images/multiple.png',
-      link1: 'https://hm.ez123.eu/TradesPeople',
-      link2: '',
+        'Includes vets, animal hospitals, dog walkers, animal groomers, animal photographers, handy-people to make animal enclosures, or the removal of animals from your attic, or inside your garage like skunks, raccoons, squirrels and other rodents.',
     },
     11: {
-      title: 'TRY OUR FREE BUSINESS MANAGEMENT SYSTEM ',
-      description:
-        'IT WILL SAVE A BUSY PERSON AT LEAST 60 DAYS WORTH OF TIME A YEAR',
+        title: 'WE CAN FIX YOUR EXISTING WEB SITES',
+        description:
+          'we will give you a free estimate on fixing yours and tell you exactly what we will do and for what price. We are sure you will be very happy because we know what we are doing.',
 
     },
     12: {
-      title: 'WE CAN FIX YOUR EXISTING WEB SITES',
+      title: 'TRY OUR FREE BUSINESS MANAGEMENT SYSTEM ',
       description:
-        'we will give you a free estimate on fixing yours and tell you exactly what we will do and for what price. We are sure you will be very happy because we know what we are doing.',
+        'IT WILL SAVE A BUSY PERSON AT LEAST 60 DAYS WORTH OF TIME A YEAR',
     },
-    // Additional icons can be configured here with unique descriptions and images
   };
 
-  // Show the modal on icon hover
   const handleIconHover = (iconNumber) => {
     if (!isModalPersistent) setSelectedIcon(iconNumber);
   };
 
-  // Show modal persistently on icon click
   const handleIconClick = (iconNumber) => {
     setSelectedIcon(iconNumber);
-    setIsModalPersistent(true); // Make modal persist on click
+    setIsModalPersistent(true);
   };
 
-  // Close modal when the close button is clicked
   const closeModal = () => {
     setSelectedIcon(null);
     setIsModalPersistent(false);
@@ -138,24 +128,37 @@ const VirtualPage = () => {
 
   const toggleDropdown = () => setDropdownOpen((prevOpen) => !prevOpen);
 
+  const renderIcons = (start, end) => {
+    return Array.from({ length: end - start + 1 }, (_, index) => {
+      const iconNumber = start + index;
+      return (
+        <div key={iconNumber} className="relative group">
+          <img
+            src={`/assets/images/${iconNumber}.png`}
+            className="mb-3 opacity-90 hover:opacity-100 cursor-pointer"
+            alt={`Menu Icon ${iconNumber}`}
+            onMouseEnter={() => handleIconHover(iconNumber)}
+            onMouseLeave={() => !isModalPersistent && setSelectedIcon(null)}
+            onClick={() => handleIconClick(iconNumber)}
+          />
+        </div>
+      );
+    });
+  };
+
   return (
     <div
-      className="min-h-screen bg-day bg-no-repeat bg-center bg-cover relative"
+      className="min-h-screen bg-no-repeat bg-center bg-cover"
       style={{ backgroundImage: 'url(/assets/images/day.jpg)' }}
     >
       {/* Top Controls */}
       <div className="flex justify-center rounded m-1 items-center gap-3">
         {/* Language Dropdown */}
-        <div className="dropdown shrink-0 relative">
+        <div className="dropdown relative">
           <img
             onClick={toggleDropdown}
-            data-te-toggle="tooltip"
-            data-te-placement="bottom"
-            data-te-ripple-init=""
-            data-te-ripple-color="light"
-            title="Select Your Language"
-            src="/assets/images/en.png"
             className="w-[70px] rounded-3xl cursor-pointer"
+            src="/assets/images/en.png"
             alt="English Flag"
           />
           {dropdownOpen && (
@@ -181,15 +184,10 @@ const VirtualPage = () => {
           )}
         </div>
 
-        {/* Search Bar with Voice Search and Submit */}
-        <div className="flex items-center bg-white pl-1 pr-1 md:w-1/2 w-full rounded-full gap-1">
-          <button className="shrink-0">
+        {/* Search Bar */}
+        <div className="flex items-center bg-white pl-1 pr-1 w-full md:w-1/2 rounded-full gap-1">
+          <button>
             <img
-              data-te-toggle="tooltip"
-              data-te-placement="bottom"
-              data-te-ripple-init=""
-              data-te-ripple-color="light"
-              title="Type by voice"
               className="w-11 rounded-3xl"
               src="/assets/images/microphone.png"
               alt="Microphone Icon"
@@ -197,68 +195,24 @@ const VirtualPage = () => {
           </button>
           <input
             type="search"
-            id="searchInput"
-            className="rounded-2xl w-full border-none text-center text-xl text-sky-600"
+            className="w-full rounded-2xl border-none text-center text-xl text-sky-600"
             placeholder="Type In What You Are Looking For"
-            aria-label="Search"
-            aria-describedby="search-addon"
           />
           <img
-            data-te-toggle="tooltip"
-            data-te-placement="bottom"
-            data-te-ripple-init=""
-            data-te-ripple-color="light"
-            title="Search"
             className="w-[110px] rounded hover:scale-110"
             src="/assets/images/search.png"
             alt="Search Icon"
           />
         </div>
-
-        {/* Zoom In/Out Controls */}
-        <img
-          data-te-toggle="tooltip"
-          data-te-placement="bottom"
-          data-te-ripple-init=""
-          data-te-ripple-color="light"
-          title="Increase Screen"
-          src="/assets/images/button zoom out.webp"
-          className="w-12 rounded-xl"
-          draggable="false"
-          alt="Increase Screen Icon"
-        />
-        <img
-          data-te-toggle="tooltip"
-          data-te-placement="bottom"
-          data-te-ripple-init=""
-          data-te-ripple-color="light"
-          title="Decrease Screen"
-          src="/assets/images/button zoom in.webp"
-          className="w-12 rounded-2xl"
-          alt="Decrease Screen Icon"
-        />
       </div>
 
-      {/* Sidebar Icons and Virtual House Map */}
+      {/* Sidebar and Virtual House */}
       <div className="flex justify-center gap-3 mt-8">
-        {/* Sidebar Icons - Left */}
-        <div className="basis-28">
-          {Array.from({ length: 6 }, (_, i) => (
-            <div key={i} className="relative group">
-              <img
-                src={`/assets/images/${i + 1}.png`}
-                className="mb-3 opacity-90 hover:opacity-100 cursor-pointer"
-                alt={`Menu Icon ${i + 1}`}
-                onMouseEnter={() => handleIconHover(i + 1)}
-                onMouseLeave={() => !isModalPersistent && setSelectedIcon(null)}
-                onClick={() => handleIconClick(i + 1)}
-              />
-            </div>
-          ))}
-        </div>
+        {/* Left Sidebar Icons */}
+        <div className="basis-28">{renderIcons(1, 6)}</div>
 
-        {/* Virtual House Map */}
-        <div className="relative flex justify-center">
+        {/* Virtual House */}
+        <div className="relative">
           <img
             className="max-h-[98%] rounded"
             src="/assets/images/testhouse.jpg"
@@ -266,59 +220,42 @@ const VirtualPage = () => {
           />
         </div>
 
-        {/* Sidebar Icons - Right */}
-        <div className="basis-28">
-          {Array.from({ length: 6 }, (_, i) => (
-            <div key={i} className="relative group">
-              <img
-                src={`/assets/images/${i + 7}.png`}
-                className="mb-3 opacity-90 hover:opacity-100 cursor-pointer"
-                alt={`Menu Icon ${i + 7}`}
-                onMouseEnter={() => handleIconHover(i + 7)}
-                onMouseLeave={() => !isModalPersistent && setSelectedIcon(null)}
-                onClick={() => handleIconClick(i + 7)}
-              />
-            </div>
-          ))}
-        </div>
+        {/* Right Sidebar Icons */}
+        <div className="basis-28">{renderIcons(7, 12)}</div>
       </div>
 
-      {/* Modal with Information for Selected Icon */}
+      {/* Modal */}
       {selectedIcon && (
-        <div
-          className="z-10 border-4 border-gray-700 rounded-3xl opacity-90 w-[70%] max-w-2xl h-[80%] absolute text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 overflow-y-auto shadow-lg"
-          onMouseEnter={() => setSelectedIcon(selectedIcon)} // Keep modal open on hover
-          onMouseLeave={() => !isModalPersistent && setSelectedIcon(null)}
-        >
-          <div className="relative">
-            <h1 className="text-5xl font-bold mb-4">{iconDetails[selectedIcon]?.title}</h1>
-            <button
-              className="cursor-pointer bg-red-600 text-white font-extrabold text-3xl absolute px-2 rounded-full -top-4 -right-4"
-              onClick={closeModal}
-            >
-              &times;
-            </button>
-            <p className="text-3xl font-bold mb-6">
-              {iconDetails[selectedIcon]?.description}
-            </p>
-            <div className="flex justify-around mt-4">
-              <a href={iconDetails[selectedIcon]?.link1} className="group relative">
-                <div className="w-44 flex justify-center rounded-xl border-solid border-4 border-green-400 cursor-pointer">
-                  <img className="h-40" src={iconDetails[selectedIcon]?.img1} alt="Single Trades Person" />
-                </div>
-                <span className="absolute -translate-y-full p-1 bg-green-500 rounded-lg text-center text-white text-xl hidden group-hover:flex">
-                  Book a Single Trades Person
-                </span>
+        <div className="z-12 border-4 border-gray-700 rounded-3xl w-[80%] max-w-4xl h-[100%] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[30%] bg-white p-12 overflow-visible shadow-lg">
+          <h1 className="text-5xl font-bold mb-4">{iconDetails[selectedIcon]?.title}</h1>
+          <button
+            className="absolute bg-red-600 text-white font-extrabold text-3xl px-2 rounded-full -top-4 -right-4"
+            onClick={closeModal}
+          >
+            &times;
+          </button>
+          <p className="text-3xl font-bold mb-6">
+            {iconDetails[selectedIcon]?.description}
+          </p>
+          <div className="flex justify-around mt-4">
+            {iconDetails[selectedIcon]?.img1 && (
+              <a href={iconDetails[selectedIcon]?.link1}>
+                <img
+                  className="w-20 border-4 rounded-xl  border-green-400 cursor-pointer"
+                  src={iconDetails[selectedIcon]?.img1}
+                  alt="Single Trades Person"
+                />
               </a>
-              <a href={iconDetails[selectedIcon]?.link2} className="group relative">
-                <div className="w-44 rounded-xl border-solid border-4 border-white cursor-pointer">
-                  <img className="h-40" src={iconDetails[selectedIcon]?.img2} alt="Multiple Trades People" />
-                </div>
-                <span className="absolute -translate-y-full p-2 bordor-2 bg-yellow-500 rounded-lg text-center text-white text-xl hidden group-hover:flex">
-                  Book Multiple Trades People
-                </span>
+            )}
+            {iconDetails[selectedIcon]?.img2 && (
+              <a href={iconDetails[selectedIcon]?.link2}>
+                <img
+                  className="w-44 rounded-xl border-4 border-yellow-400 cursor-pointer"
+                  src={iconDetails[selectedIcon]?.img2}
+                  alt="Multiple Trades People"
+                />
               </a>
-            </div>
+            )}
           </div>
         </div>
       )}
