@@ -32,6 +32,8 @@ import Booking from './Components/Booking';
 import Step1 from './Components/Step1';
 import EmergencyPage from './Components/EmergencyPage';
 import ServiceSelection from './Components/ServiceSelection';
+import WaitingList from './Components/WaitingList';
+import Estimate from './Components/Estimate';
 
 
 function App() {
@@ -73,6 +75,9 @@ function App() {
           <Route path="EmergencyPage" element={<EmergencyPage/>}/>
           <Route path="ServiceSelection" element={<ServiceSelection/>}/>
       
+          <Route path="Estimate" element={<Estimate/>}/>
+          
+          <Route path="WaitingList" element={<WaitingList/>}/>
 
 
 

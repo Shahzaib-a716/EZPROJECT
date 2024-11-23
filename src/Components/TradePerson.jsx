@@ -8,7 +8,7 @@ const LesHandyman = () => {
       <div className="flex justify-evenly text-center text-4xl">
         <a
           className="flex flex-col items-center justify-center"
-          href="https://hm.ez123.eu/WhatDoIDo/2"
+          href=""
         >
           <img
             className="rounded-full w-28"
@@ -19,7 +19,7 @@ const LesHandyman = () => {
         </a>
         <a
           className="flex flex-col items-center justify-center"
-          href="https://hm.ez123.eu/VideoReferences/2"
+          href=""
         >
           <img
             className="rounded-full w-28"
