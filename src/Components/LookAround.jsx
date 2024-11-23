@@ -159,8 +159,8 @@ const LookAround = () => {
               onClick={handleBackClick}
             />
             <div className="w-full">
-              <h1 className="font-extrabold text-xl md:text-3xl">FREE REGISTRATION</h1>
-              <h1 className="m-0 pl-1 pr-1 text-white text-lg md:text-lg">
+              <h1 className="font-extrabold text-xl md:text-4xl">JUST LOOK AROUND</h1>
+              <h1 className="m-0 pl-1 pr-1 text-white text-4xl md:text-3xl" font-bold>
                 IF YOU DO NOT SEE YOUR AREA, THEN{' '}
                 <a
                   className="font-bold text-yellow-300 text-base md:text-xl cursor-pointer"

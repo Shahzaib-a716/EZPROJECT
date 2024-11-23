@@ -30,18 +30,18 @@ const SalutationForm = () => {
   >
       <div className="bg-white px-1 md:px-2 min-h-screen w-full md:w-11/12 lg:w-2/3">
         <div className="flex justify-between items-center">
-          <h1 className="text-resp font-extrabold text-5xl text-purple-600">1 of 4</h1>
+          <h1 className="text-resp font-extrabold text-7xl text-purple-600">1 of 4</h1>
           <img
-            className="rounded-full cursor-auto w-12 md:w-16"
+            className="rounded-full cursor-auto w-[70px] md:w-[90px]"
             src="/assets/images/simples2.jpg"
             alt="Step Indicator"
           />
         </div>
 
-        <h1 className="text-resp bg-green-600 text-center text-4xl font-bold text-white p-3 md:p-4 rounded-xl">Your Salutation?</h1>
+        <h1 className="text-resp bg-green-600 text-center text-5xl font-bold text-white p-3 md:p-4 rounded-xl">Your Salutation?</h1>
 
         <div className="border-b-2 border-black mb-2">
-          <div className="text-resp grid grid-cols-2 gap-4 text-3xl font-bold p-2">
+          <div className="text-resp grid grid-cols-2 gap-4 text-4xl font-bold p-2">
             {['None', 'Mr.', 'Ms.', 'Dr.', 'Mrs.', 'Prof.', 'Miss', 'Sir.'].map((salutation) => (
               <div key={salutation}>
                 <div className="flex items-center gap-2">

@@ -8,6 +8,10 @@ const ServiceTypeSelection = () => {
     navigate(path);
   };
 
+  const handleBackClick = () => {
+    navigate(-1); // Navigate back to the previous page
+  };
+
   return (
     <div className="min-h-screen bg-day bg-no-repeat bg-center bg-cover"
       style={{ backgroundImage: 'url("/assets/images/day.jpg")' }}>
@@ -15,7 +19,12 @@ const ServiceTypeSelection = () => {
       <div className="bg-yellow-500">
         <div className="flex justify-evenly items-center">
           <div className="tooltip-container w-16 shrink-0">
-            <img src="/assets/images/button back.webp" alt="BACK" />
+            <img
+              src="/assets/images/button back.webp"
+              alt="BACK"
+              onClick={handleBackClick} // Call handleBackClick on click of the back icon
+              className="cursor-pointer"
+            />
           </div>
           <div className="flex items-center">
             <img

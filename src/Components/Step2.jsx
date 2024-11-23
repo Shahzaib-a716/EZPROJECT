@@ -63,7 +63,7 @@ const Step2 = () => {
         </div>
 
         <div className="flex flex-col mt-8">
-          <div className="flex justify-center items-center rounded-t-3xl text-center md:h-16 bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]">
+          <div className="flex justify-center items-center rounded-t-2xl w- text-center md:h-16 bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]">
             <h1 className="font-extrabold text-resp text-2xl text-white">
               {formattedDate} {/* Dynamically displays the current date and time */}
             </h1>

@@ -36,11 +36,22 @@ const Apartment = () => {
     }
   };
 
+  const formatPhoneNumber = (value) => {
+    // Remove non-numeric characters
+    const cleaned = value.replace(/\D+/g, "");
+  
+    // Add dashes after every 3 digits
+    const formatted = cleaned
+      .replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3") // Format as XXX-XXX-XXXX
+      .replace(/(\d{3})(\d{3})(\d{1,3})/, "$1-$2-$3"); // This will work for partial inputs
+  
+    return formatted;
+  };
   const handlePhoneInputChange = (e) => {
     const { name, value } = e.target;
     setPhoneDetails((prevDetails) => ({
       ...prevDetails,
-      [name]: value,
+      [name]: formatPhoneNumber(value),
     }));
     setShowNextIcon(value.trim() !== '');
   };
@@ -54,21 +65,21 @@ const Apartment = () => {
       <div className="flex flex-col gap-6 justify-center items-center min-h-screen">
         <div className="bg-white px-1 md:px-2 min-h-screen w-full md:w-11/12 lg:w-2/3">
           <div className="flex justify-between items-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-purple-600">3 of 4</h1>
+            <h1 className="text-4xl md:text-7xl font-extrabold text-purple-600">3 of 4</h1>
             <img
-              className="rounded-full cursor-auto w-12 md:w-16"
+              className="rounded-full cursor-auto w-12 md:w-[90px]"
               src="/assets/images/simples2.jpg"
               alt="Step Image"
             />
           </div>
 
-          <h1 className="text-resp bg-green-600 text-center text-white font-bold text-3xl p-3 md:p-4 rounded-xl mb-1">
+          <h1 className="text-resp bg-green-600 text-center text-white font-bold text-5xl p-3 md:p-4 rounded-xl mb-1">
             Your Apartment Address
           </h1>
 
           <div className="flex md:gap-1 flex-col md:flex-row">
             <input
-              className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md font-bold text-4xl bg-yellow-200 mb-1"
+              className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md font-bold text-5xl bg-yellow-200 mb-1"
               name="address"
               placeholder="123 Somewhere St."
               required
@@ -100,7 +111,7 @@ const Apartment = () => {
                       checked={addressOption === option}
                       onChange={handleOptionChange}
                     />
-                    <label className="text-sm md:text-xl" htmlFor={option}>
+                    <label className="text-sm md:text-2xl" htmlFor={option}>
                       {option} ({option.slice(0, 2).toUpperCase()})
                     </label>
                   </div>
@@ -113,14 +124,14 @@ const Apartment = () => {
             <div>
               <div className="flex flex-col md:flex-row gap-1 mb-1">
                 <input
-                  className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md font-bold text-4xl bg-yellow-200"
+                  className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md font-bold text-5xl bg-yellow-200"
                   placeholder="Apt. # 2345"
                   name="aptNumber"
                   value={addressDetails.aptNumber}
                   onChange={handleInputChange}
                 />
                 <input
-                  className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md font-bold text-4xl bg-yellow-200"
+                  className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md font-bold text-5xl bg-yellow-200"
                   placeholder="Code 1234567"
                   name="code"
                   value={addressDetails.code}
@@ -130,13 +141,13 @@ const Apartment = () => {
 
               {showPhoneSection && (
                 <>
-                  <h1 className="text-resp bg-green-600 text-center text-white p-3 md:p-4 rounded-xl mb-1">
+                  <h1 className="text-resp bg-green-600 text-center text-white text-5xl font-bold p-3 md:p-4 rounded-xl mb-1">
                     Your Phone Numbers
                   </h1>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
                     <input
-                      className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md text-3xl bg-yellow-200"
+                      className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md text-5xl font-bold bg-yellow-200"
                       placeholder="Work 36302308761"
                       name="work"
                       type="tel"
@@ -144,7 +155,7 @@ const Apartment = () => {
                       onChange={handlePhoneInputChange}
                     />
                     <input
-                      className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md text-3xl bg-yellow-200"
+                      className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md text-5xl font-bold bg-yellow-500"
                       placeholder="Extension"
                       name="extension"
                       type="tel"
@@ -152,7 +163,7 @@ const Apartment = () => {
                       onChange={handlePhoneInputChange}
                     />
                     <input
-                      className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md text-3xl bg-yellow-200"
+                      className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md text-5xl font-bold bg-yellow-200"
                       placeholder="Home"
                       name="home"
                       type="tel"
@@ -160,7 +171,7 @@ const Apartment = () => {
                       onChange={handlePhoneInputChange}
                     />
                     <input
-                      className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md text-3xl bg-yellow-200"
+                      className="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md text-5xl font-bold bg-yellow-200"
                       placeholder="Mobile"
                       name="mobile"
                       type="tel"
@@ -170,7 +181,7 @@ const Apartment = () => {
                   </div>
 
                   {showNextIcon && (
-                    <div className="text-center mt-4">
+                    <div className="text-center mt-4 ml-[400px]">
                       <img
                         src="/assets/images/button ok check.webp"
                         alt="Next Icon"

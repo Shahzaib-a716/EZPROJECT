@@ -29,6 +29,9 @@ import Emergency from './Components/Emergency';
 import VirtualHouse from './Components/VirtualHouse';
 import Parking from './Components/Parking';
 import Booking from './Components/Booking';
+import Step1 from './Components/Step1';
+import EmergencyPage from './Components/EmergencyPage';
+import ServiceSelection from './Components/ServiceSelection';
 
 
 function App() {
@@ -66,7 +69,9 @@ function App() {
           <Route path="/VirtualHouse" element={<VirtualHouse/>}/>
           <Route path="/Parking" element={<Parking/>}/>
           <Route path="/Booking" element={<Booking/>}/>
-
+          <Route path="Step1" element={<Step1/>}/>
+          <Route path="EmergencyPage" element={<EmergencyPage/>}/>
+          <Route path="ServiceSelection" element={<ServiceSelection/>}/>
       
 
 
@@ -76,5 +81,5 @@ function App() {
      );
 }
 
-export default App;//
+export default App;
 

@@ -30,16 +30,16 @@ const StepComponent = () => {
         ) : (
           <div className="bg-white px-1 md:px-2 min-h-screen w-full md:w-11/12 lg:w-2/3">
             <div className="flex justify-between items-center">
-              <h1 className="text-4xl md:text-5xl font-extrabold text-purple-600">{step} of 4</h1>
+              <h1 className="text-7xl md:text-7xl font-extrabold text-purple-600">{step} of 4</h1>
               <img
-                className="rounded-full cursor-pointer w-12 md:w-16"
+                className="rounded-full cursor-pointer w-12 md:w-[90px]"
                 src="/assets/images/simples2.jpg"
                 alt="Next Step"
                 onClick={handleNextStep}
               />
             </div>
 
-            <h1 className="text-resp bg-green-600 text-center text-white text-4xl font-bold p-3 md:p-4 rounded-xl">You live in a:</h1>
+            <h1 className="text-resp bg-green-600 text-center text-white text-5xl font-bold p-3 md:p-4 rounded-xl">You live in a:</h1>
             <div className="text-resp text-4xl font-bold grid grid-cols-1 md:grid-cols-2 gap-4 p-2 mb-2">
               {[
                 { id: 'House', label: 'House', icon: '/assets/images/home.png' },

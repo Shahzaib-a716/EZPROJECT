@@ -1,11 +1,17 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const RegisterReminderPage = () => {
+const Enter1 = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { email } = location.state || {}; // Retrieve email passed from the previous page
+
+  const handleRejectClick = () => {
+    navigate(-1, { state: { email } }); // Navigate back to the previous page with the email passed back
+  };
 
   const handleConfirmClick = () => {
-    navigate('/SalutationPage'); // Replace '/new-page' with the path to navigate to
+    navigate('/SalutationPage'); // Navigate to the Salutation page
   };
 
   return (
@@ -14,48 +20,39 @@ const RegisterReminderPage = () => {
       style={{ backgroundImage: 'url("/assets/images/day.jpg")' }}
     >
       <div className="flex flex-col gap-6 justify-center items-center min-h-screen">
-        <div className="flex p-2 bg-yellow-500 md:p-20 rounded-2xl flex-col gap-6 justify-center items-center">
+        <div className="p-6 bg-yellow-500 md:p-20 rounded-2xl flex flex-col gap-6 items-center">
           <img
             src="/assets/images/smile.png"
             className="w-28 md:w-40 rounded-full"
             alt="Happy Emoji"
           />
           <h1 className="p-2 text-center rounded-xl bg-green-600 text-2xl md:text-5xl text-white">
-            hhhh2www@gmail.com
+            {email || "No email provided"} {/* Display the passed email */}
           </h1>
           <h1 className="text-center text-3xl md:text-5xl">
             You Must Register to make bookings!
           </h1>
           <div className="flex justify-around items-center w-full">
             <img
-              className="w-20 md:w-28 rounded-full hover:scale-125 duration-150"
               src="/assets/images/button cancel no.webp"
               alt="Reject"
-              onClick={() => alert("Registration rejected!")}
+              className="w-20 md:w-28 rounded-full hover:scale-125 duration-150"
+              onClick={handleRejectClick} // Navigate back on click
             />
             <img
-              className="w-20 md:w-28 rounded-full hover:scale-125 duration-150"
               src="/assets/images/button ok check.webp"
-              alt="Select"
-              onClick={handleConfirmClick} // Navigate on click
+              alt="Confirm"
+              className="w-20 md:w-28 rounded-full hover:scale-125 duration-150"
+              onClick={handleConfirmClick} // Navigate to the Salutation page
             />
           </div>
         </div>
       </div>
-
-      <div
-        className="text-center pt-1 w-full text-xl text-white font-bold"
-        style={{
-          textShadow:
-            "2px 0 0 rgb(0, 0, 0), 0 -1px 0 rgb(0, 0, 0), 0 1px 0 rgb(0, 0, 0), -1px 0 0 rgb(0, 0, 0)",
-        }}
-      >
-        All Rights reserved • Service Hub by Total Mizers Ltd. Toronto, Ontario
-        CANADA (416) 333.FAST (3278) Copyright © 2016 - 2024, Les
-        The Handyman.
-      </div>
+      <footer className="text-center pt-4 text-white font-bold">
+        All Rights Reserved • Service Hub by Total Mizers Ltd. Toronto, Ontario CANADA
+      </footer>
     </div>
   );
 };
 
-export default RegisterReminderPage;
+export default Enter1;
