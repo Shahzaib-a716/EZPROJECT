@@ -32,8 +32,12 @@ const Step1 = () => {
   const handleDayClick = (day) => {
     if (!day) return;
     setSelectedDay(day);
-    navigate(`/Step2?date=${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${day}`);
+    const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+    // Format the date properly (e.g., 2024-11-29)
+    const formattedDate = selectedDate.toISOString().split('T')[0];
+    navigate(`/Step2?date=${formattedDate}`);
   };
+  
 
   return (
     <div className="min-h-screen bg-no-repeat bg-center bg-cover bg-gray-700">

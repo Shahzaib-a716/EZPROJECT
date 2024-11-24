@@ -17,9 +17,7 @@ const EmergencyPage = () => {
           }}
         >
           <span className="text-red-600">EZ</span>123<span className="text-gray-400">.EU</span>
-        </h1>
-
-        {/* Content Section */}
+        </h1>        {/* Content Section */}
         <div className="flex flex-col gap-4 bg-white p-4 rounded-xl font-bold text-xl md:text-4xl">
           <h1>
             Friday, November 29, 2024 at 10 AM,{' '}
