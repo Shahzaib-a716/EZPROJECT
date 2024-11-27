@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 
 const VirtualPage = () => {
@@ -9,12 +9,29 @@ const VirtualPage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(1); // State to manage zoom level
-  const handleZoomIn = () => {
-    setZoomLevel((prev) => Math.max(prev + 0.1, 1)); // Zoom in (decreases size)
-  };
+  const contentRef = useRef(null); // Reference to the zoomable content
 
-  const handleZoomOut = () => {
-    setZoomLevel((prev) => prev - 0.1); // Zoom out (increases size)
+  const handleZoom = (zoomChange) => {
+    const content = contentRef.current;
+    if (!content) return;
+
+    // Get current bounding box and scroll position
+    const rect = content.getBoundingClientRect();
+    const scrollX = window.scrollX || document.documentElement.scrollLeft;
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+    // Update zoom level (limit minimum zoom to 1)
+    setZoomLevel((prevZoom) => {
+      const newZoom = Math.max(prevZoom + zoomChange, 1);
+
+      // Adjust scroll to maintain the center position during zoom
+      const deltaX = (rect.width * (newZoom - prevZoom)) / 2;
+      const deltaY = (rect.height * (newZoom - prevZoom)) / 2;
+
+      window.scrollTo(scrollX + deltaX, scrollY + deltaY);
+
+      return newZoom;
+    });
   };
 
   const handleSearch = () => {
@@ -250,30 +267,31 @@ const VirtualPage = () => {
           />
         </div>
 
-        {/* Zoom Controls (Aligned to the right) */}
-        <div className="flex gap-2 mr-[200px]">
-          <button
-            onClick={handleZoomIn}
-            className="p-2 text-white rounded "
-          >
-            <img
-              className="w-[180px] h-[79px]"
-              src="/assets/images/button zoom out.webp"
-              alt="Zoom In"
-            />
-          </button>
-          <button
-            onClick={handleZoomOut}
-            className="p-2  text-white"
-          >
-            <img
-              className="w-[180px] h-[75px]"
-              src="/assets/images/button zoom in.webp"
-              alt="Zoom Out"
-            />
-          </button>
-        </div>
+       {/* Zoom Controls */}
+      <div className="flex justify-center gap-2 p-4">
+        <button
+          onClick={() => handleZoom(0.1)} // Zoom In
+          className="p-2 bg-green-500 text-white rounded"
+        >
+          Zoom In
+        </button>
+        <button
+          onClick={() => handleZoom(-0.1)} // Zoom Out
+          className="p-2 bg-red-500 text-white rounded"
+        >
+          Zoom Out
+        </button>
       </div>
+
+      {/* Zoomable Content */}
+      <div
+        ref={contentRef}
+        className="transition-transform duration-300"
+        style={{
+          transform: `scale(${zoomLevel})`,
+          transformOrigin: 'center center', // Ensure the content scales relative to the center
+        }}
+      >
 
       {/* Search Results */}
       <div className="mt-8">
@@ -349,8 +367,11 @@ const VirtualPage = () => {
               </a>
             )}
           </div>
+
         </div>
       )}
+      </div>
+      </div>
       </div>
       </div>
   );
