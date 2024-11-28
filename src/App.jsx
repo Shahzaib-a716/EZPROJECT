@@ -38,7 +38,7 @@ import LesWork from './Components/LesWork';
 import VideoReference from './Components/VideoReference';
 import LESTHEHANDYMAN from './Components/LESTHEHANDYMAN';
 import Page1 from './Components/Page1';
-import Page2 from './Components/Page2';
+
 
 
 function App() {
@@ -87,7 +87,7 @@ function App() {
           <Route path="VideoReference" element={<VideoReference/>}/>
           <Route path="LESTHEHANDYMAN" element={<LESTHEHANDYMAN/>}/>
           <Route path="Page1" element={<Page1/>}/>
-          <Route path="Page2" element={<Page2/>}/>
+          
 
 
 
