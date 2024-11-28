@@ -1,4 +1,4 @@
-himport React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // For navigation in React Router v6
 
 const Proof = () => {
