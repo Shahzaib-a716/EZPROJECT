@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 
 const VirtualPage = () => {
@@ -9,29 +9,12 @@ const VirtualPage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(1); // State to manage zoom level
-  const contentRef = useRef(null); // Reference to the zoomable content
+  const handleZoomIn = () => {
+    setZoomLevel((prev) => Math.max(prev + 0.1, 1)); // Zoom in (decreases size)
+  };
 
-  const handleZoom = (zoomChange) => {
-    const content = contentRef.current;
-    if (!content) return;
-
-    // Get current bounding box and scroll position
-    const rect = content.getBoundingClientRect();
-    const scrollX = window.scrollX || document.documentElement.scrollLeft;
-    const scrollY = window.scrollY || document.documentElement.scrollTop;
-
-    // Update zoom level (limit minimum zoom to 1)
-    setZoomLevel((prevZoom) => {
-      const newZoom = Math.max(prevZoom + zoomChange, 1);
-
-      // Adjust scroll to maintain the center position during zoom
-      const deltaX = (rect.width * (newZoom - prevZoom)) / 2;
-      const deltaY = (rect.height * (newZoom - prevZoom)) / 2;
-
-      window.scrollTo(scrollX + deltaX, scrollY + deltaY);
-
-      return newZoom;
-    });
+  const handleZoomOut = () => {
+    setZoomLevel((prev) => prev - 0.1); // Zoom out (increases size)
   };
 
   const handleSearch = () => {
@@ -40,7 +23,7 @@ const VirtualPage = () => {
       // Simulate search results
       setSearchResults([
         { id: 1, title: 'HANDYMAN / WOMAN ', description: 'This is a sample result.' },
-        { id: 2, title: 'EAVES GUTTER REPAIR', description: 'Another example result.' },
+        { id: 2, title: 'Example Result 2', description: 'Another example result.' },
       ]);
       setLoading(false);
     }, 1000);
@@ -130,10 +113,10 @@ const VirtualPage = () => {
       title: 'APPLIANCE REPAIRS',
       description:
         'Is a person who can usually All your household appliances like your washer or dryer, coffee machine or any other thing like that. Just make sure you have a model number, the type of machine and how old it is, who made it, the model number , and why it is not working or what kinds of noises it is making and make an appointment with them on line',
-        img1: '/assets/images/single.png',
-        img2: '/assets/images/multiple.png',
-        link1: 'TradesPerson',
-        link2: '',
+      img1: '/assets/images/single.png',
+      img2: '/assets/images/multiple.png',
+      link1: 'TradesPerson',
+      link2: '',
     },
 
     10: {
@@ -267,31 +250,30 @@ const VirtualPage = () => {
           />
         </div>
 
-       {/* Zoom Controls */}
-      <div className="flex justify-center gap-2 p-4">
-        <button
-          onClick={() => handleZoom(0.1)} // Zoom In
-          className="p-2 bg-green-500 text-white rounded"
-        >
-          Zoom In
-        </button>
-        <button
-          onClick={() => handleZoom(-0.1)} // Zoom Out
-          className="p-2 bg-red-500 text-white rounded"
-        >
-          Zoom Out
-        </button>
+        {/* Zoom Controls (Aligned to the right) */}
+        <div className="flex gap-2 mr-[200px]">
+          <button
+            onClick={handleZoomIn}
+            className="p-2 text-white rounded "
+          >
+            <img
+              className="w-[180px] h-[75px]"
+              src="/assets/images/button zoom out.webp"
+              alt="Zoom In"
+            />
+          </button>
+          <button
+            onClick={handleZoomOut}
+            className="p-2  text-white"
+          >
+            <img
+              className="w-[180px] h-[75px]"
+              src="/assets/images/button minus.webp"
+              alt="Zoom Out"
+            />
+          </button>
+        </div>
       </div>
-
-      {/* Zoomable Content */}
-      <div
-        ref={contentRef}
-        className="transition-transform duration-300"
-        style={{
-          transform: `scale(${zoomLevel})`,
-          transformOrigin: 'center center', // Ensure the content scales relative to the center
-        }}
-      >
 
       {/* Search Results */}
       <div className="mt-8">
@@ -367,11 +349,8 @@ const VirtualPage = () => {
               </a>
             )}
           </div>
-
         </div>
       )}
-      </div>
-      </div>
       </div>
       </div>
   );
