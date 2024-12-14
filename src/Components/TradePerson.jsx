@@ -87,7 +87,7 @@ const TradesPersonSelection = () => {
           Select a trades person or{' '}
           <a
             className="md:p-3 md:text-3xl text-center font-bold text-blue-600 underline"
-            href="/FreeRegistration1"
+            href="/NewTradePerson"
           >
             recommend your own
           </a>

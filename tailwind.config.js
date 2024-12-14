@@ -26,8 +26,14 @@ export default {
         bounceIn: 'bounceIn 1s ease-out',
         slideUp: 'slideUp 1s ease-out',
         slideInFromSide: 'slideInFromSide 1s ease-out',
+        
       },
+      
     },
-  },
+    
+    plugins: [
+      require('@tailwindcss/line-clamp'),
+    ]
+  }, 
 };
 

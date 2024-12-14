@@ -52,7 +52,7 @@ function Home() {
             <a href="/LookAround">
               <div className="tooltip-container">
                 <img
-                  className="w-24 md:w-32 hover:-translate-y-1 hover:scale-110 duration-300"
+                  className="w-24 md:w-32 hover:-translate-y-1 hover:scale-125 duration-300"
                   src="/assets/images/eyeballs.gif"
                   alt={t('lookAround')}
                 />
@@ -60,7 +60,7 @@ function Home() {
             </a>
 
             <a href="/Flag1">
-              <div className="w-16 md:w-36 cursor-pointer hover:-translate-y-1 hover:scale-110 duration-300 tooltip-container">
+              <div className="w-16 md:w-36 cursor-pointer hover:-translate-y-1 hover:scale-125 duration-300 tooltip-container">
                 <img src={selectedFlag} className="rounded-xl" alt={selectedLanguage} />
               </div>
             </a>
@@ -68,7 +68,7 @@ function Home() {
             <a href="/FreeRegistration1">
               <div className="tooltip-container">
                 <img
-                  className="w-24 md:w-32 hover:-translate-y-1 hover:scale-110 duration-300"
+                  className="w-24 md:w-32 hover:-translate-y-1 hover:scale-125 duration-300"
                   src="/assets/images/clipboard.webp"
                   alt={t('registration')}
                 />

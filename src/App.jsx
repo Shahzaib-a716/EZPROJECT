@@ -38,6 +38,17 @@ import LesWork from './Components/LesWork';
 import VideoReference from './Components/VideoReference';
 import LESTHEHANDYMAN from './Components/LESTHEHANDYMAN';
 import Page1 from './Components/Page1';
+import Page2 from './Components/Page2';
+import Page4 from './Components/Page4';
+import Page5 from './Components/Page5';
+import Page6 from './Components/Page6';
+import Page9 from './Components/Page9';
+import Page16 from './Components/Page16';
+
+import Page3 from './Components/Page3';
+import NewTradePerson from './Components/NewTradePerson';
+import Add from './Components/Add';
+import Add1 from './Components/Add1';
 
 
 
@@ -87,7 +98,16 @@ function App() {
           <Route path="VideoReference" element={<VideoReference/>}/>
           <Route path="LESTHEHANDYMAN" element={<LESTHEHANDYMAN/>}/>
           <Route path="Page1" element={<Page1/>}/>
-          
+          <Route path="Page3" element={<Page3/>}/>
+          <Route path="/NewTradePerson" element={<NewTradePerson/>}/>
+          <Route path="Add" element={<Add/>}/>
+          <Route path="Add1" element={<Add1/>}/>
+          <Route path="Page2" element={<Page2/>}/>
+          <Route path="Page4" element={<Page4/>}/>
+          <Route path="Page5" element={<Page5/>}/>
+          <Route path="Page6" element={<Page6/>}/>
+          <Route path="Page9" element={<Page9/>}/>
+          <Route path="Page16" element={<Page16/>}/>
 
 
 

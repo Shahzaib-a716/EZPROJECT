@@ -1,0 +1,39 @@
+1 Add Calls
+2 Return Calls
+3 Make Bookings
+4 Estimates
+5 Referals
+6 Web-phone
+7 Internal Voice Message
+8 Virtual Phychiatrist
+9 Email
+10 Calculator
+11 Money Exchange
+12 Multi-timers
+13 Record a Call
+14 Buget
+15 Extra Bookings
+16 My Virtual Houses
+
+  Bottom row left to right
+Settings
+Secure Web
+Multimedia
+Graphics artist
+Shipping
+The Size Of It
+Help
+  
+	Right column top to bottom
+Open phone book (left and right)
+Other food
+Stopwatch
+Super memory
+Virtual Aerobics Instructor
+Virtual Lawyer
+  
+Left column top to bottom
+Automatically opens left phone book
+1 Automatically receives messages
+2 Types
+3 Options
