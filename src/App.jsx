@@ -38,7 +38,7 @@ import LesWork from './Components/LesWork';
 import VideoReference from './Components/VideoReference';
 import LESTHEHANDYMAN from './Components/LESTHEHANDYMAN';
 import Page1 from './Components/Page1';
-import Page2 from './Components/Page2';
+import Page2 from './Components/Paage2.jsx';
 import Paage4 from './Components/Paage4';
 import Page5 from './Components/Page5';
 import Page6 from './Components/Page6';
