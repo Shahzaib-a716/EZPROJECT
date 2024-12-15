@@ -39,7 +39,7 @@ import VideoReference from './Components/VideoReference';
 import LESTHEHANDYMAN from './Components/LESTHEHANDYMAN';
 import Page1 from './Components/Page1';
 import Page2 from './Components/Page2';
-import Page4 from './Components/Page4';
+import Paage4 from './Components/Paage4';
 import Page5 from './Components/Page5';
 import Page6 from './Components/Page6';
 import Page9 from './Components/Page9';
