@@ -38,7 +38,7 @@ import LesWork from './Components/LesWork';
 import VideoReference from './Components/VideoReference';
 import LESTHEHANDYMAN from './Components/LESTHEHANDYMAN';
 import Page1 from './Components/Page1';
-import Page2 from './Components/Paage2.jsx';
+import Paage2 from './Components/Paage2.jsx';
 import Paage4 from './Components/Paage4';
 import Page5 from './Components/Page5';
 import Page6 from './Components/Page6';
@@ -102,7 +102,7 @@ function App() {
           <Route path="/NewTradePerson" element={<NewTradePerson/>}/>
           <Route path="Add" element={<Add/>}/>
           <Route path="Add1" element={<Add1/>}/>
-          <Route path="Page2" element={<Page2/>}/>
+          <Route path="Paage2" element={<Paage2/>}/>
           <Route path="Paage4" element={<Paage4/>}/>
           <Route path="Page5" element={<Page5/>}/>
           <Route path="Page6" element={<Page6/>}/>
