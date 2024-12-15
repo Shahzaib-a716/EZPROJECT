@@ -103,7 +103,7 @@ function App() {
           <Route path="Add" element={<Add/>}/>
           <Route path="Add1" element={<Add1/>}/>
           <Route path="Page2" element={<Page2/>}/>
-          <Route path="Page4" element={<Page4/>}/>
+          <Route path="Paage4" element={<Paage4/>}/>
           <Route path="Page5" element={<Page5/>}/>
           <Route path="Page6" element={<Page6/>}/>
           <Route path="Page9" element={<Page9/>}/>
