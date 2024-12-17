@@ -34,30 +34,37 @@ const TextWithReadMore = ({ text }) => {
 const Page = () => {
   return (
     <div className="bg-blue-200">
-      <div className="container mx-auto p-4">
-        <article className="post">
-          <div>
-            <div className="text-center py-16 px-4 bg-gradient-to-b from-[#1E3A8A] via-[#3B82F6] to-[#60A5FA]">
-              <h1 className="text-3xl text-yellow-400 md:text-5xl font-extrabold mb-4 animate-bounceIn">
-                I didn’t build THEM, I just made THEM better!
-              </h1>
-            </div>
+  <div className="container mx-auto p-4">
+    <article className="post">
+      <div>
+        <div className="text-center py-16 px-4 bg-gradient-to-b from-[#1E3A8A] via-[#3B82F6] to-[#60A5FA]">
+          <h1 className="text-3xl text-yellow-400 md:text-5xl font-extrabold mb-4 animate-bounceIn">
+            I didn’t build THEM, I just made THEM better!
+          </h1>
+        </div>
 
-            {/* TextWithReadMore for the first section */}
-            <TextWithReadMore 
-              text="I wish I could take credit for the electric car, but it was made in Germany. You would think that perhaps that might be a good thing, but these Germans used terrible poor quality parts and the car wasn’t that great in the end. I modified it with a friend, made it faster, and added a solar trailer to extend its range. I even got a compliment from an engineer who works for Tesla. How impressed they were with my solar trailer. Cool EH?"
+        {/* Flexbox layout for text and image */}
+        <div className="flex items-center mt-8">
+          {/* Text on the left */}
+         
+          <TextWithReadMore 
+          text="I wish I could take credit for the electric car, but it was made in Germany. You would think that perhaps that might be a good thing, but these Germans used terrible poor quality parts and the car wasn’t that great in the end. I modified it with a friend, made it faster, and added a solar trailer to extend its range. I even got a compliment from an engineer who works for Tesla. How impressed they were with my solar trailer. Cool EH?"
+        />
+
+
+          {/* Image on the right */}
+          <div className="w-1/2">
+            <img
+              className="w-full h-auto"
+              src="https://proof.ez123.eu/wp-content/uploads/2022/04/img6.jpg"
+              alt="solar trailer"
             />
-             <div className="w-1/2 p-4">
-                  <img
-                    className="w-full h-auto"
-                    src="https://ez12.hu//wp-content/uploads/2022/04/IMG_20200130_180216-Copy.jpg"
-                    alt="solar trailer"
-                  />
+                </div>
                 </div>
             
             {/* Second Section with TextWithReadMore */}
             <div className="my-8">
-              <div className="flex justify-between">
+              <div className="flex ">
                 <div className="w-full ml-11 p-4">
                   <TextWithReadMore 
                     text="I did however design and build the solar trailer and Tesla called me and asked me to create a solar trailer for their cars. I can’t tell you how amazingly flattered I was but I also told Tesla that what I created is not new technology I just made my electric car go a little further. What they have done in their cars adding solar panels integrated into their structure is far more sexy than my solar trailer although my solar trailer could always hold true tremendous amount of weight in the frame of the panel weighed more than the whole trailer."
@@ -67,33 +74,38 @@ const Page = () => {
             </div>
 
             {/* Third Section with TextWithReadMore */}
-            <div className="my-8">
-              <div className="w-full p-4">
-                <TextWithReadMore 
-                  text="When I was told that it couldn’t be done the way that I wanted to use Lexan honeycomb paneling and a very thin aluminum frame, I was told that it couldn’t be welded and it couldn’t be done. But I come from a family where anything is possible and if you put your mind to it you can also do almost the impossible."
-                />
-              </div>
-            </div>
+            {/* Flexbox layout for text and image */}
+        <div className="flex items-center mt-8">
+          {/* Text on the left */}
+         
+          <TextWithReadMore 
+          text="When I was told that it couldn’t be done the way that I wanted to use Lexan honeycomb paneling and a very thin aluminum frame, I was told that it couldn’t be welded and it couldn’t be done. But I come from a family where anything is possible and if you put your mind to it you can also do almost the impossible?"
+        />
 
-            {/* Fourth Section with TextWithReadMore */}
-            <div className="my-8">
-              <div className="flex justify-between">
-                <div className="w-1/2 p-4">
-                  <img
-                    className="w-full h-auto"
-                    src="https://ez12.hu//wp-content/uploads/2022/04/img8.jpg"
-                    alt="img8"
-                  />
+
+          {/* Image on the right */}
+          <div className="w-1/2">
+            <img
+              className="w-full h-auto"
+              src="https://proof.ez123.eu/wp-content/uploads/2022/04/IMG_20200130_180216-Copy.jpg"
+              alt="solar trailer"
+            />
                 </div>
-                <div className="w-1/2 p-4">
-                  <img
-                    className="w-full h-auto"
-                    src="https://ez12.hu//wp-content/uploads/2022/04/img9.jpg"
-                    alt="img9"
-                  />
                 </div>
-              </div>
-            </div>
+                <div className="w-[500px] ml-[400px] mt-10">
+            <img
+              className="w-full h-auto"
+              src="https://proof.ez123.eu/wp-content/uploads/2022/04/img8.jpg"
+              alt="solar trailer"
+            />
+                </div>
+                <div className="w-[500px] ml-[400px] mt-11">
+            <img
+              className="w-full h-auto"
+              src="https://proof.ez123.eu/wp-content/uploads/2022/04/img9.jpg"
+              alt="solar trailer"
+            />
+                </div>
 
             {/* Fifth Section with TextWithReadMore */}
             <div className="my-8 text-2xl font-bold">
@@ -104,25 +116,17 @@ const Page = () => {
 
             {/* Sixth Section with TextWithReadMore */}
             <div className="my-8">
-              <div className="flex justify-between">
-                <div className="w-1/2 p-4">
-                  <p className="text-justify text-3xl font-bold">
-                    I bought this bicycle below in Germany for more money than I
-                    paid for my electric car and trailer combined. Never buy any
-                    German product.. I take that back there are some German
-                    products that are good but mostly they're over-engineered and
-                    poor quality or so I have seen so far. Now you can’t compare
-                    that with the BMW and the Mercedes and the Volkswagen and
-                    even the Skoda which are excellent vehicles made by Germans
-                    however many other things in my experience with German
-                    companies is that they are not entirely honest. Anyway, that’s
-                    a story for another time.
-                  </p>
-                </div>
+            <div className="flex items-center mt-8">
+          {/* Text on the left */}
+         
+          <TextWithReadMore 
+          text="I bought this bicycle below in Germany for more money than I paid for my electric car and trailer combined.
+Never buy any German product.. I take that back there are some German products that are good but mostly there over engineered and poor quality or so I have seen so far now you can’t compare that with the BMW and the Mercedes and the Volkswagen and even the Skoda which are excellent vehicles made by Germans however many other things in my my experience has been with German companies is that they are not entirely honest. Anyway that’s a story for another time"
+        />
                 <div className="w-1/2 p-4">
                   <img
                     className="w-full h-auto"
-                    src="https://ez12.hu//wp-content/uploads/2022/04/IMG_20200117_075159-Copy.jpg"
+                    src="https://proof.ez123.eu/wp-content/uploads/2022/04/IMG_20200117_075159-Copy.jpg"
                     alt="bicycle"
                   />
                 </div>
@@ -131,18 +135,18 @@ const Page = () => {
 
             {/* Seventh Section with TextWithReadMore */}
             <div className="my-8">
-              <p className="text-center">
-                The bicycle was a piece of garbage because it was so completely
-                over-engineered and so unstable and so dangerous I even had an
-                accident actually the first bicycle accident I have had since I
-                was five years old. So I re-engineered it twice and now it’s
-                almost perfect.
-              </p>
-            </div>
+            <p className=" text-center  mt-8">
+          {/* Text on the left */}
+         
+          <TextWithReadMore 
+          text="The bicycle was a piece of garbage because it was so completely over-engineered and so unstable and so dangerous I even had an accident actually the first bicycle accident I have had since I was five years old. So I reengineered it twice and now it’s almost perfect"
+        />
+</p>
+</div>
 
             {/* Eighth Section with TextWithReadMore */}
             <div className="my-8">
-              <p className="text-center">
+              <p className="text-center text-2xl font-bold bg-slate-500">
                 So I also created a solar trailer for my NEW bicycle, which can
                 also charge other devices, and can be used as a table to have a
                 bite. I am also working on an integrated chair which I can also
@@ -157,8 +161,8 @@ const Page = () => {
             <div className="my-8">
               <div className="w-full p-4">
                 <img
-                  className="w-full h-auto"
-                  src="https://ez12.hu//wp-content/uploads/2022/04/IMG_20200214_150309-Copy.jpg"
+                  className="w-[800px] ml-[200px] h-auto"
+                  src="https://proof.ez123.eu/wp-content/uploads/2022/04/IMG_20200214_150309-Copy.jpg"
                   alt="solar trailer bicycle"
                 />
               </div>
@@ -166,7 +170,7 @@ const Page = () => {
 
             {/* Tenth Section with TextWithReadMore */}
             <div className="my-8">
-              <p className="text-center text-2xl font-bold text-white">
+              <p className="text-center text-2xl font-bold text-yellow-600">
                 And can be used as a table to have a bite. I am also working on
                 an integrated chair which I can also pull out of the trailer. I
                 just love doing this stuff. And I am in the process of creating a
@@ -179,7 +183,7 @@ const Page = () => {
             <div className="my-8">
               <div className="w-full p-4">
                 <iframe
-                  className="w-full"
+                  className="w-[700px] ml-[300px] h-[500px]"
                   src="https://www.youtube.com/embed/amtmmeroX_8?feature=oembed"
                   title="manufacturer-needed"
                   frameBorder="0"
