@@ -15,6 +15,14 @@ const Step3 = () => {
   const videoRecorderRef = useRef(null);
   const videoStreamRef = useRef(null);
   const videoPreviewRef = useRef(null);
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Function to navigate back
+  const navigateBack = () => {
+    window.history.back();
+  };
 
   const navigate = useNavigate();
 
@@ -144,8 +152,8 @@ const Step3 = () => {
         
          
       
-        <div className="mt-8">
-        <h1 className="text-2xl font-bold text-white mb-4">Show me your idea</h1>
+        <div className="mt-2">
+        <h1 className="text-4xl font-bold text-white mb-4">Show me your idea</h1>
         <div className="grid grid-rows-2 gap-3 w-full py-3">
           {/* Icon A - Gallery Upload (Image & Video) */}
           
@@ -236,10 +244,10 @@ const Step3 = () => {
           <div className="w-full  mb-4">
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="@"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-               className="w-full p-3 text-xl font-extrabold placeholder-black border-2 border-black rounded-tl-lg rounded-lg placeholder-text"
+               className="w-full p-3 text-3xl font-extrabold placeholder-black border-2 border-black rounded-tl-lg rounded-lg flex justify-centre "
             />
           </div>
         </div>
@@ -264,9 +272,31 @@ const Step3 = () => {
           />
         </div>
       </div>
-      </div>
-    </div>
-    
+     {/* Fixed Back Button */}
+     <button
+     onClick={navigateBack}
+     className="fixed bottom-5 left-5 p-4 rounded-full shadow-lg  transition-transform transform hover:scale-110 flex items-center justify-center"
+   >
+     <img
+      src="/assets/images/button back.webp"
+      alt="Top"
+      className="h-[124px] w-[124px]"
+     />
+   </button>
+   
+   {/* Fixed Scroll-to-Top Button */}
+   <button
+     onClick={scrollToTop}
+     className="fixed bottom-5 right-5  p-4 rounded-full   transition-transform transform hover:scale-110 flex items-center justify-center "
+   >
+     <img
+       src="/assets/images/button page up.webp"
+       alt="Top"
+       className="h-[150px] w-[124px]"
+     />
+   </button>
+   </div>
+   </div>
   );
 };
 

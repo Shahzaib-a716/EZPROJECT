@@ -41,13 +41,13 @@ const ProofPage = () => {
             </a>
             <a
               className="flex justify-center flex-col mb-4 items-center w-full"
-              href="https://proof.ez123.eu/before-and-after-videos/"
+              href="/Les1"
             >
               <h1 className="flex justify-center text-white text-6xl py-0.5 rounded-full font-bold hover:bg-slate-200 hover:text-black w-full">2</h1>
             </a>
             <a
               className="flex justify-center flex-col mb-4 items-center w-full"
-              href="https://proof.ez123.eu/happy-customers-reviews/"
+              href="/Les3"
             >
               <h1 className="flex justify-center text-white text-6xl py-0.5 rounded-full font-bold hover:bg-slate-200 hover:text-black w-full">3</h1>
             </a>
@@ -79,7 +79,7 @@ const ProofPage = () => {
           <div className="basis-32">
             <a
               className="flex justify-center flex-col mb-4 items-center w-full"
-              href="https://proof.ez123.eu/articles/"
+              href="/Les4"
             >
               <h1 className="flex justify-center text-white text-6xl py-0.5 rounded-full font-bold hover:bg-slate-200 hover:text-black w-full">4</h1>
             </a>

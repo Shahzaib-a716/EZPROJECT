@@ -200,14 +200,7 @@ Never buy any German product.. I take that back there are some German products t
               />
             </div>
 
-            <div className="my-8 text-center">
-              <a
-                href="https://ez12.hu//engineering/"
-                className="text-blue-500 underline"
-              >
-                My dads designs
-              </a>
-            </div>
+          
           </div>
         </article>
       </div>

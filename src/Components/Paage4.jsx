@@ -1,6 +1,16 @@
-import React from 'react';
+import React from "react";
 
 const VoIPPage = () => {
+  // Function to scroll to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Function to navigate back
+  const navigateBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 min-h-screen text-white">
       <div className="container mx-auto py-20">
@@ -46,20 +56,20 @@ const VoIPPage = () => {
         </div>
 
         <div className="space-y-12 mt-16">
-          <div className="border-4 border-gradient-to-r from-blue-500 via-teal-400 to-green-500 rounded-xl p-4 transform transition duration-500 hover:scale-105 animate-zoom-in">
+          <div className=" border-gradient-to-r from-blue-500 via-teal-400 to-green-500 rounded-xl p-4 transform transition duration-500 hover:scale-105 animate-zoom-in">
             <iframe
               title="My universal answering system correction Les.Fixes.All@gmail.com"
               src="https://www.youtube.com/embed/rKjLNKyVGSY"
-              className="w-full h-96 rounded-lg shadow-xl"
+              className="w-[700px] ml-[300px] h-96 rounded-lg shadow-xl"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
           </div>
-          <div className="border-4 border-gradient-to-r from-pink-500 via-red-400 to-yellow-500 rounded-xl p-4 transform transition duration-500 hover:scale-105 animate-zoom-in">
+          <div className=" border-gradient-to-r from-pink-500 via-red-400 to-yellow-500 rounded-xl p-4 transform transition duration-500 hover:scale-105 animate-zoom-in">
             <iframe
               title="TEST VIDEO FOR OUR VOIP SYSTEM"
               src="https://www.youtube.com/embed/K0fVVHzFFo4"
-              className="w-full h-96 rounded-lg shadow-xl"
+              className="w-[700px] ml-[300px] h-96 rounded-lg shadow-xl"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
@@ -67,28 +77,35 @@ const VoIPPage = () => {
         </div>
 
         <div className="text-center mt-16 animate-fade-in">
-          <a href="mailto:Les.fixes.ALL@gmail.com" className="text-yellow-300 hover:underline text-2xl font-bold">
+          <a href="mailto:Les.fixes.ALL@gmail.com" className="text-yellow-300 hover:underline text-4xl font-bold">
             Les.fixes.ALL@gmail.com
           </a>
         </div>
-
-        <div className="flex justify-center space-x-16 mt-16 animate-fade-in">
-          <a href="https://ez12.hu/" className="transform transition duration-500 hover:scale-110">
-            <img
-              src="https://ez12.hu//wp-content/uploads/2022/03/WhatsApp_Image_2022-03-04_at_10.25.23_AM-removebg-preview.png"
-              alt="WhatsApp Preview"
-              className="w-64 h-auto rounded-lg shadow-lg border-4 border-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
-            />
-          </a>
-          <a href="https://hm.ez123.eu/robbie/proof/" className="transform transition duration-500 hover:scale-110">
-            <img
-              src="https://proof.ez123.eu/wp-content/uploads/2024/07/back-buttton-150x150.webp"
-              alt="Back Button"
-              className="w-64 h-64 rounded-lg shadow-lg border-4 border-gradient-to-r from-green-500 via-yellow-400 to-red-500"
-            />
-          </a>
-        </div>
       </div>
+
+      {/* Fixed Back Button */}
+      <button
+  onClick={navigateBack}
+  className="fixed bottom-5 left-5 p-4 rounded-full shadow-lg  transition-transform transform hover:scale-110 flex items-center justify-center"
+>
+  <img
+   src="/assets/images/button back.webp"
+   alt="Top"
+   className="h-[124px] w-[124px]"
+  />
+</button>
+
+{/* Fixed Scroll-to-Top Button */}
+<button
+  onClick={scrollToTop}
+  className="fixed bottom-5 right-5  p-4 rounded-full   transition-transform transform hover:scale-110 flex items-center justify-center "
+>
+  <img
+    src="/assets/images/button page up.webp"
+    alt="Top"
+    className="h-[130px] w-[110px]"
+  />
+</button>
     </div>
   );
 };

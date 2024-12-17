@@ -37,7 +37,7 @@ const SongsPage = () => {
       {/* Inspirational Section */}
       <div className="py-16 text-center">
         <p className="text-4xl md:text-5xl font-bold bg-slate-400 text-black tracking-wide animate-slideInFromSide">
-          Feel the rhythm of classics and the energy of new hits!
+          Feel the rhythm of classics and the energy of my hits!
         </p>
       </div>
       <div className="mt-5 relative">
@@ -140,23 +140,15 @@ const SongsPage = () => {
 
       {/* Back to Top Button (Bottom-right) */}
       <div
-        className="fixed bottom-8 right-8 bg-blue-500 p-4 rounded-full cursor-pointer shadow-lg hover:bg-blue-600 transition transform hover:scale-110"
+        className="fixed bottom-8 right-8 p-4 rounded-full cursor-pointer transition transform hover:scale-110"
         onClick={scrollToTop}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-12 h-10 text-white"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="4"
-            d="M19 9l-7-7-7 7M12 2v14"
+         <img
+            src="/assets/images/button page up.webp"
+            alt="Go Back"
+            className="w-[110px] h-[130px] hover:opacity-80 transition duration-300 transform hover:scale-110"
           />
-        </svg>
+        
       </div>
 
       {/* Back Button (Bottom-left) */}
@@ -165,7 +157,7 @@ const SongsPage = () => {
           <img
             src="/assets/images/button back.webp"
             alt="Go Back"
-            className="w-[50px] h-[60px] md:w-[100px] md:h-[100px] hover:opacity-80 transition duration-300 transform hover:scale-110"
+            className="w-[120px] h-[120px] hover:opacity-80 transition duration-300 transform hover:scale-110"
           />
         </a>
       </div>

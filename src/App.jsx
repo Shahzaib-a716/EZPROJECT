@@ -51,6 +51,9 @@ import Add from './Components/Add';
 import Add1 from './Components/Add1';
 import Page7 from './Components/Page7';
 import Page14 from './Components/Page14';
+import Les1 from './Components/Les1';
+import Les3 from './Components/Les3';
+import Les4 from './Components/Les4';
 
 
 
@@ -112,6 +115,9 @@ function App() {
           <Route path="Page16" element={<Page16/>}/>
           <Route path="Page7" element={<Page7/>}/>
           <Route path="Page14" element={<Page14/>}/>
+          <Route path="Les1" element={<Les1/>}/>
+          <Route path="Les3" element={<Les3/>}/>
+          <Route path="Les4" element={<Les4/>}/>
 
 
 

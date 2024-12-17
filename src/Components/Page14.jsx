@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 
+
 const CiscoPage = () => {
   const [showScrollButton, setShowScrollButton] = useState(false);
+  
 
   // Handle scroll visibility for the "Back to Top" button
   useEffect(() => {
@@ -101,23 +103,15 @@ const CiscoPage = () => {
       {/* Back to Top Button (Bottom-right) */}
       {showScrollButton && (
        <div
-       className="fixed bottom-8 right-8 z-50 bg-blue-500 p-4 rounded-full cursor-pointer shadow-lg hover:bg-blue-600 transition transform hover:scale-110"
+       className="fixed bottom-8 right-8  p-4 rounded-full cursor-pointer transition transform hover:scale-110"
        onClick={scrollToTop}
      >
-       <svg
-         xmlns="http://www.w3.org/2000/svg"
-         className="w-12 h-10 text-white"
-         fill="none"
-         viewBox="0 0 24 24"
-         stroke="currentColor"
-       >
-         <path
-           strokeLinecap="round"
-           strokeLinejoin="round"
-           strokeWidth="4"
-           d="M19 9l-7-7-7 7M12 2v14"
-         />
-       </svg>
+        <img
+            src="/assets/images/button page up.webp"
+            alt="Go Back"
+            className="w-[120px] h-[110px] hover:opacity-80 transition duration-300 transform hover:scale-110"
+          />
+       
      </div>
       )}
 
@@ -127,7 +121,7 @@ const CiscoPage = () => {
           <img
             src="/assets/images/button back.webp"
             alt="Go Back"
-            className="w-[50px] h-[60px] md:w-[100px] md:h-[100px] hover:opacity-80 transition duration-300 transform hover:scale-110"
+            className="w-[50px] h-[60px] md:w-[120px] md:h-[110px] hover:opacity-80 transition duration-300 transform hover:scale-110"
           />
         </a>
       </div>

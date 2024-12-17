@@ -7,10 +7,10 @@ const Proof = () => {
 
   // Texts for each number, customize as needed
   const texts = [
-    "BICYCLES,BYCYCLE TRAILERS DESIGNED AND BUILD",
+    "BiCYCLES TRAILERS DESIGNED AND BUILD",
     "FASHION AND ALL TYPE OF PHOTOGRAPHY",
     "FATHER'S ENGINEERING",
-    "ENTERTAINING AND EASY TO USE VOICEMAIL SYSTEM",
+    "THROUGH CREATIVILY INNOVATION, DRIVE, YOU CAN",
     "DONATING CLINICAL ENGINEERING",
     "SONGS WHICH MADE ME FAMOUS",
     "I DIDN'T BUILD THEM,I JUST MADE THEM BETTER",
@@ -21,19 +21,22 @@ const Proof = () => {
     "PROGRAMMING",
     "THE JOURNEY WHICH BROUGHT ME HERE",
     "CISCO PARTNER & THE FAILED DEALS",
-    "THROUGH CREATIVILY INNOVATION, DRIVE, YOU CAN",
+    "ENTERTAINING AND EASY TO USE VOICEMAIL SYSTEM",
     "MOTORHOME MODIFICATIONS",
     "CUSTOM MADE MOTORHOME TRAILERS FOR YOU",
     "EVERYTHING ELSE",
+    " ELSE",
+    " ELSE",
+    
   ];
 
   // Function to navigate to specific page based on button click
   const handleButtonClick = (index) => {
     // Define unique routes for each number
     const routes = [
-      '/page1', '/paage2', '/page3', '/paage4', '/page5', '/page6', 
+      '/page1', '/paage2', '/page3', '/page15', '/page5', '/page6', 
       '/page7', '/page8', '/page9', '/page10', '/page11', '/page12', 
-      '/page13', '/page14', '/page15', '/page16', '/page17', '/page18'
+      '/page13', '/page14', '/paage4', '/page16', '/page17', '/page18' , '/page19' , '/page20',
     ];
 
     // Navigate to the corresponding route
@@ -49,7 +52,7 @@ const Proof = () => {
         <div className="max-w-6xl bg-black bg-opacity-[70%] rounded-md flex justify-center mx-auto">
           {/* Left Panel */}
           <div className="basis-32 flex flex-col items-center">
-            {[...Array(9)].map((_, index) => (
+            {[...Array(10)].map((_, index) => (
               <a
                 key={index}
                 className="flex justify-center flex-col items-center w-full"
@@ -96,18 +99,18 @@ const Proof = () => {
 
           {/* Right Panel */}
           <div className="basis-32 flex flex-col items-center">
-            {[...Array(9)].map((_, index) => (
+            {[...Array(10)].map((_, index) => (
               <a
-                key={index + 9}
+                key={index + 11}
                 className="flex justify-center flex-col items-center w-full"
-                onClick={() => handleButtonClick(index + 9)}
-                onMouseEnter={() => setHoveredIndex(index + 9)}
+                onClick={() => handleButtonClick(index + 10)}
+                onMouseEnter={() => setHoveredIndex(index + 10)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <h1
                   className="flex justify-center text-white text-6xl py-0.5 rounded-full font-bold hover:bg-slate-200 hover:text-black w-full"
                 >
-                  {index + 10}
+                  {index + 11}
                 </h1>
               </a>
             ))}

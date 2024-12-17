@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const UrbanAssaultVehiclePage = () => {
-  const [showMore, setShowMore] = useState(false);
+ 
   const [animate, setAnimate] = useState(false);
   const [showScrollButton, setShowScrollButton] = useState(false);
 
@@ -73,29 +73,21 @@ const UrbanAssaultVehiclePage = () => {
         </div>
 
         {/* Button Section */}
-        <div className="text-center my-8 ">
-          <button
-            onClick={() => setShowMore(!showMore)}
-            className="inline-block bg-yellow-600 text-white text-3xl px-6 py-3 mt-11 rounded-lg shadow-lg hover:bg-blue-700 transition-all"
-          >
-            {showMore ? "Hide Details" : "Click Here for More Details"}
-          </button>
-        </div>
-      </div>
+       
 
       {/* Hidden Section with New Gradient */}
-      {showMore && (
+       (
         <div className=" py-12 bg-slate-800 transition-opacity duration-700 ease-in-out">
           {/* Video Section */}
           <div className="my-12">
             <h2 className="text-center font-bold text-blue-800 text-5xl mb-4">
               Interview Video
             </h2>
-            <div className="relative w-full h-[550px] max-w-3xl bg-black mx-auto aspect-w-16 aspect-h-9">
+            <div className="relative w-[500px] h-[400px] max-w-3xl bg-black mx-auto aspect-w-16 aspect-h-9">
               <iframe
                 src="https://www.youtube.com/embed/C7JAMJPU3Yg?feature=oembed"
                 title="Interview Video"
-                className="w-full h-full rounded-lg shadow-lg"
+                className="w-[500px] h-[400px] rounded-lg shadow-lg"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
@@ -165,7 +157,7 @@ const UrbanAssaultVehiclePage = () => {
   </div>
 </div>
 </div>
-)}
+)
 
 
       {/* Back to Top Button */}
@@ -201,6 +193,7 @@ const UrbanAssaultVehiclePage = () => {
           />
         </a>
       </div>
+    </div>
     </div>
   );
 };

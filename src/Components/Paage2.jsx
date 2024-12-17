@@ -96,7 +96,7 @@ const PhotographyPage = () => {
 
     {/* Border Line Animation Section */}
     <div className="mt-8 relative">
-      <div className="absolute inset-x-0 bottom-0 h-[8px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-80 animate-pulse"></div>
+      <div className="absolute inset-x-0 bottom-0 h-[25px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-80 animate-pulse"></div>
     </div>
 
 
@@ -124,7 +124,7 @@ const PhotographyPage = () => {
 
     {/* Border Line Animation Section */}
     <div className="mt-8 relative">
-      <div className="absolute inset-x-0 bottom-0 h-[8px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-80 animate-pulse"></div>
+      <div className="absolute inset-x-0 bottom-0 h-[25px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-80 animate-pulse"></div>
     </div>
 
 
@@ -175,10 +175,7 @@ const PhotographyPage = () => {
       />
     </div>
 
-    {/* Border Line Animation Section */}
-    <div className="mt-8 relative">
-      <div className="absolute inset-x-0 bottom-0 h-[8px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-80 animate-pulse"></div>
-    </div>
+    
 
     {/* Additional Images Section */}
     <div className="mt-10 space-y-8">
@@ -204,7 +201,7 @@ const PhotographyPage = () => {
 
       {/* Border Line Animation Section */}
     <div className="mt-8 relative">
-      <div className="absolute inset-x-0 bottom-0 h-[8px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-80 animate-pulse"></div>
+      <div className="absolute inset-x-0 bottom-0 h-[25px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-80 animate-pulse"></div>
     </div>
     </div>
   </div>
@@ -253,19 +250,19 @@ const PhotographyPage = () => {
       ))}
       {/* Border Line Animation Section */}
     <div className="mt-8 relative">
-      <div className="absolute inset-x-0 bottom-0 h-[8px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-80 animate-pulse"></div>
+      <div className="absolute inset-x-0 bottom-0 h-[25px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-80 animate-pulse"></div>
     </div>
     </div>
   </div>
 
 </section>
               {/* Additional Section */}
-              <section className="bg-gray-200 py-10">
+              <section className="bg-gray-600 py-10">
                 <div className="max-w-7xl mx-auto px-4">
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                  <h3 className="text-5xl font-semibold text-blue-800 mb-4">
                     About Me
                   </h3>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-yellow-500 text-3xl font-bold leading-relaxed">
                     With a passion for photography, I have explored various
                     facets of this art form, from portraits to landscapes.
                     Every click captures a story, a moment frozen in time. Join
