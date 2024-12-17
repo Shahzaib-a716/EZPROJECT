@@ -11,6 +11,14 @@ const SongsPage = () => {
   const handlePlayNew = () => setIsPlayingNew(true);
   const handlePauseNew = () => setIsPlayingNew(false);
 
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <div
       className="min-h-screen bg-cover bg-center text-white"
@@ -33,21 +41,13 @@ const SongsPage = () => {
         </p>
       </div>
       <div className="mt-5 relative">
-      <div className="absolute inset-x-0 bottom-0 h-[12px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-80 animate-pulse"></div>
-    </div>
+        <div className="absolute inset-x-0 bottom-0 h-[12px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-80 animate-pulse"></div>
+      </div>
 
       {/* Audio Section */}
       <div className=" bg-gradient-to-b  py-16 px-6 rounded-lg shadow-lg">
         {/* Back Button */}
-        <div className="mb-10 flex justify-start">
-          <a href="/Proof" className="inline-block">
-            <img
-              src="/assets/images/button back.webp"
-              alt="Go Back"
-              className="w-[50px] h-[62px] md:w-16 md:h-16 hover:opacity-80 transition duration-300 transform hover:scale-110"
-            />
-          </a>
-        </div>
+       
 
         {/* Original Song Section */}
         <div className="mb-16 text-center">
@@ -55,31 +55,31 @@ const SongsPage = () => {
             Original Song
           </h3>
           <div className="relative inline-block">
-          <audio
-  controls
-  className="w-full md:w-[500px] mx-auto rounded-lg border-2 border-[#9333EA] shadow-md hover:shadow-lg transition duration-300"
-  onPlay={handlePlayOriginal}
-  onPause={handlePauseOriginal}
->
-  <style>
-    {`
-      /* Style the audio progress bar */
-      audio::-webkit-progress-bar {
-        background-color: #f3f4f6; /* Light background color */
-        border-radius: 15px;
-      }
+            <audio
+              controls
+              className="w-full md:w-[500px] mx-auto rounded-lg border-2 border-[#9333EA] shadow-md hover:shadow-lg transition duration-300"
+              onPlay={handlePlayOriginal}
+              onPause={handlePauseOriginal}
+            >
+              <style>
+                {`
+                  /* Style the audio progress bar */
+                  audio::-webkit-progress-bar {
+                    background-color: #f3f4f6; /* Light background color */
+                    border-radius: 15px;
+                  }
 
-      audio::-webkit-progress-value {
-        background-color: #9333EA; /* Color for the filled part of the bar */
-        border-radius: 5px;
-      }
+                  audio::-webkit-progress-value {
+                    background-color: #9333EA; /* Color for the filled part of the bar */
+                    border-radius: 5px;
+                  }
 
-      audio::-webkit-progress-tick {
-        background-color: #9333EA; /* Color of the ticks on the progress bar */
-      }
-    `}
-  </style>
-</audio>
+                  audio::-webkit-progress-tick {
+                    background-color: #9333EA; /* Color of the ticks on the progress bar */
+                  }
+                `}
+              </style>
+            </audio>
 
             {isPlayingOriginal && (
               <div className="absolute inset-x-0 bottom-[10px] flex justify-center space-x-1">
@@ -137,6 +137,38 @@ const SongsPage = () => {
           © 2024 Les The Handyman - Crafted with love and rhythm.
         </p>
       </footer>
+
+      {/* Back to Top Button (Bottom-right) */}
+      <div
+        className="fixed bottom-8 right-8 bg-blue-500 p-4 rounded-full cursor-pointer shadow-lg hover:bg-blue-600 transition transform hover:scale-110"
+        onClick={scrollToTop}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-12 h-10 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="4"
+            d="M19 9l-7-7-7 7M12 2v14"
+          />
+        </svg>
+      </div>
+
+      {/* Back Button (Bottom-left) */}
+      <div className="fixed bottom-8 left-8">
+        <a href="/Proof" className="inline-block">
+          <img
+            src="/assets/images/button back.webp"
+            alt="Go Back"
+            className="w-[50px] h-[60px] md:w-[100px] md:h-[100px] hover:opacity-80 transition duration-300 transform hover:scale-110"
+          />
+        </a>
+      </div>
     </div>
   );
 };

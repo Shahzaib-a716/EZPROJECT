@@ -49,6 +49,8 @@ import Page3 from './Components/Page3';
 import NewTradePerson from './Components/NewTradePerson';
 import Add from './Components/Add';
 import Add1 from './Components/Add1';
+import Page7 from './Components/Page7';
+import Page14 from './Components/Page14';
 
 
 
@@ -108,6 +110,8 @@ function App() {
           <Route path="Page6" element={<Page6/>}/>
           <Route path="Page9" element={<Page9/>}/>
           <Route path="Page16" element={<Page16/>}/>
+          <Route path="Page7" element={<Page7/>}/>
+          <Route path="Page14" element={<Page14/>}/>
 
 
 
