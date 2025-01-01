@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FormVB1 from './FormVB1'; // Import your component here
 
 const CustomLayout = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [isFormVB1Visible, setIsFormVB1Visible] = useState(false); // State to control visibility of FormVB1
+
  
    const [openList, setOpenList] = useState(null);
 
@@ -34,7 +37,13 @@ const CustomLayout = () => {
 
   const toggleList = (listId) => {
     setOpenList((prev) => (prev === listId ? null : listId));
+
+    
   };
+  const handleIcon1Click = () => {
+    setIsFormVB1Visible(true); 
+  };
+
 
   return (
     <div
@@ -60,7 +69,7 @@ const CustomLayout = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="relative h-[638px] w-[868px] p-4 border-4 border-gray-400">
+      <div className="relative h-[758px] w-[868px] p-4 border-4 border-gray-400">
         <img
           src="/assets/images/background.webp"
           alt="Your Image"
@@ -75,7 +84,7 @@ const CustomLayout = () => {
   <img
           src="/assets/images/button left 1.webp"
           alt="Icon 1"
-          className="w-16 h-53 cursor-pointer"
+          className="w-16 h-[260px] cursor-pointer"
           onClick={() => toggleList(1)}
         />
   
@@ -176,7 +185,7 @@ const CustomLayout = () => {
   <img
           src="/assets/images/button left 2.webp"
           alt="Icon 1"
-          className="w-16 h-48 cursor-pointer"
+          className="w-16 h-[240px] cursor-pointer"
           onClick={() => toggleList(2)}
         />
   
@@ -237,7 +246,7 @@ const CustomLayout = () => {
   <img
           src="/assets/images/button left 3.webp"
           alt="Icon 1"
-          className="w-16 h-54 cursor-pointer"
+          className="w-16 h-[256px] cursor-pointer"
           onClick={() => toggleList(3)}
         />
   
@@ -309,7 +318,7 @@ const CustomLayout = () => {
    </div>
  )}
   
-          <img src="/assets/images/button virtual house back.webp" alt="Icon 3" className="w-17 h-16" />
+          <img src="/assets/images/button search blue.webp" alt="Icon 3" className="w-17 h-16" />
         </div>
 
         {/* Right Side Icons */}
@@ -318,22 +327,27 @@ const CustomLayout = () => {
             <img src="/assets/images/button right call.webp" className="w-16 h-16" />
             <img src="assets/images/button right pizza.webp" alt="Icon 4" className="w-16 h-32" />
           </button>
-          <img src="/assets/images/button right countdown.webp" className="w-16 h-32 " />
-          <img src="/assets/images/button right brain.webp" className="w-16 h-32" />
-          <img src="assets/images/button right training.webp" className="w-16 h-32" />
-          <img src="/assets/images/button right lawyer.webp" className="w-16 h-28" />
+          <img src="/assets/images/button right countdown.webp" className="w-16 h-[155px] " />
+          <img src="/assets/images/button right brain.webp" className="w-16 h-[156px]" />
+          <img src="assets/images/button right training.webp" className="w-16 h-[155px]" />
+          <img src="/assets/images/button right lawyer.webp" className="w-16 h-[156px]" />
           <img src="/assets/images/button help dark yellow.webp" className="w-16 h-16" />
         </div>
 
-        {/* Display Area */}
-        <div className="bg-gray-200 h-[400px] w-[820px] border-4 border-white relative">
-          <img
-            src="/assets/images/background.webp"
-            alt="Your Image"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
+        <div className="bg-black h-[520px] w-[815px] border-4 border-white relative">
+        <img
+          src="/assets/images/background.webp"
+          alt="Your Image"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
+        {/* Conditionally render FormVB1 */}
+        {isFormVB1Visible && (
+          <div className="absolute top- left-1 bg-white shadow-md rounded-lg">
+            <FormVB1 /> {/* This is your component */}
+          </div>
+        )}
+      </div>
         {/* Date and Time */}
         <div className="relative text-black font-extrabold flex items-center  justify-center text-2xl text-bold mt-5">
           {`${formattedDate}, ${formattedTime}`}
@@ -342,12 +356,12 @@ const CustomLayout = () => {
         {/* Bottom Icons */}
         <div className="relative grid grid-cols-8 gap-4 mt-5">
           {/* First row of icons */}
-          <button onClick={() => navigate('/Callback')}>
-            <img
-              src="/assets/images/button bottom 1.webp"
-              alt="Icon 10"
-              className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
-            />
+          <button onClick={handleIcon1Click}>
+          <img
+            src="/assets/images/button bottom 1.webp"
+            alt="Icon 1"
+            className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
+          />
           </button>
           <img src="/assets/images/button2.webp" alt="Icon 9" className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]" />
           <img src="/assets/images/button bottom 3.webp" alt="Icon 9" className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]" />

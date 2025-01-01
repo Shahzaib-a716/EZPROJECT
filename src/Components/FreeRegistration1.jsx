@@ -159,9 +159,9 @@ const FreeRegistration = () => {
               onClick={handleBackClick}
             />
             <div className="w-full">
-              <h1 className="font-extrabold text-xl md:text-3xl">FREE REGISTRATION</h1>
-              <h1 className="m-0 pl-1 pr-1 text-white text-lg md:text-lg">
-                IF YOU DO NOT SEE YOUR AREA, THEN{' '}
+              <h1 className="font-extrabold text-xl md:text-3xl">FREE BUSINESS REGISTRATION</h1>
+              <h1 className="m-0 pl-1 pr-1 text-white text-xl md:text-lg">
+                DO NOT SEE YOUR AREA, THEN{' '}
                 <a
                   className="font-bold text-yellow-300 text-base md:text-xl cursor-pointer"
                   href="/ContactUs"

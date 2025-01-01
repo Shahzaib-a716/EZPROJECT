@@ -41,13 +41,29 @@ const FlagDisplay = () => {
     });
   };
 
+  // Handle the back navigation
+  const handleBackClick = () => {
+    navigate(-1); // Navigate to the previous page in history
+  };
+
   return (
-    <div className="min-h-screen bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url(/assets/images/day.jpg)' }}>
+    <div className="min-h-screen bg-no-repeat bg-center bg-cover relative" style={{ backgroundImage: 'url(/assets/images/day.jpg)' }}>
+      {/* Back Button */}
+      
+      <img
+              className="w-20 absolute top-4 left-4 rounded-full cursor-pointer"
+              src="/assets/images/button back.webp"
+              alt="Back"
+              onClick={handleBackClick}
+            />
+      
+
       <div className="flex flex-col gap-4 md:gap-3 justify-center items-center text-center">
         <h1 className="text-3xl text-white font-bold mt-8 mb-4" style={{ textShadow: 'rgba(0, 0, 0, 0.4) 0.08em 0.08em 0.08em' }}>
           {t('selectLanguage')} {/* Use translation for language selection title */}
         </h1>
-        <div className="mt-16 mb-20 mx-6 grid grid-cols-3 md:grid-cols-6 gap-10 md:gap-14 justify-center">
+
+        <div className="mt-2 mb-20 mx-6 grid grid-cols-3 md:grid-cols-6 gap-10 md:gap-14 justify-center">
           {flags.map((flag, index) => (
             <div key={index} className="rounded-2xl" onClick={() => handleFlagClick(flag)}>
               <img

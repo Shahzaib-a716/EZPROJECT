@@ -91,7 +91,7 @@ const ProofPage = () => {
             </a>
             <a
               className="flex justify-center flex-col mb-4 items-center w-full"
-              href="https://proof.ez123.eu//Songs/"
+              href="/Page6"
             >
               <h1 className="flex justify-center text-white text-6xl py-0.5 rounded-full font-bold hover:bg-slate-200 hover:text-black w-full">6</h1>
             </a>

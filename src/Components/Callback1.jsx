@@ -9,7 +9,7 @@ const ContactForm = () => {
   return (
     <div>
     {/* Top Header */}
-    <div className="bg-blue-400 text-white max-w-5xl px-4 py-2 ml-[170px] mb-2 flex justify-between items-center rounded-t-lg">
+    <div className="bg-blue-400 text-white max-w-5xl px-4 py-2 ml-[330px] mb-2 flex justify-between items-center rounded-t-lg">
       <h1 className="text-2xl font-bold">New Business Record</h1>
       <div className="flex items-center space-x-3">
         <img

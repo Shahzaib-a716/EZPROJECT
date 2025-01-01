@@ -54,6 +54,7 @@ import Page14 from './Components/Page14';
 import Les1 from './Components/Les1';
 import Les3 from './Components/Les3';
 import Les4 from './Components/Les4';
+import FormVB1 from './Components/FormVB1';
 
 
 
@@ -118,6 +119,7 @@ function App() {
           <Route path="Les1" element={<Les1/>}/>
           <Route path="Les3" element={<Les3/>}/>
           <Route path="Les4" element={<Les4/>}/>
+          <Route path="FormVB1" element={<FormVB1/>}/>
 
 
 

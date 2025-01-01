@@ -29,7 +29,7 @@ function VirtualHousePage() {
         {/* Content Section */}
         <div className="mt-4 text-xl font-bold">
           <p>
-            If you cannot find what you are looking for, you can help us create a virtual house in
+            You can help us create a virtual house in
             your community. You need at least 100,000 people living near you to be eligible. It costs you nothing. However, it will take time
             to find all the different types of goods, services in your area, promoting your own small business at the same time. We will
             help you do this, and that too is free, because we have a proven system that works.
@@ -39,33 +39,51 @@ function VirtualHousePage() {
         {/* Bottom Section with Three Icons */}
         <div className="flex items-center justify-between mt-8">
           {/* Back Button */}
-          <button onClick={() => navigate(-1)}>
-            <img
-              src="/assets/images/button back.webp"
-              alt="Back Icon"
-              className="w-16 h-18"
-            />
-          </button>
+          <button onClick={() => navigate(-1)} className="relative group">
+  <img
+    src="/assets/images/button back.webp"
+    alt="Back Icon"
+    className="w-16 h-18"
+  />
+  
+  {/* Tooltip Above */}
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-red-500 to-yellow-500 text-white text-lg rounded py-2 px-4 z-10 whitespace-nowrap">
+    Go Back {/* Tooltip text */}
+  </div>
+</button>
+
 
           {/* Virtual House Icon */}
           <Link to="/VirtualPage">
-            <div className="relative group">
-              <img
-                src="/assets/images/vh.png"
-                alt="Virtual House"
-                className="w-46 h-32 cursor-pointer transform transition duration-300 group-hover:-translate-y-2"
-              />
-            </div>
-          </Link>
+  <div className="relative group">
+    <img
+      src="/assets/images/vh.png"
+      alt="Virtual House"
+      className="w-46 h-32 cursor-pointer transform transition duration-300 group-hover:-translate-y-2"
+    />
+    
+    {/* Tooltip Above */}
+    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-blue-500  font-bold to-purple-600 text-white text-xl rounded py-2 px-4 z-10 whitespace-nowrap">
+      Try Our Test House {/* Static text for the tooltip */}
+    </div>
+  </div>
+</Link>
+
 
           {/* Forward Button */}
-          <div className="flex items-center text-xl font-bold cursor-pointer">
-            <img
-              src="/assets/images/button next.webp"
-              alt="Forward Icon"
-              className="ml-4 w-16 h-18"
-            />
-          </div>
+          <div className="relative group flex items-center text-xl font-bold cursor-pointer">
+  <img
+    src="/assets/images/button next.webp"
+    alt="Forward Icon"
+    className="ml-4 w-16 h-18"
+  />
+
+  {/* Tooltip Above */}
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-green-500 to-blue-500 text-white text-lg rounded py-2 px-4 z-10 whitespace-nowrap">
+    Next {/* Tooltip text */}
+  </div>
+</div>
+
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 const VirtualPage = () => {
   const [selectedIcon, setSelectedIcon] = useState(null);
   const [isModalPersistent, setIsModalPersistent] = useState(false);
@@ -9,26 +8,27 @@ const VirtualPage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(1); // State to manage zoom level
+
+  // Zoom In logic: Increase size (maximum 1.5x)
   const handleZoomIn = () => {
-    setZoomLevel((prev) => Math.max(prev + 0.1, 1)); // Zoom in (decreases size)
+    setZoomLevel((prev) => Math.min(prev + 0.1,1 )); // Zoom in (max 1.5x)
   };
 
+  // Zoom Out logic: Decrease size (minimum 1x)
   const handleZoomOut = () => {
-    setZoomLevel((prev) => prev - 0.1); // Zoom out (increases size)
+    setZoomLevel((prev) => Math.min(prev - 0.1,0.9 )); // Zoom out (no smaller than 1x)
   };
 
   const handleSearch = () => {
     setLoading(true);
     setTimeout(() => {
-      // Simulate search results
       setSearchResults([
-        { id: 1, title: 'HANDYMAN / WOMAN ', description: 'This is a sample result.' },
+        { id: 1, title: 'HANDYMAN / WOMAN', description: 'This is a sample result.' },
         { id: 2, title: 'Example Result 2', description: 'Another example result.' },
       ]);
       setLoading(false);
     }, 1000);
   };
-
 
   const iconDetails = {
     1: {
@@ -135,6 +135,8 @@ const VirtualPage = () => {
       description:
         'IT WILL SAVE A BUSY PERSON AT LEAST 60 DAYS WORTH OF TIME A YEAR',
     },
+  
+    // Other icons here...
   };
 
   const handleIconHover = (iconNumber) => {
@@ -173,186 +175,180 @@ const VirtualPage = () => {
 
   return (
     <div
-    className="min-h-screen bg-no-repeat bg-center bg-cover"
-    style={{
-      backgroundImage: 'url(/assets/images/day.jpg)', // Background image
-      backgroundSize: 'cover', // Don't apply scaling to the background image
-      backgroundPosition: 'center',
-    }}
-  >
-    {/* Content Container (this will zoom in/out) */}
-    <div
-      className="transition-transform duration-300"
+      className="min-h-screen bg-no-repeat bg-center bg-cover"
       style={{
-        transform: `scale(${zoomLevel})`, // This applies scaling to content only
-        transformOrigin: 'center center', // Zoom centered
+        backgroundImage: 'url(/assets/images/day.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
-      {/* Top Controls */}
-      <div className="flex justify-center items-center m-2 ml-[280px] gap-3">
-        {/* Language Dropdown */}
-        <div className="dropdown relative">
-          <img
-            onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="w-[190px] rounded-3xl cursor-pointer"
-            src="/assets/images/en.png"
-            alt="English Flag"
-          />
-          {dropdownOpen && (
-            <div className="absolute mt-2 left-0 bg-white border rounded shadow-lg p-2">
-              {['de', 'fr', 'hu'].map((lang, index) => (
-                <div
-                  key={index}
-                  className="flex items-center p-2 text-lg rounded cursor-pointer gap-3 hover:bg-gray-200"
-                  onClick={() => {
-                    setDropdownOpen(false);
-                    alert(`Selected language: ${lang}`);
-                  }}
-                >
-                  <img
-                    src={`/assets/images/${lang}.png`}
-                    className="w-8 rounded"
-                    alt={`${lang} Flag`}
-                  />
-                  <span>
-                    {lang === 'de' ? 'Deutsch' : lang === 'fr' ? 'Française' : 'Magyar'}
-                  </span>
+      {/* Content Container (this will zoom in/out) */}
+      <div
+        className="transition-transform duration-300"
+        style={{
+          transform: `scale(${zoomLevel})`, // Apply zoom scaling
+          transformOrigin: 'top center',  // Zoom effect from top-center
+          width: '100%', // Prevent scaling beyond container
+        }}
+      >
+        {/* Top Controls */}
+        <div className="flex justify-center items-center m-2 ml-[280px] gap-3">
+          {/* Language Dropdown */}
+          <div className="dropdown relative">
+            <img
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="w-[190px] rounded-3xl cursor-pointer"
+              src="/assets/images/en.png"
+              alt="English Flag"
+            />
+            {dropdownOpen && (
+              <div className="absolute mt-2 left-0 bg-white border rounded shadow-lg p-2">
+                {['de', 'fr', 'hu'].map((lang, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center p-2 text-lg rounded cursor-pointer gap-3 hover:bg-gray-200"
+                    onClick={() => {
+                      setDropdownOpen(false);
+                      alert(`Selected language: ${lang}`);
+                    }}
+                  >
+                    <img
+                      src={`/assets/images/${lang}.png`}
+                      className="w-8 rounded"
+                      alt={`${lang} Flag`}
+                    />
+                    <span>
+                      {lang === 'de' ? 'Deutsch' : lang === 'fr' ? 'Française' : 'Magyar'}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Search Bar */}
+          <div className="flex items-center bg-white pl-1 pr-1 w-full md:w-[1700px] rounded-full gap-1">
+            <button>
+              <img
+                className="w-[100px] rounded-3xl"
+                src="/assets/images/microphone.png"
+                alt="Microphone Icon"
+              />
+            </button>
+            <input
+              type="search"
+              className="w-full rounded-2xl border-none text-center text-xl text-sky-600"
+              placeholder="Type In What You Are Looking For"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleSearch();
+              }}
+            />
+            <img
+              className="w-[110px] rounded hover:scale-110 cursor-pointer"
+              src="/assets/images/search.png"
+              alt="Search Icon"
+              onClick={handleSearch}
+            />
+          </div>
+
+          {/* Zoom Controls (Aligned to the right) */}
+          <div className="flex gap-2 mr-[200px]">
+            <button onClick={handleZoomIn} className="p-2 text-white rounded">
+              <img
+                className="w-[180px] h-[75px]"
+                src="/assets/images/button zoom out.webp"
+                alt="Zoom In"
+              />
+            </button>
+            <button onClick={handleZoomOut} className="p-2 text-white">
+              <img
+                className="w-[180px] h-[75px]"
+                src="/assets/images/button minus.webp"
+                alt="Zoom Out"
+              />
+            </button>
+          </div>
+        </div>
+
+        {/* Search Results */}
+        <div className="mt-8">
+          {loading ? (
+            <p className="text-center text-4xl text-gray-500">Loading...</p>
+          ) : searchResults.length > 0 ? (
+            <div className="flex flex-wrap justify-center gap-6">
+              {searchResults.map((result) => (
+                <div key={result.id} className="bg-white shadow-lg rounded-lg p-4 w-80">
+                  <h2 className="text-2xl font-bold mb-2">{result.title}</h2>
+                  <p className="text-gray-600">{result.description}</p>
                 </div>
               ))}
             </div>
+          ) : (
+            searchQuery && (
+              <p className="text-center text-2xl text-red-500">
+                No results found for "{searchQuery}".
+              </p>
+            )
           )}
         </div>
 
-        {/* Search Bar */}
-        <div className="flex items-center bg-white pl-1 pr-1 w-full md:w-[1700px] rounded-full gap-1">
-          <button>
-            <img
-              className="w-[100px] rounded-3xl"
-              src="/assets/images/microphone.png"
-              alt="Microphone Icon"
-            />
-          </button>
-          <input
-            type="search"
-            className="w-full rounded-2xl border-none text-center text-xl text-sky-600"
-            placeholder="Type In What You Are Looking For"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') handleSearch();
-            }}
-          />
-          <img
-            className="w-[110px] rounded hover:scale-110 cursor-pointer"
-            src="/assets/images/search.png"
-            alt="Search Icon"
-            onClick={handleSearch}
-          />
-        </div>
+        {/* Sidebar and Virtual House */}
+        <div className="flex justify-center gap-3 mt-8">
+          {/* Left Sidebar Icons */}
+          <div className="basis-28">{renderIcons(1, 6)}</div>
 
-        {/* Zoom Controls (Aligned to the right) */}
-        <div className="flex gap-2 mr-[200px]">
-          <button
-            onClick={handleZoomIn}
-            className="p-2 text-white rounded "
-          >
+          {/* Virtual House */}
+          <div className="relative">
             <img
-              className="w-[180px] h-[75px]"
-              src="/assets/images/button zoom out.webp"
-              alt="Zoom In"
+              className="max-h-[98%] rounded"
+              src="/assets/images/testhouse.jpg"
+              alt="Virtual House"
             />
-          </button>
-          <button
-            onClick={handleZoomOut}
-            className="p-2  text-white"
-          >
-            <img
-              className="w-[180px] h-[75px]"
-              src="/assets/images/button minus.webp"
-              alt="Zoom Out"
-            />
-          </button>
-        </div>
-      </div>
-
-      {/* Search Results */}
-      <div className="mt-8">
-        {loading ? (
-          <p className="text-center text-4xl text-gray-500">Loading...</p>
-        ) : searchResults.length > 0 ? (
-          <div className="flex flex-wrap justify-center gap-6">
-            {searchResults.map((result) => (
-              <div key={result.id} className="bg-white shadow-lg rounded-lg p-4 w-80">
-                <h2 className="text-2xl font-bold mb-2">{result.title}</h2>
-                <p className="text-gray-600">{result.description}</p>
-              </div>
-            ))}
           </div>
-        ) : (
-          searchQuery && (
-            <p className="text-center text-2xl text-red-500">
-              No results found for "{searchQuery}".
+
+          {/* Right Sidebar Icons */}
+          <div className="basis-28">{renderIcons(7, 12)}</div>
+        </div>
+
+        {/* Modal */}
+        {selectedIcon && (
+          <div className="z-12 border-4 border-gray-700 rounded-3xl w-[80%] max-w-4xl h-[100%] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[30%] bg-white p-12 overflow-visible shadow-lg">
+            <h1 className="text-5xl font-bold mb-4">{iconDetails[selectedIcon]?.title}</h1>
+            <button
+              className="absolute bg-red-600 text-white font-extrabold text-3xl px-2 rounded-full -top-4 -right-4"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+            <p className="text-3xl font-bold mb-6">
+              {iconDetails[selectedIcon]?.description}
             </p>
-          )
+            <div className="flex justify-around mt-4">
+              {iconDetails[selectedIcon]?.img1 && (
+                <a href={iconDetails[selectedIcon]?.link1}>
+                  <img
+                    className="w-20 border-4 rounded-xl  border-green-400 cursor-pointer"
+                    src={iconDetails[selectedIcon]?.img1}
+                    alt="Single Trades Person"
+                  />
+                </a>
+              )}
+              {iconDetails[selectedIcon]?.img2 && (
+                <a href={iconDetails[selectedIcon]?.link2}>
+                  <img
+                    className="w-44 rounded-xl border-4 border-yellow-400 cursor-pointer"
+                    src={iconDetails[selectedIcon]?.img2}
+                    alt="Multiple Trades People"
+                  />
+                </a>
+              )}
+            </div>
+          </div>
         )}
       </div>
-
-
-      {/* Sidebar and Virtual House */}
-      <div className="flex justify-center gap-3 mt-8">
-        {/* Left Sidebar Icons */}
-        <div className="basis-28">{renderIcons(1, 6)}</div>
-
-        {/* Virtual House */}
-        <div className="relative">
-          <img
-            className="max-h-[98%] rounded"
-            src="/assets/images/testhouse.jpg"
-            alt="Virtual House"
-          />
-        </div>
-
-        {/* Right Sidebar Icons */}
-        <div className="basis-28">{renderIcons(7, 12)}</div>
-      </div>
-
-      {/* Modal */}
-      {selectedIcon && (
-        <div className="z-12 border-4 border-gray-700 rounded-3xl w-[80%] max-w-4xl h-[100%] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[30%] bg-white p-12 overflow-visible shadow-lg">
-          <h1 className="text-5xl font-bold mb-4">{iconDetails[selectedIcon]?.title}</h1>
-          <button
-            className="absolute bg-red-600 text-white font-extrabold text-3xl px-2 rounded-full -top-4 -right-4"
-            onClick={closeModal}
-          >
-            &times;
-          </button>
-          <p className="text-3xl font-bold mb-6">
-            {iconDetails[selectedIcon]?.description}
-          </p>
-          <div className="flex justify-around mt-4">
-            {iconDetails[selectedIcon]?.img1 && (
-              <a href={iconDetails[selectedIcon]?.link1}>
-                <img
-                  className="w-20 border-4 rounded-xl  border-green-400 cursor-pointer"
-                  src={iconDetails[selectedIcon]?.img1}
-                  alt="Single Trades Person"
-                />
-              </a>
-            )}
-            {iconDetails[selectedIcon]?.img2 && (
-              <a href={iconDetails[selectedIcon]?.link2}>
-                <img
-                  className="w-44 rounded-xl border-4 border-yellow-400 cursor-pointer"
-                  src={iconDetails[selectedIcon]?.img2}
-                  alt="Multiple Trades People"
-                />
-              </a>
-            )}
-          </div>
-        </div>
-      )}
-      </div>
-      </div>
+    </div>
   );
 };
 

@@ -152,12 +152,23 @@ const LookAround = () => {
       <div className="relative">
         <div className="grid md:grid-cols-2 gap-0 text-center">
           <div className="flex bg-orange-500 items-center">
-            <img
-              className="w-20 rounded-full cursor-pointer"
-              src="/assets/images/button back.webp"
-              alt="Back"
-              onClick={handleBackClick}
-            />
+          <div className="relative group">
+          <div className="relative group">
+  <img
+    className="w-20  rounded-full cursor-pointer"
+    src="/assets/images/button back.webp"
+    alt="Back"
+    onClick={handleBackClick}
+  />
+  
+  {/* Tooltip */}
+  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black text-white text-xl rounded py-2 px-4 z-10 whitespace-nowrap">
+    Go Back {/* Static text for the tooltip */}
+  </div>
+</div>
+</div>
+
+
             <div className="w-full">
               <h1 className="font-extrabold text-xl md:text-4xl">JUST LOOK AROUND</h1>
               <h1 className="m-0 pl-1 pr-1 text-white text-4xl md:text-3xl" font-bold>

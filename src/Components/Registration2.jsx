@@ -30,9 +30,9 @@ const Registration2 = () => {
             <img className="w-20 rounded-full cursor-pointer" src="/assets/images/button back.webp" alt="Back" onClick={handleBackClick} />
             
             <div className="w-full">
-              <h1 className="font-bold text-xl md:text-2xl">FREE BUSINESS REGISTRATION</h1>
-              <h1 className="m-0 pl-1 pr-1 text-white text-sm md:text-base">
-                IF YOU DO NOT SEE YOUR AREA, THEN{' '}
+              <h1 className="font-extrabold md:text-3xl">FREE BUSINESS REGISTRATION</h1>
+              <h1 className="m-0 pl-1 pr-1 text-white text-xl md:text-base">
+                DO NOT SEE YOUR AREA, THEN{' '}
                 <a className="font-bold text-yellow-300 text-base md:text-xl cursor-pointer" href="/ContactUs">
                   CLICK HERE
                 </a>

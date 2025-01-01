@@ -7,6 +7,10 @@ export default {
   
   theme: {
     extend: {
+      clipPath: {
+        triangle: "polygon(50% 0%, 0% 100%, 100% 100%)",
+      },
+        
       keyframes: {
         bounceIn: {
           '0%': { transform: 'scale(0.5)', opacity: 0 },
