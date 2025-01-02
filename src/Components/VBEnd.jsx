@@ -79,12 +79,12 @@ const CustomLayout = () => {
         {/* Left Side Icons */}
      {/* Left Side Icons */}
 <div className="absolute left-[-65px] top-[-64px]">
-  <img src="/assets/images/button left call.webp" className="w-16 h-16" />
+  <img src="/assets/images/button left call.webp" className="w-16 transform transition duration-300 hover:scale-125 h-16" />
   
   <img
           src="/assets/images/button left 1.webp"
           alt="Icon 1"
-          className="w-16 h-[260px] cursor-pointer"
+          className="w-16 h-[260px] cursor-pointer transform transition duration-300 hover:scale-105"
           onClick={() => toggleList(1)}
         />
   
@@ -97,7 +97,7 @@ const CustomLayout = () => {
     <div className="flex gap-1">
       {/* Left Column with Light Gray Background */}
       <ul className="w-11 p-2 rounded-lg">
-      <li className="hover:bg-purple-100 font-extrabold text-xl px-1 mb-2 bg-gray-300 rounded-lg cursor-pointer">
+      <li className="hover:bg-purple-100 font-extrabold  text-xl px-1 mb-2 bg-gray-300 rounded-lg cursor-pointer">
          2
        </li>
        <li className="hover:bg-purple-100 font-extrabold text-xl px-1 mb-2 bg-gray-300 rounded-lg cursor-pointer">
@@ -185,7 +185,7 @@ const CustomLayout = () => {
   <img
           src="/assets/images/button left 2.webp"
           alt="Icon 1"
-          className="w-16 h-[240px] cursor-pointer"
+          className="w-16 h-[240px] cursor-pointer transform transition duration-300 hover:scale-105"
           onClick={() => toggleList(2)}
         />
   
@@ -246,13 +246,13 @@ const CustomLayout = () => {
   <img
           src="/assets/images/button left 3.webp"
           alt="Icon 1"
-          className="w-16 h-[256px] cursor-pointer"
+          className="w-16 h-[256px] cursor-pointer transform transition duration-300 hover:scale-105"
           onClick={() => toggleList(3)}
         />
   
   {/* List appears vertically to the left of Icon 1 */}
   {openList === 3 && (
-     <div className="absolute left-[-320px] top-[327px] w-[320px] p-3  rounded shadow-lg">
+     <div className="absolute left-[-320px] top-[437px] w-[320px] p-3  rounded shadow-lg">
      <h2 className="text-xl bg-red-600 text-white font-bold mb-3">Booking Information</h2>
      <div className="flex ">
       {/* Left Column with Light Gray Background */}
@@ -318,20 +318,20 @@ const CustomLayout = () => {
    </div>
  )}
   
-          <img src="/assets/images/button search blue.webp" alt="Icon 3" className="w-17 h-16" />
+          <img src="/assets/images/button search blue.webp" alt="Icon 3" className="w-17 transform transition duration-300 hover:scale-125 h-16" />
         </div>
 
         {/* Right Side Icons */}
         <div className="absolute right-[-65px] top-[-62px]">
           <button onClick={() => navigate('/home')}>
-            <img src="/assets/images/button right call.webp" className="w-16 h-16" />
+            <img src="/assets/images/button right call.webp" className="w-16 transform transition duration-300 hover:scale-125 h-16" />
             <img src="assets/images/button right pizza.webp" alt="Icon 4" className="w-16 h-32" />
           </button>
           <img src="/assets/images/button right countdown.webp" className="w-16 h-[155px] " />
           <img src="/assets/images/button right brain.webp" className="w-16 h-[156px]" />
           <img src="assets/images/button right training.webp" className="w-16 h-[155px]" />
           <img src="/assets/images/button right lawyer.webp" className="w-16 h-[156px]" />
-          <img src="/assets/images/button help dark yellow.webp" className="w-16 h-16" />
+          <img src="/assets/images/button help dark yellow.webp" className="w-16 transform transition duration-300 hover:scale-125 h-16" />
         </div>
 
         <div className="bg-black h-[520px] w-[815px] border-4 border-white relative">

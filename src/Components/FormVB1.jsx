@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
 
 const ContactForm = () => {
   const navigate = useNavigate(); // Initialize navigate
+  const [familyCompanyText, setFamilyCompanyText] = useState("Family Company");
+  const [customerText, setCustomerText] = useState("Customer");
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
+  const [editText, setEditText] = useState(""); // For editing Family Company text
 
+   // Function to navigate to different pages based on button clicks
+   const navigateToPage = (path) => {
+    navigate(path);
+  };
+
+  // Handle green arrow click: move Family Company text to Customer
+  const handleGreenIconClick = () => {
+    setCustomerText(familyCompanyText); // Transfer Family Company text to Customer
+  };
+
+  // Handle edit button click: open modal with current Family Company text
+  const handleEditClick = () => {
+    setIsModalOpen(true); // Open modal
+    setEditText(familyCompanyText); // Pre-fill modal input with current Family Company text
+  };
+
+  // Save the edited text from modal
+  const handleSaveEdit = () => {
+    setFamilyCompanyText(editText); // Update Family Company text
+    setIsModalOpen(false); // Close modal
+  };
+
+  // Close modal without saving
+  const handleCancelEdit = () => {
+    setIsModalOpen(false); // Close modal
+  };
   const handleExitClick = () => {
     // Navigate to the default view (replace "/" with your default path)
     navigate("/VBEnd");
@@ -60,7 +90,7 @@ const ContactForm = () => {
               <input
                 type="text"
                 placeholder="+36"
-                className="w-full p-2 font-bold text-xl border border-gray-300 rounded"
+                className="w-full p-2 font-bold text-lg border border-gray-300 rounded"
               />
             </div>
             <div className="col-span-3">
@@ -83,7 +113,7 @@ const ContactForm = () => {
               <input
                 type="text"
                 placeholder="+36"
-                className="w-full p-2 font-bold text-xl border border-gray-300 rounded"
+                className="w-full p-2 font-bold text-lg  border border-gray-300 rounded"
               />
             </div>
             <div className="col-span-3">
@@ -130,57 +160,88 @@ const ContactForm = () => {
     placeholder="Wants"
     className="flex-1 w-11 text-2xl font-bold p-10 border border-gray-300 rounded"
   />
-  <div className="flex space-x-">  {/* Change to flex row layout */}
-    {/* Customer Section */}
-    <div className="flex  items-center">
-      {/* Customer Button */}
-      <button className="bg-blue-400 font-bold text-2xl text-black px-6 py-10 border border-white rounded">
-        Customer
-      </button>
-      {/* Icons in Column */}
-      <div className="flex flex-col">
-  <img
-    src="/assets/images/button green search big.webp"
-    alt="Icon 1"
-    className="w-[50px] h-[65px] mb-0"  // Ensure there's no margin between icons
-  />
-  <img
-    src="/assets/images/button red search big.webp"
-    alt="Icon 2"
-    className="w-[50px] h-[65px] mt-0"  // Ensure there's no margin between icons
-  />
-</div>
-
-    </div>
-
-    {/* Family Company Section */}
-    <div className="flex  items-start">
-      {/* Family Company Button */}
-      <button className="bg-orange-500 text-black font-bold text-2xl px- py-7 flex items-start border border-white rounded">
-  Family<br />Company
-</button>
-
-      {/* Icons in Column */}
-      <div className="flex flex-col ">
-        <img
-          src="/assets/images/button add message vertical.webp"
-          alt="Icon 3"
-          className="w-12 h-10"
-        />
-        <img
-          src="/assets/images/button cancel vertical.webp"
-          alt="Icon 3"
-          className="w-12 h-10"
-        />
-        <img
-          src="/assets/images/button edit mini.webp"
-          alt="Icon 4"
-          className="w-12 h-10"
-        />
+   <div className="flex space-x-"> {/* Original structure */}
+      {/* Customer Section */}
+      <div className="flex items-center">
+        {/* Customer Button */}
+        <button className="bg-blue-400 font-bold text-2xl text-black px-6 py-10 border border-white rounded w-[150px] h-[120px] overflow-hidden">
+          {customerText}
+        </button>
+        {/* Icons in Column */}
+        <div className="flex flex-col">
+          <img
+            src="/assets/images/button green search big.webp"
+            alt="Green Icon"
+            className="w-[50px] h-[65px] mb-0 cursor-pointer transform transition duration-300 hover:scale-110"
+            onClick={handleGreenIconClick} // Transfer text logic
+          />
+          <img
+            src="/assets/images/button red search big.webp"
+            alt="Red Icon"
+            className="w-[50px] h-[65px] mt-0 transform transition duration-300 hover:scale-110"
+          />
+        </div>
       </div>
+
+      {/* Family Company Section */}
+      <div className="flex items-start">
+        {/* Family Company Button */}
+        <button
+          className="bg-orange-500 text-black font-bold text-2xl px- py-7 border border-white rounded w-[150px] h-[120px] overflow-hidden"
+        >
+          {familyCompanyText}
+        </button>
+        {/* Icons in Column */}
+        <div className="flex flex-col">
+          <img
+            src="/assets/images/button add message vertical.webp"
+            alt="Add Message Icon"
+            className="w-12 h-10 transform transition duration-300 hover:scale-110"
+          />
+          <img
+            src="/assets/images/button cancel vertical.webp"
+            alt="Cancel Icon"
+            className="w-12 h-10 transform transition duration-300 hover:scale-110"
+          />
+          <img
+            src="/assets/images/button edit mini.webp"
+            alt="Edit Icon"
+            className="w-12 h-10 cursor-pointer transform transition duration-300 hover:scale-110"
+            onClick={handleEditClick} // Open modal on edit click
+          />
+        </div>
+      </div>
+
+      {/* Modal for editing Family Company */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded shadow-md w-[300px]">
+            <h2 className="text-lg font-bold mb-4">Edit Family Company Text</h2>
+            <input
+              type="text"
+              value={editText}
+              onChange={(e) => setEditText(e.target.value)}
+              className="p-2 border rounded w-full mb-4"
+            />
+            <div className="flex justify-end space-x-4">
+              <button
+                onClick={handleSaveEdit}
+                className="bg-green-500 text-white px-4 py-2 rounded"
+              >
+                Save
+              </button>
+              <button
+                onClick={handleCancelEdit}
+                className="bg-red-500 text-white px-4 py-2 rounded"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
-  </div>
-</div>
+    </div>
 
 {/* Other Matches Section */}
 <div className="mt-8 p-2 w-[656px] h-[120px] bg-cover bg-center  shadow-md"
@@ -235,48 +296,50 @@ const ContactForm = () => {
             Manually
           </h3>
 
-          {/* Icons Section */}
-          <div className="flex flex-col items-center space-y-">
-            <button className=" ">
-              <img src="/assets/images/button add message.webp" alt="Add" className="h-[90px] w-[150px]" />
-            </button>
-            <button className="  ">
-              <img src="/assets/images/button next go.webp" alt="Next" className="h-[80] w-[120" />
-            </button>
-          </div>
+        {/* Icons Section */}
+<div className="flex flex-col items-center space-y-">
+  <button className="transform transition duration-300 hover:scale-110">
+    <img src="/assets/images/button add message.webp" alt="Add" className="h-[90px] w-[150px]" />
+  </button>
+  <button
+    onClick={() => navigateToPage('/CallList')}
+    className="transform transition duration-300 hover:scale-110"
+  >
+    {/* Another page */}
+    <img src="/assets/images/button next go.webp" alt="Next" className="h-[80px] w-[120px]" />
+  </button>
+</div>
 
-          {/* Buttons Section */}
-          <div className="flex flex-col space-y">
+{/* Buttons Section */}
+<div className="flex flex-col space-y-">
   {/* Customer Button with Icon */}
-  <button className="w-full rounded flex justify-center items-center">
+  <button className="w-full rounded flex justify-center items-center transform transition duration-300 hover:scale-110">
     <img
       src="/assets/images/button customer.webp"
       alt="Customer"
-      className="w-[180px] h-8 "
+      className="w-[180px] h-8"
     />
-
   </button>
 
   {/* Company Button with Icon */}
-  <button className="">
+  <button className="transform transition duration-300 hover:scale-110">
     <img
       src="/assets/images/button company.webp"
+      alt="Company"
       className="w-[180px] h-8"
     />
   </button>
 
   {/* Business Button with Icon */}
-  <button className=" w-full rounded flex justify-center items-center">
+  <button className="w-full rounded flex justify-center items-center transform transition duration-300 hover:scale-110">
     <img
       src="/assets/images/button business.webp"
       alt="Business"
       className="w-[150px] h-8"
     />
-
   </button>
-
   {/* Personal Button with Icon */}
-  <button className="w-full rounded flex justify-center items-center">
+  <button className="w-full rounded flex justify-center mt-1 items-center transform transition duration-300 hover:scale-110">
     <img
       src="/assets/images/button personal.webp"
       alt="Personal"
@@ -285,7 +348,7 @@ const ContactForm = () => {
   </button>
 
   {/* Private Button with Icon */}
-  <button className=" w-full rounded flex justify-center items-center">
+  <button className=" w-full rounded flex justify-center items-center transform transition duration-300 hover:scale-110">
     <img
       src="/assets/images/button privat.webp"
       alt="Private"
@@ -295,7 +358,7 @@ const ContactForm = () => {
 </div>
 
 
-<div className="flex justify-center">
+<div className="flex justify-center transform transition duration-300 hover:scale-110">
             <button onClick={handleExitClick}>
               <img
                 src="/assets/images/button exit.webp"
