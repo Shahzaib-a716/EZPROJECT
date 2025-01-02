@@ -9,7 +9,7 @@ const Proof = () => {
   const texts = [
     "BiCYCLES TRAILERS DESIGNED AND BUILD",
     "FASHION AND ALL TYPE OF PHOTOGRAPHY",
-    "FATHER'S ENGINEERING",
+    "MY ENGINEERING",
     "THROUGH CREATIVILY INNOVATION, DRIVE, YOU CAN",
     "DONATING CLINICAL ENGINEERING",
     "SONGS WHICH MADE ME FAMOUS",
@@ -27,7 +27,6 @@ const Proof = () => {
     "EVERYTHING ELSE",
     " ELSE",
     " ELSE",
-    
   ];
 
   // Function to navigate to specific page based on button click
@@ -48,86 +47,110 @@ const Proof = () => {
       className="min-h-screen bg-day bg-no-repeat bg-center bg-cover"
       style={{ backgroundImage: 'url("/assets/images/day.jpg")' }}
     >
-      <div className="min-h-screen w-full md:pt-6">
-        <div className="max-w-6xl bg-black bg-opacity-[70%] rounded-md flex justify-center mx-auto">
-          {/* Left Panel */}
-          <div className="basis-32 flex flex-col items-center">
-            {[...Array(10)].map((_, index) => (
-              <a
-                key={index}
-                className="flex justify-center flex-col items-center w-full"
-                onClick={() => handleButtonClick(index)}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <h1
-                  className="flex justify-center text-white text-6xl py-0.5 rounded-full font-bold hover:bg-slate-200 hover:text-black w-full"
-                >
-                  {index + 1}
-                </h1>
-              </a>
-            ))}
-          </div>
+      {/* Back Button */}
+      <div className="absolute top-4 left-4">
+  <button onClick={() => navigate(-1)}>
+    <img
+      src="/assets/images/button back.webp"
+      alt="Back"
+      className="w-[100px] h-[100px] hover:opacity-70"
+    />
+  </button>
+</div>
 
-          {/* Center Content */}
-          <div className="w-full">
-            {/* Quote Section */}
-            <div className="w-full flex justify-center gap-4 mt-4">
-              <div className="basis-1/2 md:flex justify-center items-center hidden sm:block">
-                <div className="font-extrabold p-8 text-3xl border-2 border-gray-700 rounded-3xl bg-opacity-90 text-center bg-yellow-400">
-                  {hoveredIndex !== null ? texts[hoveredIndex] : "LESS STRESS WHEN YOU HIRE LESS"}
+
+      <div className="min-h-screen w-full md:pt-6">
+        <div className="flex flex-col gap-4 md:gap-3 justify-center items-center text-center">
+          <h1
+            className="text-2xl text-yellow-400 md:text-4xl font-extrabold w-full underline"
+            style={{
+              textShadow: 'rgba(0, 0, 0, 0.4) 0.08em 0.08em 0.08em',
+              fontFamily: '"Exo 2", Helvetica, Arial, Lucida, sans-serif',
+            }}
+          >
+            THE THINGS I HAVE ACCOMPLISHED IN MY LIFE, <br />USING MY OWN SOFTWARE
+          </h1>
+
+          <div className="max-w-6xl bg-black bg-opacity-[70%] rounded-md flex justify-center mx-auto">
+            {/* Left Panel */}
+            <div className="basis-32 flex flex-col items-center">
+              {[...Array(10)].map((_, index) => (
+                <a
+                  key={index}
+                  className="flex justify-center flex-col items-center w-full"
+                  onClick={() => handleButtonClick(index)}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <h1
+                    className="flex justify-center text-white text-6xl py-0.5 rounded-full font-bold hover:bg-slate-200 hover:text-black w-full"
+                  >
+                    {index + 1}
+                  </h1>
+                </a>
+              ))}
+            </div>
+
+            {/* Center Content */}
+            <div className="w-full">
+              {/* Quote Section */}
+              <div className="w-full flex justify-center gap-4 mt-4">
+                <div className="basis-1/2 md:flex justify-center items-center hidden sm:block">
+                  <div className="font-extrabold p-8 text-3xl border-2 border-gray-700 rounded-3xl bg-opacity-90 text-center bg-yellow-400">
+                    {hoveredIndex !== null ? texts[hoveredIndex] : "LESS STRESS WHEN YOU HIRE LESS"}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Proof Statement */}
-            <div className="flex flex-col justify-center gap-4 w-full">
-              <div className="flex justify-center">
-                <a href="LESTHEHANDYMAN">
-                  <img
-                    src="/assets/images/LesHandyman.png"
-                    className="w-52 transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 duration-300"
-                    alt="Les The Handyman"
-                  />
-                </a>
-              </div>
-              <h1 className="border-4 bg-black border-yellow-500 text-yellow-500 text-3xl text-center">
-                I am living proof that anything is possible and my software will help you achieve great things if we customize it for you further
-              </h1>
-            </div>
-          </div>
-
-          {/* Right Panel */}
-          <div className="basis-32 flex flex-col items-center">
-            {[...Array(10)].map((_, index) => (
-              <a
-                key={index + 11}
-                className="flex justify-center flex-col items-center w-full"
-                onClick={() => handleButtonClick(index + 10)}
-                onMouseEnter={() => setHoveredIndex(index + 10)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <h1
-                  className="flex justify-center text-white text-6xl py-0.5 rounded-full font-bold hover:bg-slate-200 hover:text-black w-full"
-                >
-                  {index + 11}
+              {/* Proof Statement */}
+              <div className="flex flex-col justify-center gap-4 w-full">
+                <div className="flex justify-center">
+                  <a href="LESTHEHANDYMAN">
+                    <img
+                      src="/assets/images/LesHandyman.png"
+                      className="w-52 transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110 duration-300"
+                      alt="Les The Handyman"
+                    />
+                  </a>
+                </div>
+                <h1 className="border-4 bg-black border-yellow-500 text-yellow-500 text-3xl text-center">
+                  I am living proof that anything is possible and my software will help you achieve great things if we customize it for you further
                 </h1>
-              </a>
-            ))}
+              </div>
+            </div>
+
+            {/* Right Panel */}
+            <div className="basis-32 flex flex-col items-center">
+              {[...Array(10)].map((_, index) => (
+                <a
+                  key={index + 11}
+                  className="flex justify-center flex-col items-center w-full"
+                  onClick={() => handleButtonClick(index + 10)}
+                  onMouseEnter={() => setHoveredIndex(index + 10)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <h1
+                    className="flex justify-center text-white text-6xl py-0.5 rounded-full font-bold hover:bg-slate-200 hover:text-black w-full"
+                  >
+                    {index + 11}
+                  </h1>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Footer */}
-      <div
-        className="text-center pt-1 w-full text-3xl font-bold text-white font-bold"
-        style={{
-          textShadow:
-            'rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 0px -1px 0px, rgb(0, 0, 0) 0px 1px 0px, rgb(0, 0, 0) -1px 0px 0px',
-        }}
-      >
-        All Rights reserved • Service Hub by Total Mizers Ltd. Toronto, Ontario
-        CANADA (416) 333.FAST (3278) Copyright © 2016 - 2024, Les The Handyman.
+        {/* Footer */}
+        <div
+          className="text-center pt-1 w-full text-3xl font-bold text-white font-bold"
+          style={{
+            textShadow:
+              'rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 0px -1px 0px, rgb(0, 0, 0) 0px 1px 0px, rgb(0, 0, 0) -1px 0px 0px',
+          }}
+        >
+          All Rights reserved • Service Hub by Total Mizers Ltd. Toronto, Ontario
+          CANADA (416) 333.FAST (3278) Copyright © 2016 - 2024, Les The Handyman.
+        </div>
       </div>
     </div>
   );

@@ -28,20 +28,20 @@ const MatchForm = () => {
             <img
               src="/assets/images/button plus.webp"
               alt="Zoom Out"
-              className="w-12 h-12 cursor-pointer"
+              className="w-12 h-12 transform transition duration-300 hover:scale-125 cursor-pointer"
               onClick={zoomOut}
             />
             {/* Zoom Plus (Zoom In) Icon */}
             <img
               src="/assets/images/button minus.webp"
               alt="Zoom In"
-              className="w-12 h-12 cursor-pointer"
+              className="w-12 h-12 transform transition duration-300 hover:scale-125 cursor-pointer"
               onClick={zoomIn}
             />
             <img
               src="/assets/images/button help purple.webp"
               alt="Help"
-              className="w-12 h-12"
+              className="w-12 transform transition duration-300 hover:scale-125 h-12"
             />
           </div>
         </div>
@@ -139,14 +139,14 @@ const MatchForm = () => {
                   <img
                     src="/assets/images/button add message.webp"
                     alt="Add"
-                    className="h-[130px] w-[180px]"
+                    className="h-[130px] transform transition duration-300 hover:scale-110 w-[180px]"
                   />
                 </button>
                 <button>
                   <img
                     src="/assets/images/button ignore new.webp"
                     alt="Next"
-                    className="h-[130px] w-[180px]"
+                    className="h-[130px]  transform transition duration-300 hover:scale-110 w-[180px]"
                   />
                 </button>
               </div>
@@ -154,14 +154,14 @@ const MatchForm = () => {
                 <img
                   src="/assets/images/button combine them both.webp"
                   alt="Combine"
-                  className="h-[130px] w-[140px] ml-6 mt-2"
+                  className="h-[130px] w-[140px] transform transition duration-300 hover:scale-110 ml-6 mt-2"
                 />
               </button>
               <button className="mt-7">
                 <img
                   src="/assets/images/button cancel vertical.webp"
                   alt="Cancel"
-                  className="mt-2 h-[130px] w-[140px] ml-6"
+                  className="mt-2 h-[130px] w-[140px] ml-6 transform transition duration-300 hover:scale-110 "
                 />
               </button>
             </div>
@@ -208,7 +208,7 @@ const MatchForm = () => {
                     <img
                       src={`/assets/images/${icon}`}
                       alt={`Icon ${idx + 1}`}
-                      className="w-[105px] ml-1 h-[35px]"
+                      className="w-[105px] transform transition duration-300 hover:scale-110 ml-1 h-[35px]"
                     />
                   </button>
                 ))}

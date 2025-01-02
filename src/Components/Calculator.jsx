@@ -1,237 +1,234 @@
-import React, { useState } from "react";
+import React from "react";
 
-const MatchForm = () => {
-  const [zoomLevel, setZoomLevel] = useState(1); // Default zoom level
-
-  const zoomOut = () => {
-    setZoomLevel((prevZoom) => Math.min(prevZoom + 0.1, 2)); // Minimum zoom level is 0.5
-  };
-
-  const zoomIn = () => {
-    setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 0.5)); // Maximum zoom level is 2
-  };
-
+const NewCustomerForm = () => {
   return (
-    <div
-      className="bg-cover bg-center min-h-screen"
-      style={{
-        backgroundImage:
-          'url("/assets/images/Background textures green1.webp")',
-      }}
-    >
-      {/* Top Header */}
-      <div className="flex justify-center ">
-        <div className="bg-blue-400 text-white w-[80%] px-4 py-2 flex justify-between items-center rounded-t-lg">
-          <h1 className="text-2xl font-bold">Matches have beeen found <span className="text-yellow-300 text-4xl">:Bart</span></h1>
-          <div className="flex items-center space-x-3">
-            {/* Zoom Minus (Zoom Out) Icon */}
-            <img
-              src="/assets/images/button plus.webp"
-              alt="Zoom Out"
-              className="w-12 h-12 transform transition duration-300 hover:scale-125 cursor-pointer"
-              onClick={zoomOut}
-            />
-            {/* Zoom Plus (Zoom In) Icon */}
-            <img
-              src="/assets/images/button minus.webp"
-              alt="Zoom In"
-              className="w-12 h-12 transform transition duration-300 hover:scale-125 cursor-pointer"
-              onClick={zoomIn}
-            />
-            <img
-              src="/assets/images/button help purple.webp"
-              alt="Help"
-              className="w-12 transform transition duration-300 hover:scale-125 h-12"
-            />
-          </div>
+    <div className=" max-w-4xl  mx-auto">
+      {/* Header */}
+      <div className="bg-green-700 text-white  px-4 py-2 flex justify-between items-center rounded-t-lg">
+        <h1 className="text-2xl font-bold">New Business Record</h1>
+        <div className="flex items-center space-x-3">
+          <img
+            src="/assets/images/button zoom out.webp"
+            alt="Icon 1"
+            className="w-12 h-12"
+          />
+          <img
+             src="/assets/images/button zoom in.webp"
+            alt="Icon 2"
+            className="w-12 h-12"
+          />
+          <img
+             src="/assets/images/button help purple.webp"
+            alt="Icon 3"
+            className="w-12 h-12"
+          />
         </div>
       </div>
 
       {/* Main Content */}
-      <div
-        className="flex justify-center mt-2"
-        style={{
-          transform: `scale(${zoomLevel})`, // Apply zoom level
-          transformOrigin: "top center", // Adjust zoom origin
-        }}
-      >
-        <div
-          className="bg-cover bg-center shadow-lg rounded-lg w-[80%] h-[80%] p-5 relative"
-          style={{
-            backgroundImage:
-              'url("/assets/images/background metal texture.webp")',
-          }}
-        >
-          <div className="flex gap-4 relative">
-            {/* Left Section */}
-            <div
-              className="w-[400px] border-2 border-white p-4 mt-2 mb-2 bg-cover bg-center"
-              style={{
-                backgroundImage:
-                  'url("/assets/images/Background textures indigo blue.webp")',
-              }}
-            >
-              <h2 className="text-blue-900 mb-2 font-extrabold text-5xl flex justify-center mt-2">
-                ORIGINAL
-              </h2>
-              <div className="space-y-2">
-                {[
-                  "Salutation",
-                  "Name",
-                  "Company",
-                  "Search Phrase",
-                  "Home",
-                  "Pager",
-                  "Work",
-                  "Mobile",
-                  "Address",
-                ].map((placeholder) => (
-                  <div className="flex flex-col" key={placeholder}>
-                    <input
-                      type="text"
-                      placeholder={placeholder}
-                      className="border border-gray-300 rounded text-2xl font-bold text-gray-500"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+      <div className="flex mt-2">
+        {/* Form Section */}
+        <div className="p-4 bg-green-700 flex-1">
+          {/* Buttons Section */}
+          <div className="grid grid-cols-2 gap-4">
+          <div className="flex space-x-8 items-center">
+  {/* Customer Section */}
+  <div className="flex items-center space-x-4">
+    {/* Customer Button */}
+    <button className="bg-blue-500 text-white px-6 py-12 rounded">
+      Customer
+    </button>
+    {/* Icons in Column */}
+    <div className="flex flex-col space-y-">
+      <img
+        src="/assets/images/button green search big.webp"
+        alt="Icon 1"
+        className="w-8 h-8"
+      />
+      <img
+        src="/assets/images/button green search .webp"
+        alt="Icon 2"
+        className="w-8 h-8"
+      />
+      <img
+        src="/assets/images/button red search big.webp"
+        alt="Icon 2"
+        className="w-8 h-8"
+      />
+    </div>
+  </div>
 
-            {/* Right Section */}
-            <div className="w-[400px] border-2 border-white bg-yellow-200 p-4 mt-2 mb-2">
-              <h2 className="text-green-700 mb-2 font-extrabold text-5xl mt-2 flex justify-center whitespace-nowrap">
-                NEW MATCH
-              </h2>
-              <div className="space-y-2">
-                {[
-                  "Salutation",
-                  "Name",
-                  "Company",
-                  "Search Phrase",
-                  "Home",
-                  "Pager",
-                  "Work",
-                  "Mobile",
-                  "Address",
-                ].map((placeholder) => (
-                  <div className="flex flex-col" key={placeholder}>
-                    <input
-                      type="text"
-                      placeholder={placeholder}
-                      className="border border-gray-300 rounded text-2xl font-bold text-gray-500"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+  {/* Family Company Section */}
+  <div className="flex items-center space-x-4">
+    {/* Family Company Button */}
+    <button className="bg-orange-500 text-white px-6 py-9 rounded">
+      Family Company
+    </button>
+    {/* Icons in Column */}
+    <div className="flex flex-col space-y-2">
+      <img
+        src="/assets/images/button add message vertical.webp"
+        alt="Icon 3"
+        className="w-8 h-8"
+      />
+       <img
+        src="/assets/images/button cancel vertical.webp"
+        alt="Icon 3"
+        className="w-8 h-8"
+      />
+      <img
+        src="/assets/images/button edit mini.webp"
+        alt="Icon 4"
+        className="w-8 h-8"
+      />
+    </div>
 
-            {/* Right Icon Section */}
-            <div
-              className="absolute top-0 right-0 h-[720px] w-[190px] border-2 border-white space-y-2"
-              style={{ transform: "translateY(11px)" }}
-            >
-              <h1 className="font-bold flex mt-6 justify-center text-4xl">
-                Select
-              </h1>
-              <h1 className="font-bold flex justify-center text-4xl">Below</h1>
-              <div className="flex flex-col items-center space-y-8">
-                <button>
-                  <img
-                    src="/assets/images/button add message.webp"
-                    alt="Add"
-                    className="h-[130px] transform transition duration-300 hover:scale-110 w-[180px]"
-                  />
-                </button>
-                <button>
-                  <img
-                    src="/assets/images/button ignore new.webp"
-                    alt="Next"
-                    className="h-[130px]  transform transition duration-300 hover:scale-110 w-[180px]"
-                  />
-                </button>
+                <label className="inline-flex items-center">
+                  <input type="checkbox" className="ml-[200px] form-checkbox" />
+                  <span className="ml-2 font-bold text-white">References?</span>
+                </label>
               </div>
-              <button>
-                <img
-                  src="/assets/images/button combine them both.webp"
-                  alt="Combine"
-                  className="h-[130px] w-[140px] transform transition duration-300 hover:scale-110 ml-6 mt-2"
-                />
-              </button>
-              <button className="mt-7">
-                <img
-                  src="/assets/images/button cancel vertical.webp"
-                  alt="Cancel"
-                  className="mt-2 h-[130px] w-[140px] ml-6 transform transition duration-300 hover:scale-110 "
-                />
-              </button>
             </div>
           </div>
 
-          {/* Other Matches Section */}
-          <div className="mt-4 flex space-x-4">
-            {/* First Box */}
-            <div
-              className="w-[572px] h-[230px] bg-cover bg-center flex flex-col justify-between"
-              style={{
-                backgroundImage:
-                  'url("/assets/images/Background textures red.webp")',
-              }}
-            >
-              <h3 className="text-black font-bold text-4xl">
-                Other matches found
-              </h3>
-              <div className="ml-3 w-[540px]">
-                {[
-                  "Les Bubik (416)-484-4611",
-                  "Les Bubik (416)-484-4611",
-                  "Leslie Bart (416)-484-4611",
-                ].map((text, idx) => (
-                  <p
-                    key={idx}
-                    className="text-blue-500 bg-white text-3xl font-bold hover:underline cursor-pointer"
-                  >
-                    {text}
-                  </p>
-                ))}
-              </div>
+          {/* Input Fields */}
+          <div className="mt-4 space-y-2">
+            <input
+              type="text"
+              placeholder="Name"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+            />
+            <input
+              type="text"
+              placeholder="Company Name"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+            />
 
-              {/* Row of Icon Buttons */}
-              <div className="flex w-full mb-2">
-                {[
-                  "button customer.webp",
-                  "button company.webp",
-                  "button business.webp",
-                  "button personal.webp",
-                  "button privat.webp",
-                ].map((icon, idx) => (
-                  <button key={idx} className="flex">
-                    <img
-                      src={`/assets/images/${icon}`}
-                      alt={`Icon ${idx + 1}`}
-                      className="w-[105px] transform transition duration-300 hover:scale-110 ml-1 h-[35px]"
-                    />
-                  </button>
-                ))}
+            {/* Phone Numbers */}
+            {[...Array(4)].map((_, index) => (
+              <div key={index} className="flex space-x-2">
+                <input
+                  type="text"
+                  placeholder="+36"
+                  className="w-1/4  border border-gray-300 rounded px-3 py-2"
+                />
+                <input
+                  type="text"
+                  placeholder="(XXX)"
+                  className="w-1/4 border border-gray-300 rounded px-3 py-2"
+                />
+                <input
+                  type="text"
+                  placeholder="XXX-XXXX"
+                  className="w-1/2 border border-gray-300 rounded px-3 py-2"
+                />
               </div>
+            ))}
+
+            {/* Address Fields */}
+            <div className="grid grid-cols-3 gap-2">
+              <input
+                type="text"
+                placeholder="Province"
+                className="border border-gray-300 rounded px-3 py-2"
+              />
+              <input
+                type="text"
+                placeholder="City"
+                className="border border-gray-300 rounded px-3 py-2"
+              />
+              <input
+                type="text"
+                placeholder="Country"
+                className="border border-gray-300 rounded px-3 py-2"
+              />
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+              <input
+                type="text"
+                placeholder="Apt. #"
+                className="border border-gray-300 rounded px-3 py-2"
+              />
+              <input
+                type="text"
+                placeholder="Entry Code"
+                className="border border-gray-300 rounded px-3 py-2"
+              />
+              <input
+                type="text"
+                placeholder="Postal Code"
+                className="border border-gray-300 rounded px-3 py-2"
+              />
             </div>
 
-            {/* Second Box */}
-            <div
-              className="w-[225px] h-[230px] bg-cover bg-center p-4"
-              style={{
-                backgroundImage:
-                  'url("/assets/images/Background textures orange.webp")',
-              }}
-            >
-              <h3 className="text-black font-bold mt-4 mb-8 text-3xl">
-                What to do with the NEW MATCH?
-              </h3>
-            </div>
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+            />
+            <textarea
+              placeholder="Wants"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+            />
+          </div>
+
+          {/* Dropdown Section */}
+          <div className="flex items-center mt-4 space-x-2">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Google_Maps_icon_%282020%29.svg"
+              alt="Google Maps"
+              className="w-[50px] h-8"
+            />
+            <select className="border border-gray-300 rounded px-3 py-2 flex-1">
+              <option>First Contact</option>
+            </select>
+            <select className="border border-gray-300 rounded px-3 py-2 ">
+              <option>How did they find me?</option>
+            </select>
+            <select className="border border-gray-300 rounded px-3 ">
+              <option>Client Comments</option>
+            </select>
           </div>
         </div>
+
+        {/* Check and Cross Section */}
+       {/* Check and Cross Section */}
+<div className="flex flex-col justify-between bg-green-700 w-[160px] items-center py-4">
+  {/* Rectangle Box */}
+  <div className="border-2 border-white h-[650px]  p-4 flex flex-col items-center">
+    {/* Approve Button */}
+    <button
+      onClick={() => alert('Approved!')}
+      className="mt-4"
+      aria-label="Approve"
+    >
+      <img
+        src="/assets/images/button ok check.webp"
+        alt="Approve"
+        className="w-[100px] h-[100px]"
+      />
+    </button>
+
+    {/* Reject Button */}
+    <button
+      onClick={() => alert('Rejected!')}
+      className="mt-4"
+      aria-label="Reject"
+    >
+      <img
+        src="/assets/images/button cancel no.webp"
+        alt="Reject"
+        className="w-[100px] h-[100px]"
+      />
+    </button>
+  </div>
+  
+</div>
+
+
       </div>
     </div>
   );
 };
 
-export default MatchForm;
+export default NewCustomerForm;
