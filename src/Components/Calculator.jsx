@@ -1,271 +1,232 @@
 import React, { useState } from "react";
 
-const CallBackList = () => {
-  const [zoomLevel, setZoomLevel] = useState(1); // Start with zoom level 1 (original size)
-  const [selectedRadio, setSelectedRadio] = useState(null); // Track selected radio button
+const MatchForm = () => {
+  const [zoomLevel, setZoomLevel] = useState(1); // Default zoom level
 
-  // Function to zoom in (increase the zoom level)
-  const zoomIn = () => {
-    setZoomLevel((prevZoom) => Math.min(prevZoom + 0.1, 1)); // Keep the zoom level at or below 1
-  };
-
-  // Function to zoom out (decrease the zoom level)
   const zoomOut = () => {
-    setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 0.5)); // Min zoom level is 0.5
+    setZoomLevel((prevZoom) => Math.min(prevZoom + 0.1, 2)); // Minimum zoom level is 0.5
   };
 
-  // Handle radio button click
-  const handleRadioClick = (i) => {
-    setSelectedRadio(i); // Set selected radio index
+  const zoomIn = () => {
+    setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 0.5)); // Maximum zoom level is 2
   };
 
   return (
     <div
+      className="bg-cover bg-center min-h-screen"
       style={{
-        transform: `scale(${zoomLevel})`, // Apply zoom level to the entire content
-        transformOrigin: "top center", // Keep content centered on zoom
-        transition: "transform 0.3s ease", // Smooth transition for zoom
+        backgroundImage:
+          'url("/assets/images/Background textures green1.webp")',
       }}
     >
       {/* Top Header */}
-      <div className="bg-blue-400 text-white max-w-4xl px-4 py-2 ml-[259px] flex justify-between items-center rounded-t-lg w-full">
-        <h1 className="text-2xl font-bold"> Call Back List</h1>
-        <div className="flex items-center space-x-3">
-          {/* Zoom Minus (Zoom Out) Icon */}
-          <img
-            src="/assets/images/button minus.webp"
-            alt="Zoom Out"
-            className="w-12 h-12 cursor-pointer"
-            onClick={zoomOut} // Zoom out (decrease size) on click
-          />
-          {/* Zoom Plus (Zoom In) Icon */}
-          <img
-            src="/assets/images/button plus.webp"
-            alt="Zoom In"
-            className="w-12 h-12 cursor-pointer"
-            onClick={zoomIn} // Zoom in (increase size) on click
-          />
-          <img
-            src="/assets/images/button help purple.webp"
-            alt="Help"
-            className="w-12 h-12"
-          />
+      <div className="flex justify-center ">
+        <div className="bg-blue-400 text-white w-[80%] px-4 py-2 flex justify-between items-center rounded-t-lg">
+          <h1 className="text-2xl font-bold">Matches have beeen found <span className="text-yellow-300 text-4xl">:Bart</span></h1>
+          <div className="flex items-center space-x-3">
+            {/* Zoom Minus (Zoom Out) Icon */}
+            <img
+              src="/assets/images/button plus.webp"
+              alt="Zoom Out"
+              className="w-12 h-12 transform transition duration-300 hover:scale-125 cursor-pointer"
+              onClick={zoomOut}
+            />
+            {/* Zoom Plus (Zoom In) Icon */}
+            <img
+              src="/assets/images/button minus.webp"
+              alt="Zoom In"
+              className="w-12 h-12 transform transition duration-300 hover:scale-125 cursor-pointer"
+              onClick={zoomIn}
+            />
+            <img
+              src="/assets/images/button help purple.webp"
+              alt="Help"
+              className="w-12 transform transition duration-300 hover:scale-125 h-12"
+            />
+          </div>
         </div>
       </div>
 
-      {/* Main Content Container */}
+      {/* Main Content */}
       <div
-        className="max-w-4xl ml-[259px] bg-cover bg-center mt-4"
+        className="flex justify-center mt-2"
         style={{
-          backgroundImage: "url('/assets/images/background metal texture.webp')",
-          minHeight: "100vh",
+          transform: `scale(${zoomLevel})`, // Apply zoom level
+          transformOrigin: "top center", // Adjust zoom origin
         }}
       >
-        {/* Main Content */}
-        <div className="bg-cover bg-center rounded-b-lg p-4 shadow-lg">
-          <div className="grid grid-cols-12 gap-4">
+        <div
+          className="bg-cover bg-center shadow-lg rounded-lg w-[80%] h-[80%] p-5 relative"
+          style={{
+            backgroundImage:
+              'url("/assets/images/background metal texture.webp")',
+          }}
+        >
+          <div className="flex gap-4 relative">
             {/* Left Section */}
-            <div className="col-span-9">
-              {/* Customer and Wants */}
-              <div className="grid grid-cols-12 gap-2 mb-4">
-                <button className="col-span-2 w-[130px] bg-green-500 text-white text-lg font-bold py-10 rounded">
-                  Customer
-                </button>
-                <input
-                  type="text"
-                  placeholder="Wants"
-                  className="col-span-10 p-2 border w-[500px] ml-[100px] border-gray-400 rounded"
-                />
-              </div>
-
-              {/* Name and Country Fields */}
-              <div className="grid grid-cols-12 w-[700px] gap-2 mb-4">
-                {/* Name Input */}
-                <div className="col-span-6">
-                  <input
-                    type="text"
-                    placeholder="First Name"
-                    className="w-[330px] p-2 text-2xl font-bold border border-gray-400 rounded"
-                  />
-                </div>
-                {/* Country Input */}
-                <div className="col-span-6">
-                  <input
-                    type="text"
-                    placeholder="Last Name"
-                    className="w-full p-2 text-2xl font-bold border border-gray-400 rounded"
-                  />
-                </div>
-              </div>
-
-              {/* Phone Number Table */}
-              <div className="grid grid-cols-12 w-[840px] items-center mb-4">
-                {Array(4)
-                  .fill(0)
-                  .map((_, i) => (
-                    <React.Fragment key={i}>
-                      <div className="col-span-1">
-                        <label
-                          className={`block w-4 h-4 ${
-                            selectedRadio === i ? "bg-orange-500" : "bg-white"
-                          } rounded-full  mx-auto cursor-pointer`}
-                        >
-                          {/* Radio button */}
-                          <input
-                            type="radio"
-                            name="phone-radio"
-                            className="opacity-0 absolute w-0 h-0"
-                            onClick={() => handleRadioClick(i)}
-                          />
-                        </label>
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="1"
-                        className="col-span-1 p-2 w-[60px] border text-2xl font-bold border-gray-400 rounded"
-                      />
-                      <input
-                        type="text"
-                        placeholder="(XXX)"
-                        className="col-span-2 p-2 border w-[130px] text-2xl font-bold border-gray-400 rounded"
-                      />
-                      {/* Input with embedded icon */}
-                      <div className="col-span-6 relative">
-                        <input
-                          type="text"
-                          placeholder="XXX-XXXX"
-                          className="w-full p-2 border text-2xl font-bold border-gray-400 rounded"
-                        />
-                        {/* Dynamic Image Source */}
-                        <img
-                          src={`/assets/images/${[
-                            "button home phone black.webp",
-                            "button mobile phone black.webp",
-                            "button office phone black.webp",
-                            "button voicemail phone black.webp",
-                          ][i]}`}
-                          alt={`phone-icon-${i + 1}`}
-                          className="absolute top-1/2 right-2 transform -translate-y-1/2 w-9 h-9"
-                        />
-                      </div>
-                      {/* Empty column for spacing */}
-                      <div className="col-span-2"></div>
-                    </React.Fragment>
-                  ))}
-              </div>
-
-              {/* Table of Calls */}
-              <div className="border-t w-[700px] h-auto bg-white border-gray-400 mt-4 pt-4">
-                <div className="grid grid-cols-12 font-bold text-gray-700">
-                  <div className="col-span-3">Date last called</div>
-                  <div className="col-span-3">When called</div>
-                  <div className="col-span-3">Customer Name</div>
-                  <div className="col-span-3">Phone number</div>
-                </div>
-
-                {Array(8)
-                  .fill(0)
-                  .map((_, i) => (
-                    <div
-                      key={i}
-                      className="grid grid-cols-12 text-gray-700 text-sm font-bold mt-2"
-                    >
-                      <div className="col-span-3 text-blue-500">
-                        Sun, Dec 27, 2015
-                      </div>
-                      <div className="col-span-3 text-green-500">(1 day)</div>
-                      <div className="col-span-3 text-red-500">Robbie</div>
-                      <div className="col-span-3 text-purple-500">
-                        (416)-442-9066
-                      </div>
-                    </div>
-                  ))}
+            <div
+              className="w-[400px] border-2 border-white p-4 mt-2 mb-2 bg-cover bg-center"
+              style={{
+                backgroundImage:
+                  'url("/assets/images/Background textures indigo blue.webp")',
+              }}
+            >
+              <h2 className="text-blue-900 mb-2 font-extrabold text-5xl flex justify-center mt-2">
+                ORIGINAL
+              </h2>
+              <div className="space-y-2">
+                {[
+                  "Salutation",
+                  "Name",
+                  "Company",
+                  "Search Phrase",
+                  "Home",
+                  "Pager",
+                  "Work",
+                  "Mobile",
+                  "Address",
+                ].map((placeholder) => (
+                  <div className="flex flex-col" key={placeholder}>
+                    <input
+                      type="text"
+                      placeholder={placeholder}
+                      className="border border-gray-300 rounded text-2xl font-bold text-gray-500"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Right Section */}
-            <div className="col-span-3 h-[700px] flex flex-col border border-white items-center ml-[50px]">
-              {/* Buttons */}
-              <h1 className="font-bold text-xl flex justify-center mt-5">for this client</h1>
-              <div className="flex flex-col items-center">
-                <button className="mt-2 ">
+            <div className="w-[400px] border-2 border-white bg-yellow-200 p-4 mt-2 mb-2">
+              <h2 className="text-green-700 mb-2 font-extrabold text-5xl mt-2 flex justify-center whitespace-nowrap">
+                NEW MATCH
+              </h2>
+              <div className="space-y-2">
+                {[
+                  "Salutation",
+                  "Name",
+                  "Company",
+                  "Search Phrase",
+                  "Home",
+                  "Pager",
+                  "Work",
+                  "Mobile",
+                  "Address",
+                ].map((placeholder) => (
+                  <div className="flex flex-col" key={placeholder}>
+                    <input
+                      type="text"
+                      placeholder={placeholder}
+                      className="border border-gray-300 rounded text-2xl font-bold text-gray-500"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Icon Section */}
+            <div
+              className="absolute top-0 right-0 h-[720px] w-[190px] border-2 border-white space-y-2"
+              style={{ transform: "translateY(11px)" }}
+            >
+              <h1 className="font-bold flex mt-6 justify-center text-4xl">
+                Select
+              </h1>
+              <h1 className="font-bold flex justify-center text-4xl">Below</h1>
+              <div className="flex flex-col items-center space-y-8">
+                <button>
                   <img
-                    src="/assets/images/button call.webp"
+                    src="/assets/images/button add message.webp"
                     alt="Add"
-                    className="h-[110px] w-[130px]"
+                    className="h-[130px] transform transition duration-300 hover:scale-110 w-[180px]"
                   />
                 </button>
-                <button className="mt-2">
+                <button>
                   <img
-                    src="/assets/images/button call2.webp"
+                    src="/assets/images/button ignore new.webp"
                     alt="Next"
-                    className="h-[110px] w-[130px]"
+                    className="h-[130px]  transform transition duration-300 hover:scale-110 w-[180px]"
                   />
                 </button>
               </div>
-
-              <button className="mt- ">
+              <button>
+                <img
+                  src="/assets/images/button combine them both.webp"
+                  alt="Combine"
+                  className="h-[130px] w-[140px] transform transition duration-300 hover:scale-110 ml-6 mt-2"
+                />
+              </button>
+              <button className="mt-7">
                 <img
                   src="/assets/images/button cancel vertical.webp"
-                  alt="Show"
-                  className="h-[80px] w-[100px]"
-                />
-              </button>
-              <button className="mt- ">
-                <img
-                  src="/assets/images/button next go.webp"
-                  alt="Next Call"
-                  className="h-[80px] w-[100px]"
-                />
-              </button>
-              <button className="mt-[172px] ">
-                <img
-                  src="/assets/images/button exit.webp"
-                  alt="Next Call"
-                  className="h-[80px] w-[110px]"
+                  alt="Cancel"
+                  className="mt-2 h-[130px] w-[140px] ml-6 transform transition duration-300 hover:scale-110 "
                 />
               </button>
             </div>
           </div>
 
-          {/* Bottom Navigation */}
-          <div className="flex w-[700px] mt-1">
-            <button className="flex-1">
-              <img
-                src="/assets/images/button customer.webp"
-                alt="Customer"
-                className="w-[135px] h-[35px]"
-              />
-            </button>
-            <button className="flex-1">
-              <img
-                src="/assets/images/button company.webp"
-                alt="Company"
-                className="w-[135px] h-[35px]"
-              />
-            </button>
-            <button className="flex-1">
-              <img
-                src="/assets/images/button business.webp"
-                alt="Business"
-                className="w-[135px] h-[35px]"
-              />
-            </button>
-            <button className="flex-1">
-              <img
-                src="/assets/images/button personal.webp"
-                alt="Personal"
-                className="w-[135px] h-[35px]"
-              />
-            </button>
-            <button className="flex-1">
-              <img
-                src="/assets/images/button privat.webp"
-                alt="Private"
-                className="w-[140px] h-[35px]"
-              />
-            </button>
-            
+          {/* Other Matches Section */}
+          <div className="mt-4 flex space-x-4">
+            {/* First Box */}
+            <div
+              className="w-[572px] h-[230px] bg-cover bg-center flex flex-col justify-between"
+              style={{
+                backgroundImage:
+                  'url("/assets/images/Background textures red.webp")',
+              }}
+            >
+              <h3 className="text-black font-bold text-4xl">
+                Other matches found
+              </h3>
+              <div className="ml-3 w-[540px]">
+                {[
+                  "Les Bubik (416)-484-4611",
+                  "Les Bubik (416)-484-4611",
+                  "Leslie Bart (416)-484-4611",
+                ].map((text, idx) => (
+                  <p
+                    key={idx}
+                    className="text-blue-500 bg-white text-3xl font-bold hover:underline cursor-pointer"
+                  >
+                    {text}
+                  </p>
+                ))}
+              </div>
+
+              {/* Row of Icon Buttons */}
+              <div className="flex w-full mb-2">
+                {[
+                  "button customer.webp",
+                  "button company.webp",
+                  "button business.webp",
+                  "button personal.webp",
+                  "button privat.webp",
+                ].map((icon, idx) => (
+                  <button key={idx} className="flex">
+                    <img
+                      src={`/assets/images/${icon}`}
+                      alt={`Icon ${idx + 1}`}
+                      className="w-[105px] transform transition duration-300 hover:scale-110 ml-1 h-[35px]"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Second Box */}
+            <div
+              className="w-[225px] h-[230px] bg-cover bg-center p-4"
+              style={{
+                backgroundImage:
+                  'url("/assets/images/Background textures orange.webp")',
+              }}
+            >
+              <h3 className="text-black font-bold mt-4 mb-8 text-3xl">
+                What to do with the NEW MATCH?
+              </h3>
+            </div>
           </div>
         </div>
       </div>
@@ -273,4 +234,4 @@ const CallBackList = () => {
   );
 };
 
-export default CallBackList;
+export default MatchForm;

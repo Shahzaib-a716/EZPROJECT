@@ -4,11 +4,11 @@ const MatchForm = () => {
   const [zoomLevel, setZoomLevel] = useState(1); // Default zoom level
 
   const zoomOut = () => {
-    setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 0.5)); // Minimum zoom level is 0.5
+    setZoomLevel((prevZoom) => Math.min(prevZoom + 0.1, 2)); // Minimum zoom level is 0.5
   };
 
   const zoomIn = () => {
-    setZoomLevel((prevZoom) => Math.min(prevZoom + 0.1, 2)); // Maximum zoom level is 2
+    setZoomLevel((prevZoom) => Math.max(prevZoom - 0.1, 0.5)); // Maximum zoom level is 2
   };
 
   return (
@@ -26,14 +26,14 @@ const MatchForm = () => {
           <div className="flex items-center space-x-3">
             {/* Zoom Minus (Zoom Out) Icon */}
             <img
-              src="/assets/images/button minus.webp"
+              src="/assets/images/button plus.webp"
               alt="Zoom Out"
               className="w-12 h-12 cursor-pointer"
               onClick={zoomOut}
             />
             {/* Zoom Plus (Zoom In) Icon */}
             <img
-              src="/assets/images/button plus.webp"
+              src="/assets/images/button minus.webp"
               alt="Zoom In"
               className="w-12 h-12 cursor-pointer"
               onClick={zoomIn}
