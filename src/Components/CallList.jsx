@@ -164,7 +164,7 @@ const CallBackList = () => {
                           src={`/assets/images/${[
                             "button home phone black.webp",
                             "button mobile phone black.webp",
-                            "button office phone black.webp",
+                            "button mobile phone black.webp",
                             "button voicemail phone black.webp",
                           ][i]}`}
                           alt={`phone-icon-${i + 1}`}

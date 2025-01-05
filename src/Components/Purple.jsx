@@ -5,6 +5,17 @@ const NewCustomerForm = () => {
   const [customerText, setCustomerText] = useState("Customer");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editText, setEditText] = useState("");
+  const [isOpen, setIsOpen] = useState(false); // To toggle dropdown visibility
+  const [selectedOption, setSelectedOption] = useState('How did they find me?');
+  const [workingHours, setWorkingHours] = useState("9:00 AM - 8:00 PM");
+  const [breakTime, setBreakTime] = useState("12:00 PM - 1:00 PM");
+
+  const options = ['Name 2', 'Name 3', 'Name 4'];
+
+  const handleOptionClick = (option) => {
+    setSelectedOption(option); // Set selected option
+    setIsOpen(false); // Close dropdown
+  };
 
   const handleGreenIconClick = () => {
     setCustomerText(familyCompanyText);
@@ -27,13 +38,16 @@ const NewCustomerForm = () => {
   return (
     <div
       className="max-w-5xl mx-auto bg-cover bg-center rounded-lg overflow-hidden"
+
       style={{
-        backgroundImage: 'url("/assets/images/Background textures green1.webp")',
+        backgroundImage: 'url("/assets/images/Background textures deep blue.webp")',
       }}
+
+      
     >
       {/* Header */}
-      <div className="bg-green-700 text-white px-4 py-2 flex justify-between items-center rounded-t-lg">
-        <h1 className="text-4xl font-bold">New Business Record</h1>
+      <div className="bg-blue-500 text-white px-4 py-2 flex justify-between items-center rounded-t-lg">
+        <h1 className="text-4xl font-bold">New Customer Record</h1>
         <div className="flex items-center space-x-3">
           <img
             src="/assets/images/button plus.webp"
@@ -111,15 +125,27 @@ const NewCustomerForm = () => {
                   />
                 </div>
 
-                <label className="inline-flex items-center">
-                  <input
-                    type="checkbox"
-                    className="w-4 h-4 rounded-3xl bg-white text-blue-500  focus:outline-none ml-[130px] mb-[90px]"
-                  />
-                  <span className="ml-4 font-bold text-2xl mb-[90px] text-white">
-                    References?
-                  </span>
-                </label>
+                <div className="flex flex-col  ml-[170px] mb-[30px]">
+                  <label className="inline-flex items-center">
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4 rounded-3xl ml-[140px] bg-white text-blue-500 focus:outline-none"
+                    />
+                    <span className="ml-4 font-bold text-2xl text-white">
+                      References?
+                    </span>
+                  </label>
+                  <label className="inline-flex items-center">
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4 rounded-3xl ml-[140px] bg-white text-blue-500 focus:outline-none"
+                    />
+                    <span className="ml-4 font-bold text-2xl text-white">
+                      Company?
+                    </span>
+                  </label>
+                </div>
+
               </div>
             </div>
           </div>
@@ -130,11 +156,6 @@ const NewCustomerForm = () => {
               type="text"
               placeholder="Name"
               className="w-full border text-2xl font-bold text-center border-gray-300 rounded px-3 py-2"
-            />
-            <input
-              type="text"
-              placeholder="Company Name"
-              className="w-full border text-2xl text-center font-bold border-gray-300 rounded px-3 py-2"
             />
 
            {/* Phone Numbers */}
@@ -223,6 +244,36 @@ const NewCustomerForm = () => {
               placeholder="@"
               className="w-full border border-gray-300 text-center text-2xl font-bold rounded px-3 py-2"
             />
+            {/* Working Hours and Break */}
+            <div className="flex mt-4">
+
+  <div className="flex flex-col space-x-11 items-center mb-3  mr-9">
+    <div className="flex items-center space-x-4 mt-2">
+      <input type="radio" id="working-hours" name="schedule" defaultChecked />
+      <label htmlFor="working-hours" className="text-white text-2xl font-bold">
+        Working Hours
+      </label>
+    </div>
+    <div className="text-green-500 bg-white  font-bold px-[80px] text-2xl mt-2">
+      {workingHours}
+    </div>
+  </div>
+
+
+  <div className="flex flex-col items-center">
+    <div className="flex items-center space-x-4 mt-2">
+      <input type="radio" id="break-time" name="schedule" />
+      <label htmlFor="break-time" className="text-white text-2xl font-bold">
+        Break
+      </label>
+    </div>
+    <div className="text-orange-500 px-[80px] font-bold text-2xl bg-white mt-2">
+      {breakTime}
+    </div>
+  </div>
+</div>
+
+            
             <textarea
               placeholder="Wants"
               className="w-full border border-gray-300 text-center text-2xl font-bold rounded px-3 py-2"
@@ -236,23 +287,46 @@ const NewCustomerForm = () => {
               alt="Google Maps"
               className="w-[100px] h-[100px] transform transition duration-500 hover:scale-125"
             />
-            <div className="flex flex-col space-y-1 flex-1">
-              <select className="border border-gray-300 rounded text-gray-400 text-center text-2xl font-bold px-3">
-                <option>First Contact</option>
-              </select>
-              <select className="border border-gray-300 rounded text-gray-400 text-center text-2xl font-bold px-">
-                <option>How did they find me?</option>
-              </select>
-              <select className="border border-gray-300 rounded text-gray-400 text-center text-2xl font-bold px-3">
-                <option>Client Comments</option>
-              </select>
-            </div>
+           <div className="flex flex-col space-y-4 flex-1">
+           <div className="flex flex-col space-y-4 flex-1">
+  {/* First Dropdown: No Arrow */}
+  <select
+    className="border bg-white border-gray-300 rounded text-gray-400 text-center text-2xl font-bold px-3"
+    style={{
+      appearance: 'none', // Hide default arrow
+      WebkitAppearance: 'none',
+      MozAppearance: 'none',
+     // Remove background (optional)
+    }}
+  >
+    <option>First Contact</option>
+  </select>
+
+  
+  {/* Dropdown */}
+  <select
+    className="border border-gray-300 rounded text-gray-400 text-center text-2xl font-bold px-3 bg-white"
+    style={{
+      position: 'relative',
+      overflow: 'visible',
+
+    }}
+  >
+    {['How did they find me?', 'Name 2', 'Name 3', 'Name 4'].map((name, index) => (
+      <option key={index}>{name}</option>
+    ))}
+  </select>
+
+</div>
+
+
+          </div>
           </div>
         </div>
 
         {/* Right Section */}
         <div className="w-[160px] flex flex-col justify-between items-center py-4 border-white">
-          <div className="border-2 border-white h-[870px]  p-4 flex flex-col items-center">
+          <div className="border-2 border-white h-[970px]  p-4 flex flex-col items-center">
             {/* Approve Button */}
             <button
               onClick={() => alert("Approved!")}

@@ -1,18 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const EmailFormPage = () => {
   const location = useLocation();
-  const [email, setEmail] = useState(location.state?.email || ''); // Prefill email if passed back
   const navigate = useNavigate();
-
+  
+  const [email, setEmail] = useState(location.state?.email || ''); // Prefill email if passed back
+  
+  useEffect(() => {
+    // Check if email already exists in localStorage
+    const storedEmail = localStorage.getItem('email');
+    if (storedEmail) {
+      setEmail(storedEmail);
+    }
+  }, []);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Conditional navigation
-    if (email.toLowerCase() === 'les123@gmail.com') {
-      navigate('/Booking', { state: { email } }); // Navigate to a specific page
+
+    const storedEmail = localStorage.getItem('email');
+    
+    if (storedEmail) {
+      // If the email has been entered before, navigate to a different page
+      navigate('/ServiceSelection', { state: { email } });
     } else {
-      navigate('/Enter1', { state: { email } }); // Default navigation
+      // First-time email submission
+      localStorage.setItem('email', email); // Save email to localStorage
+      if (email.toLowerCase() === 'les123@gmail.com') {
+        navigate('/ServiceSelection', { state: { email } });
+      } else {
+        navigate('/Enter1', { state: { email } });
+      }
     }
   };
 
@@ -29,15 +47,15 @@ const EmailFormPage = () => {
           <div className="flex items-center bg-yellow-500 border-yellow-500 border-6 rounded-3xl">
             <input
               type="email"
-              className="w-full text-3xl p-2 text-center bg-yellow-500 rounded-l-3xl focus:outline-none"
+              className="w-full font-bold text-3xl p-2 text-center bg-yellow-500 rounded-l-3xl focus:outline-none"
               placeholder="@"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               autoFocus
               required
             />
-            <button type="submit" className="w-14 rounded-full">
-              <img src="/assets/images/select.jpg" alt="Submit" />
+            <button type="submit" className="w-[60px] mt-2 ">
+              <img src="/assets/images/button ok check.webp" alt="Submit" />
             </button>
           </div>
         </form>
