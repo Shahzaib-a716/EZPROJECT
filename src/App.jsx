@@ -57,6 +57,7 @@ import Les4 from './Components/Les4';
 import FormVB1 from './Components/FormVB1';
 import CallList from './Components/CallList';
 import ContactManager from './Components/ContactManager';
+import JoinUS from './Components/JoinUS';
 
 
 
@@ -124,6 +125,7 @@ function App() {
           <Route path="FormVB1" element={<FormVB1/>}/>
           <Route path="CallList" element={<CallList/>}/>
           <Route path="ContactManager" element={<ContactManager/>}/>
+          <Route path="JoinUS" element={<JoinUS/>}/>
 
 
 

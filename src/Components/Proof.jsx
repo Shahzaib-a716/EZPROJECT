@@ -53,7 +53,7 @@ const Proof = () => {
     <img
       src="/assets/images/button back.webp"
       alt="Back"
-      className="w-[100px] h-[100px] hover:opacity-70"
+      className="w-[70px] h-[70px] hover:opacity-70"
     />
   </button>
 </div>
@@ -62,13 +62,13 @@ const Proof = () => {
       <div className="min-h-screen w-full md:pt-6">
         <div className="flex flex-col gap-4 md:gap-3 justify-center items-center text-center">
           <h1
-            className="text-2xl text-yellow-400 md:text-4xl font-extrabold w-full underline"
+            className="text-2xl text-yellow-400 md:text-3xl font-extrabold w-full "
             style={{
               textShadow: 'rgba(0, 0, 0, 0.4) 0.08em 0.08em 0.08em',
               fontFamily: '"Exo 2", Helvetica, Arial, Lucida, sans-serif',
             }}
           >
-            THE THINGS I HAVE ACCOMPLISHED IN MY LIFE, <br />USING MY OWN SOFTWARE
+            If you have a business system and you have something that keeps,
           </h1>
 
           <div className="max-w-6xl bg-black bg-opacity-[70%] rounded-md flex justify-center mx-auto">

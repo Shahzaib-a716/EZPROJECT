@@ -61,23 +61,23 @@ function Home() {
     <img
       className="w-24 md:w-32 hover:-translate-y-1 hover:scale-125 duration-300"
       src="/assets/images/eyeballs.gif"
-      alt={t('lookAround')}
+      alt={t('JustlookAround')}
     />
     
     {/* Tooltip */}
-    <div className="absolute bottom-0 right-1/4 transform -translate-x-1/2 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black text-white text-2xl rounded py-2 px-4 z-4">
-      {t('lookAround')}
+    <div className="absolute bottom-0 right-1/4 transform -translate-x-1/2 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-500 text-white text-3xl font-bold rounded py-2 px-4 z-4">
+      {t('JustlookAround')}
     </div>
   </div>
 </a>
 
 <a href="/Flag1">
-  <div className="relative group w-16 md:w-36 cursor-pointer hover:-translate-y-1 hover:scale-125 duration-300">
+  <div className="relative group w-16 md:w-28 cursor-pointer hover:-translate-y-1 hover:scale-125 duration-300">
     <img src={selectedFlag} className="rounded-xl" alt={selectedLanguage} />
     
     {/* Tooltip */}
-    <div className="absolute bottom-0 right-1/2 transform -translate-x-1/2 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black text-white text-2xl rounded py-2 px-4 z-4">
-      {selectedLanguage} {/* Tooltip text will be the selected language */}
+    <div className="absolute bottom-0 right-1/4 font-bold transform -translate-x-1/2 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-500 whitespace-nowrap text-white text-2xl rounded py-2 px-4 z-4">
+      {selectedLanguage} Language {/* Tooltip text will be the selected language */}
     </div>
   </div>
 </a>
@@ -92,7 +92,7 @@ function Home() {
     />
     
     {/* Tooltip */}
-    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/4 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black text-white text-2xl rounded py-2 px-4 z-10 whitespace-nowrap">
+    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/4 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-500 text-white font-bold text-3xl rounded py-2 px-4 ml-[100px] whitespace-nowrap">
       {t('Free business registration')} {/* Tooltip text will be the translated registration text */}
     </div>
   
@@ -113,7 +113,7 @@ function Home() {
     />
     
     {/* Tooltip */}
-    <div className="absolute bottom-0 right-1/2 transform -translate-x-1/2 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black text-white text-2xl rounded py-2 px-4 z-10 whitespace-nowrap">
+    <div className="absolute bottom-0 right-1/2 transform -translate-x-1/2 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-500 font-bold text-white text-3xl rounded py-2 px-4 z-10 whitespace-nowrap">
       {t('LesTheHandyman')} {/* Tooltip text can be dynamic, depending on what you want to show */}
     </div>
   </div>
@@ -167,7 +167,7 @@ function Home() {
         </div>
 
         <div className="flex flex-wrap">
-  <div className="w-full h-[350px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
+  <div className="w-full h-[420px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
     <figure className="relative transition-all duration-300 ease-out">
       <img
         src="https://hm.ez123.eu/robbie/wp-content/uploads/2024/06/kezek-racs-borton.svg"
@@ -175,14 +175,14 @@ function Home() {
         className="mx-auto transition-opacity duration-300 ease-out group-hover:opacity-0"
       />
       <figcaption
-        className="absolute inset-0 bg-white bg-opacity-100 flex justify-center items-center text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-black"
+        className="absolute font-bold text-2xl inset-0 bg-white bg-opacity-100 flex justify-center items-center text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-black"
       >
         We are currently working together with some agencies to make it easier for them to find those who would commit fraud against us.
       </figcaption>
     </figure>
   </div>
 
-  <div className="w-full h-[350px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
+  <div className="w-full h-[420px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
     <figure className="relative transition-all duration-300 ease-out">
       <img
         src="https://hm.ez123.eu/robbie/wp-content/uploads/2024/06/zero-tolerance.svg"
@@ -190,14 +190,14 @@ function Home() {
         className="mx-auto transition-opacity duration-300 h-[220px] w-[240px] ease-out group-hover:opacity-0"
       />
       <figcaption
-        className="absolute inset-0 bg-white bg-opacity-100 flex justify-center items-center p-8 transform translate-x-full group-hover:translate-x-0 transition-all mt-[80px] duration-500 ease-out text-red-600"
+        className="absolute inset-0 font-bold bg-white bg-opacity-100 flex justify-center items-center p-8 transform translate-x-full group-hover:translate-x-0 transition-all mt-[80px] duration-500 ease-out text-red-600"
       >
         We would like to warn you, that there won’t be any tolerance for rude, disrespectful, offensive or insulting behavior in this community INCLUDING NUDITY OF ANY KIND FAILURE TO ABIDE BY THESE RULES WILL RESULT IN TERMINATION OF YOUR ACCOUNT AND BUSINESS SYSTEM AND NO REFUNDS WILL BE POSSIBLE AND IF YOU REALLY REALLY WANT BACK IN, IT WILL COST YOU 1 MILLION U.S.
       </figcaption>
     </figure>
   </div>
 
-  <div className="w-full h-[350px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
+  <div className="w-full [h-[420px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
     <figure className="relative transition-all duration-300 ease-out">
       <img
         src="/assets/images/zero freud.webp"
@@ -205,14 +205,14 @@ function Home() {
         className="mx-auto transition-opacity duration-300 h-[220px] w-[220px] ease-out group-hover:opacity-0"
       />
       <figcaption
-        className="absolute inset-0 bg-white bg-opacity-100 flex justify-center items-center text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-green-600"
+        className="absolute inset-0  text-2xl font-bold bg-white bg-opacity-100 flex justify-center items-center text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-green-600"
       >
         TRADES PEOPLE PAY A LOW YEARLY FEE AND THE FIRST 3 months are completely free. No strings attached.NO tricks. We do not ask for any credit card information because we do not need to trick our customers into buying from us and no sales person will call.
       </figcaption>
     </figure>
   </div>
 
-  <div className="w-full h-[350px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
+  <div className="w-full h-[420px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
     <figure className="relative transition-all duration-300 ease-out">
   
     <a href="tel:+1234567890" class="flex flex-col justify-center items-center" title="Click to call us!">
@@ -222,7 +222,7 @@ function Home() {
     class="mx-auto transition-opacity w-[220px] h-[220px] duration-300 ease-out group-hover:opacity-0 "
   />
   <figcaption
-    class="absolute inset-0 bg-white bg-opacity-100 flex justify-center items-center text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-blue-600"
+    class="absolute inset-0 text-xl font-bold bg-white bg-opacity-100 flex justify-center items-center text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-blue-600"
   >
     WE ALSO DO NOT HIDE FROM OUR CUSTOMERS BY MAKING IT DIFFICULT OR, IMPOSSIBLE TO REACH US.CLICK ON THE GREEN BUTTON TO CALL US ANY TIME
   </figcaption>

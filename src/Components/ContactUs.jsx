@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 function VirtualHousePage() {
   const navigate = useNavigate();
 
+  const handleJoinUsClick = () => {
+    navigate('/JoinUS'); // Adjust the path as per your route configuration
+  };
+
   return (
     <div
       className="min-h-screen bg-day bg-no-repeat bg-center bg-cover"
@@ -70,19 +74,21 @@ function VirtualHousePage() {
 </Link>
 
 
-          {/* Forward Button */}
-          <div className="relative group flex items-center text-xl font-bold cursor-pointer">
-  <img
-    src="/assets/images/button next.webp"
-    alt="Forward Icon"
-    className="ml-4 w-16 h-18"
-  />
+<div
+      className="relative group flex items-center text-xl font-bold cursor-pointer"
+      onClick={handleJoinUsClick} // Add the click handler
+    >
+      <img
+        src="/assets/images/button next.webp"
+        alt="Forward Icon"
+        className="ml-4 w-16 h-18"
+      />
 
-  {/* Tooltip Above */}
-  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-green-500 to-blue-500 text-white text-lg rounded py-2 px-4 z-10 whitespace-nowrap">
-    Next {/* Tooltip text */}
-  </div>
-</div>
+      {/* Tooltip Above */}
+      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-green-500 to-blue-500 text-white text-lg rounded py-2 px-4 z-10 whitespace-nowrap">
+        Join US {/* Tooltip text */}
+      </div>
+    </div>
 
         </div>
       </div>
