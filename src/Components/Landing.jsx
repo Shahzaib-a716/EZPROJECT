@@ -65,20 +65,21 @@ function Home() {
     />
     
     {/* Tooltip */}
-    <div className="absolute bottom-0 right-1/4 transform -translate-x-1/2 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-500 text-white text-3xl font-bold rounded py-2 px-4 z-4">
+    <div className="absolute bottom-0 right-1/4 transform -translate-x-1/2 mb-11 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-500 text-white text-3xl font-bold rounded py-2 px-4 z-4">
       {t('JustlookAround')}
     </div>
   </div>
 </a>
 
 <a href="/Flag1">
-  <div className="relative group w-16 md:w-28 cursor-pointer hover:-translate-y-1 hover:scale-125 duration-300">
+  <div className="relative group w-16 md:w-28 cursor-pointer hover:-translate-y-1 hover:scale-100 duration-300">
     <img src={selectedFlag} className="rounded-xl" alt={selectedLanguage} />
     
     {/* Tooltip */}
-    <div className="absolute bottom-0 right-1/4 font-bold transform -translate-x-1/2 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-500 whitespace-nowrap text-white text-2xl rounded py-2 px-4 z-4">
-      {selectedLanguage} Language {/* Tooltip text will be the selected language */}
-    </div>
+    <div className="absolute top-[-3rem] right-1/2 font-bold transform translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-500 whitespace-nowrap text-white text-2xl rounded py-2 px-4 z-10">
+  {selectedLanguage} Language {/* Tooltip text will be the selected language */}
+</div>
+
   </div>
 </a>
 
