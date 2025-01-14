@@ -57,9 +57,11 @@ const Registration2 = () => {
                 <div className="ml-2 mr-2 font-bold cursor-pointer hover:rounded-3xl hover:bg-yellow-300" onClick={handleItemClick}>
                   <a className="group relative duration-600">
                     <img src="/assets/images/1.webp" alt="Option 5" />
-                    <span className="absolute hidden group-hover:flex mt-4 group-hover:items-center -top-16 -right-12 translate-x-full w-full px-4 py-4 bg-yellow-500 rounded-lg text-center text-black text-2xl">
+                    <span className="absolute hidden group-hover:flex mt-4 group-hover:items-center -top-6 -right-12 translate-x-full w-full px-4 py-4 bg-yellow-500 rounded-lg text-center text-black text-2xl">
                       If you are a tradesperson and go to customers' houses or businesses to make repairs on the certain day and time
-                      <span className="absolute -right-10 top-1/2 w-0 h-0 border-l-[20px] border-l-yellow-500 border-t-[20px] border-t-transparent border-b-[20px] border-b-transparent transform -translate-y-1/2"></span>
+                      <span className="absolute -left-11 top-1/2 w-0 h-0 border-t-[20px] border-t-transparent border-r-[45px] border-r-yellow-500 border-b-[20px] border-b-transparent transform -translate-y-1/2"></span>
+
+
 
 
                       </span>
@@ -73,9 +75,10 @@ const Registration2 = () => {
                 <div className="ml-2 mr-2 font-bold cursor-pointer hover:rounded-3xl hover:bg-yellow-300" onClick={handleItemClick}>
                   <a className="group relative duration-600">
                     <img src="/assets/images/2.webp" alt="Option 5" />
-                    <span className="absolute hidden group-hover:flex mt-4 group-hover:items-center -top-16 -right-12 translate-x-full w-full px-4 py-4 bg-yellow-500 rounded-lg text-center text-black text-2xl">
+                    <span className="absolute hidden group-hover:flex mt-4 group-hover:items-center -top-10 -right-12 translate-x-full w-full px-4 py-4 bg-yellow-500 rounded-lg text-center text-black text-2xl">
                       If you are a professional like a photographer, model, lawyer, etc., and you have customers coming to your office on a specific day and time
-                      <span className="absolute -left-10 top-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-b-[30px] border-b-yellow-500 border-r-[23px] border-r-transparent transform -translate-y-1/2"></span>
+                      <span className="absolute -left-11 top-1/2 w-0 h-0 border-t-[20px] border-t-transparent border-r-[45px] border-r-yellow-500 border-b-[20px] border-b-transparent transform -translate-y-1/2"></span>
+
                     </span>
                   </a>
                 </div>
@@ -86,9 +89,10 @@ const Registration2 = () => {
                 <div className="ml-2 mr-2 font-bold cursor-pointer hover:rounded-3xl hover:bg-yellow-300" onClick={handleItemClick}>
                   <a className="group relative duration-600">
                     <img src="/assets/images/3.webp" alt="Option 5" />
-                    <span className="absolute hidden group-hover:flex mt-4 group-hover:items-center -top-16 -right-12 translate-x-full w-full px-4 py-4 bg-yellow-500 rounded-lg text-center text-black text-2xl">
+                    <span className="absolute hidden group-hover:flex mt-4 group-hover:items-center -top-10 -right-12 translate-x-full w-full px-4 py-4 bg-yellow-500 rounded-lg text-center text-black text-2xl">
                       When customers come to your store to purchase something(s) and you will install it for the customers on a particular day and time
-                      <span className="absolute -left-10 top-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-b-[30px] border-b-yellow-500 border-r-[23px] border-r-transparent transform -translate-y-1/2"></span>
+                      <span className="absolute -left-11 top-1/2 w-0 h-0 border-t-[20px] border-t-transparent border-r-[45px] border-r-yellow-500 border-b-[20px] border-b-transparent transform -translate-y-1/2"></span>
+
                     </span>
                   </a>
                 </div>
@@ -99,9 +103,10 @@ const Registration2 = () => {
                 <div className="ml-2 mr-2 font-bold cursor-pointer hover:rounded-3xl hover:bg-yellow-300" onClick={handleItemClick}>
                   <a className="group relative duration-600">
                     <img src="/assets/images/4.webp" alt="Option 5" />
-                    <span className="absolute hidden group-hover:flex mt-4 group-hover:items-center -top-16 -right-12 translate-x-full w-full px-4 py-4 bg-yellow-500 rounded-lg text-center text-black text-2xl">
+                    <span className="absolute hidden group-hover:flex mt-4 group-hover:items-center -top-10 -right-12 translate-x-full w-full px-4 py-4 bg-yellow-500 rounded-lg text-center text-black text-2xl">
                       If you are a store with a delivery service like Groceries etc., which you deliver to the customers home on the certain day and time
-                      <span className="absolute -left-10 top-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-b-[30px] border-b-yellow-500 border-r-[23px] border-r-transparent transform -translate-y-1/2"></span>
+                      <span className="absolute -left-11 top-1/2 w-0 h-0 border-t-[20px] border-t-transparent border-r-[45px] border-r-yellow-500 border-b-[20px] border-b-transparent transform -translate-y-1/2"></span>
+
                     </span>
                   </a>
                 </div>
@@ -112,9 +117,10 @@ const Registration2 = () => {
                 <div className="ml-2 mr-2 font-bold cursor-pointer hover:rounded-3xl hover:bg-yellow-300" onClick={handleItemClick}>
                   <a className="group relative duration-600">
                     <img src="/assets/images/5.webp" alt="Option 5" />
-                    <span className="absolute hidden group-hover:flex mt-4 group-hover:items-center -top-16 -right-12 translate-x-full w-full px-4 py-4 bg-yellow-500 rounded-lg text-center text-black text-2xl">
+                    <span className="absolute hidden group-hover:flex mt-4 group-hover:items-center -top-16 -right-10 translate-x-full w-full px-4 py-4 bg-yellow-500 rounded-lg text-center text-black text-2xl">
                       If you are a store and your customers come to you during your open hours and do not require a booking system
-                      <span className="absolute -left-10 top-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-b-[30px] border-b-yellow-500 border-r-[23px] border-r-transparent transform -translate-y-1/2"></span>
+                      <span className="absolute -left-11 top-1/2 w-0 h-0 border-t-[20px] border-t-transparent border-r-[45px] border-r-yellow-500 border-b-[20px] border-b-transparent transform -translate-y-1/2"></span>
+
                     </span>
                   </a>
                 </div>
