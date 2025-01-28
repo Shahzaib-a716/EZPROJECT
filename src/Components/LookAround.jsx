@@ -72,16 +72,10 @@ const LookAround = () => {
       },
     },
     UK: {
-      flag: '/assets/images/en.png', // UK flag
+      flag: '/assets/images/en.png',
       provinces: {
-        England: {
-          flag: '/assets/images/en.png', // Add England-specific flag
-          cities: ['London', 'Birmingham'], // Cities within England
-        },
-        Scotland: {
-          flag: '/assets/images/scotland.png', // Add Scotland-specific flag if needed
-          cities: ['Edinburgh', 'Glasgow'], // Cities within Scotland
-        },
+        England: ['London', 'Birmingham'],
+        Scotland: ['Edinburgh', 'Glasgow'],
       },
     },
     USA: {
@@ -106,25 +100,14 @@ const LookAround = () => {
   };
 
   const handleProvinceClick = (province) => {
-    if (selectedCountry && countryData[selectedCountry].provinces[province]) {
-      const provinceData = countryData[selectedCountry].provinces[province];
-      navigate('/Virtual2', {
-        state: {
-          selectedCountry,
-          selectedProvince: province,
-          provinceFlag: provinceData.flag, // Pass the province-specific flag
-        },
-      });
-    }
+    setSelectedProvince(province);
   };
 
   const handleCityClick = (city) => {
-    const provinceFlag = countryData[selectedCountry].provinces[selectedProvince]?.flag;
     navigate('/Virtual2', {
-      state: { selectedCountry, selectedProvince, selectedCity: city, provinceFlag },
+      state: { selectedCountry, selectedProvince, selectedCity: city },
     });
   };
-  
 
   const handleBackClick = () => {
     if (selectedProvince) {

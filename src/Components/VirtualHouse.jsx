@@ -3,11 +3,60 @@ import React, { useState } from 'react';
 const VirtualPage = () => {
   const [selectedIcon, setSelectedIcon] = useState(null);
   const [isModalPersistent, setIsModalPersistent] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(1); // State to manage zoom level
+
+  const [isListening, setIsListening] = useState(false); // State for microphone
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState('en'); // Default language is English
+
+  const handleLanguageChange = (lang) => {
+    setSelectedLang(lang); // Update the selected language
+    setDropdownOpen(false); // Close the dropdown
+
+  };
+
+
+  const SpeechRecognition =
+  window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = SpeechRecognition ? new SpeechRecognition() : null;
+
+if (recognition) {
+  recognition.continuous = false;
+  recognition.interimResults = false;
+  recognition.lang = 'en-US';
+}
+
+// Start speech recognition
+const handleMicrophoneClick = () => {
+  if (!recognition) {
+    alert('Speech Recognition API is not supported in this browser.');
+    return;
+  }
+
+  setIsListening(true);
+  recognition.start();
+
+  recognition.onresult = (event) => {
+    const spokenText = event.results[0][0].transcript;
+    setSearchQuery(spokenText);
+    handleSearch(spokenText); // Trigger search with spoken text
+    setIsListening(false);
+  };
+
+  recognition.onerror = () => {
+    alert('An error occurred while recognizing speech. Please try again.');
+    setIsListening(false);
+  };
+
+  recognition.onend = () => {
+    setIsListening(false);
+  };
+};
+
 
   // Zoom In logic: Increase size (maximum 1.5x)
   const handleZoomIn = () => {
@@ -192,83 +241,114 @@ const VirtualPage = () => {
         }}
       >
         {/* Top Controls */}
-        <div className="flex justify-center items-center m-2 ml-[280px] gap-3">
+        <div className="flex justify-center items-center m-2 ml-[60px] gap-3">
           {/* Language Dropdown */}
+          
+          
           <div className="dropdown relative">
-            <img
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="w-[190px] rounded-3xl cursor-pointer"
-              src="/assets/images/en.png"
-              alt="English Flag"
-            />
-            {dropdownOpen && (
-              <div className="absolute mt-2 left-0 bg-white border rounded shadow-lg p-2">
-                {['de', 'fr', 'hu'].map((lang, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center p-2 text-lg rounded cursor-pointer gap-3 hover:bg-gray-200"
-                    onClick={() => {
-                      setDropdownOpen(false);
-                      alert(`Selected language: ${lang}`);
-                    }}
-                  >
-                    <img
-                      src={`/assets/images/${lang}.png`}
-                      className="w-8 rounded"
-                      alt={`${lang} Flag`}
-                    />
-                    <span>
-                      {lang === 'de' ? 'Deutsch' : lang === 'fr' ? 'Française' : 'Magyar'}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+  {/* Display the selected flag */}
+  <img
+    onClick={() => setDropdownOpen(!dropdownOpen)}
+    className="w-[490px] mb-11 rounded-3xl cursor-pointer"
+    src={`/assets/images/${selectedLang}.png`}
+    alt={`${selectedLang.toUpperCase()} Flag`}
+  />
 
-          {/* Search Bar */}
-          <div className="flex items-center bg-white pl-1 pr-1 w-full md:w-[1700px] rounded-full gap-1">
-            <button>
+  {/* Dropdown menu */}
+  {dropdownOpen && (
+    <div
+      className="absolute w-[200px] top-[130px] right-6 bg-white border rounded shadow-lg"
+      style={{ zIndex: 70 }} // Ensure the dropdown is above other elements
+    >
+      {['en', 'de', 'fr', 'hu'].map((lang, index) => (
+        <div
+          key={index}
+          className="flex items-center p-2 text-2xl font-bold rounded cursor-pointer gap-3 hover:bg-blue-600"
+          onClick={() => handleLanguageChange(lang)}
+        >
+          <img
+            src={`/assets/images/${lang}.png`}
+            className="w-10 rounded"
+            alt={`${lang.toUpperCase()} Flag`}
+          />
+          <span>
+            {lang === 'en'
+              ? 'English'
+              : lang === 'de'
+              ? 'Deutsch'
+              : lang === 'fr'
+              ? 'Française'
+              : 'Magyar'}
+          </span>
+        </div>
+      ))}
+    </div>
+  )}
+</div>
+
+          <button>
               <img
-                className="w-[100px] rounded-3xl"
-                src="/assets/images/microphone.png"
+                className="w-[400px] h-[130px] mr-11"
+                src="/assets/images/bookme (59).webp"
                 alt="Microphone Icon"
               />
             </button>
+
+          {/* Search Bar */}
+          <div className="flex items-center bg-white pl-1 pr-1 w-full md:w-[1700px] rounded-full gap-1">
+          <button onClick={handleMicrophoneClick}>
+  <img
+    className={`w-[100px] rounded-3xl transition-all duration-300 ${
+      isListening ? 'opacity-50' : 'opacity-100'
+    } hover:scale-110 hover:shadow-lg hover:shadow-blue-400 hover:border-4 hover:border-blue-400`}
+    src="/assets/images/microphone.png"
+    alt="Microphone Icon"
+  />
+</button>
+
             <input
               type="search"
-              className="w-full rounded-2xl border-none text-center text-xl text-sky-600"
+              className="w-[700px] h-[50px] rounded-3xl border-none text-center text-xl text-sky-600"
               placeholder="Type In What You Are Looking For"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === 'Enter') handleSearch();
+                if (e.key === 'Enter') handleSearch(searchQuery);
               }}
             />
             <img
               className="w-[110px] rounded hover:scale-110 cursor-pointer"
               src="/assets/images/search.png"
               alt="Search Icon"
-              onClick={handleSearch}
+              onClick={() => handleSearch(searchQuery)}
             />
           </div>
 
+
           {/* Zoom Controls (Aligned to the right) */}
-          <div className="flex gap-2 mr-[200px]">
-            <button onClick={handleZoomIn} className="p-2 text-white rounded">
-              <img
-                className="w-[210px] h-[75px]"
-                src="/assets/images/button plus.webp"
-                alt="Zoom In"
-              />
-            </button>
-            <button onClick={handleZoomOut} className="p-2 text-white">
-              <img
-                className="w-[210px] h-[75px]"
-                src="/assets/images/button minus.webp"
-                alt="Zoom Out"
-              />
-            </button>
+          <div className="flex gap-2 mr-[50px]">
+          <button
+  onClick={handleZoomIn}
+  className="relative group p-2 text-white rounded overflow-hidden"
+>
+  <img
+    className="w-[210px] h-[75px] rounded-md transition-all duration-500 transform group-hover:scale-125 group-hover:translate-y-[-2px] ]"
+    src="/assets/images/button plus.webp"
+    alt="Zoom In"
+  />
+</button>
+
+<button
+  onClick={handleZoomOut}
+  className="relative group p-2 text-white rounded overflow-hidden"
+>
+  <img
+    className="w-[210px] h-[75px] rounded-md transition-all duration-300 transform group-hover:scale-125 group-hover:translate-y-[-2px] ]"
+    src="/assets/images/button minus.webp"
+    alt="Zoom Out"
+  />
+</button>
+
           </div>
         </div>
 
@@ -302,8 +382,8 @@ const VirtualPage = () => {
           {/* Virtual House */}
           <div className="relative">
             <img
-              className="max-h-[98%] rounded"
-              src="/assets/images/testhouse.jpg"
+              className="w-[900px] rounded"
+              src="/assets/images/bookme (61).webp"
               alt="Virtual House"
             />
           </div>

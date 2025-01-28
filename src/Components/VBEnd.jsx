@@ -323,14 +323,43 @@ const CustomLayout = () => {
 
         {/* Right Side Icons */}
         <div className="absolute right-[-65px] top-[-62px]">
-          <button onClick={() => navigate('/home')}>
+          <button onClick={() => navigate('/FoodPizza')}>
             <img src="/assets/images/button right call.webp" className="w-16 transform transition duration-300 hover:scale-125 h-16" />
-            <img src="assets/images/button right pizza.webp" alt="Icon 4" className="w-16 h-32" />
+            <button onClick={() => navigate('/FoodPizza')}>
+        <img
+          src="assets/images/button right pizza.webp"
+          alt="Pizza Icon"
+          className="w-16 h-32 transform transition duration-300 hover:scale-105"
+        />
+      </button>
           </button>
-          <img src="/assets/images/button right countdown.webp" className="w-16 h-[155px] " />
-          <img src="/assets/images/button right brain.webp" className="w-16 h-[156px]" />
-          <img src="assets/images/button right training.webp" className="w-16 h-[155px]" />
-          <img src="/assets/images/button right lawyer.webp" className="w-16 h-[156px]" />
+          <img
+  src="/assets/images/button right countdown.webp"
+  alt="Countdown Icon"
+  className="w-16 h-[155px] cursor-pointer hover:scale-105 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
+  onClick={() => navigate('/Timer')}
+/>
+<img
+  src="/assets/images/button right brain.webp"
+  alt="Brain Icon"
+  className="w-16 h-[156px] cursor-pointer hover:scale-105 transition-transform hover:shadow-[0_10px_30px_rgba(0,128,255,0.8)]"
+  onClick={() => navigate('/Brain')}
+/>
+
+<img
+  src="assets/images/button right training.webp"
+  alt="Training Icon"
+  className="w-16 h-[155px] cursor-pointer hover:scale-105 transition-transform hover:shadow-[0_10px_30px_rgba(255,165,0,0.8)]"
+  onClick={() => navigate('/FoodPage')}
+/>
+
+<img
+  src="/assets/images/button right lawyer.webp"
+  alt="Lawyer Icon"
+  className="w-16 h-[156px] cursor-pointer hover:scale-105 transition-transform hover:shadow-[0_10px_30px_rgba(0,0,255,0.8)]"
+  onClick={() => navigate('/Lawyer')}
+/>
+
           <img src="/assets/images/button help dark yellow.webp" className="w-16 transform transition duration-300 hover:scale-125 h-16" />
         </div>
 
@@ -375,20 +404,63 @@ const CustomLayout = () => {
 
         <div className="relative grid grid-cols-8 gap-4 mt-3">
           {/* Second row of icons */}
-          <img src="/assets/images/button bottom 9.webp" alt="Icon 9" className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]" />
           <button onClick={() => navigate('/Calculator')}>
-            <img
-              src="/assets/images/button bottom 10.webp"
-              alt="Icon 10"
-              className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
-            />
-          </button>
-          <img src="/assets/images/button bottom 11.webp" alt="Icon 9" className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]" />
-          <img src="/assets/images/button bottom 12.webp" alt="Icon 9" className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]" />
-          <img src="/assets/images/button bottom 13.webp" alt="Icon 9" className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]" />
-          <img src="/assets/images/button bottom 14.webp" alt="Icon 9" className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]" />
-          <img src="/assets/images/button bottom 15.webp" alt="Icon 9" className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]" />
-          <img src="/assets/images/button bottom 16.webp" alt="Icon 9" className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]" />
+  <img
+    src="/assets/images/button bottom 9.webp"
+    alt="Icon 9"
+    className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
+  />
+</button>
+<button onClick={() => navigate('/Route1')}>
+  <img
+    src="/assets/images/button bottom 10.webp"
+    alt="Icon 10"
+    className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
+  />
+</button>
+<button onClick={() => navigate('/Route2')}>
+  <img
+    src="/assets/images/button bottom 11.webp"
+    alt="Icon 11"
+    className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
+  />
+</button>
+<button onClick={() => navigate('/WorldClock')}>
+  <img
+    src="/assets/images/button bottom 12.webp"
+    alt="Icon 12"
+    className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
+  />
+</button>
+<button onClick={() => navigate('/Recording')}>
+  <img
+    src="/assets/images/button bottom 13.webp"
+    alt="Icon 13"
+    className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
+  />
+</button>
+<button onClick={() => navigate('/Route5')}>
+  <img
+    src="/assets/images/button bottom 14.webp"
+    alt="Icon 14"
+    className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
+  />
+</button>
+<button onClick={() => navigate('/Product')}>
+  <img
+    src="/assets/images/button bottom 15.webp"
+    alt="Icon 15"
+    className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
+  />
+</button>
+<button onClick={() => navigate('/Route7')}>
+  <img
+    src="/assets/images/button bottom 16.webp"
+    alt="Icon 16"
+    className="w-17 h-16 cursor-pointer hover:scale-110 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
+  />
+</button>
+
           {/* Add other icons */}
         </div>
       </div>
@@ -399,35 +471,43 @@ const CustomLayout = () => {
       <div className="grid-cols-6 flex">
         {/* Footer row of icons */}
         <img
-          src="/assets/images/button bottom setup.webp"
-          alt="Icon 9"
-          className="w-36 h-18 cursor-pointer hover:scale-105 transition-transform"
-        />
-        <img
-          src="/assets/images/button bottom web.webp"
-          alt="Icon 9"
-          className="w-36 h-18 cursor-pointer hover:scale-105 transition-transform"
-        />
-        <img
-          src="/assets/images/button bottom movie maker.webp"
-          alt="Icon 9"
-          className="w-36 h-18 cursor-pointer hover:scale-105 transition-transform"
-        />
-        <img
-          src="/assets/images/button bottom graphic designer.webp"
-          alt="Icon 9"
-          className="w-36 h-18 cursor-pointer hover:scale-105 transition-transform"
-        />
-        <img
-          src="/assets/images/button bottom parcel.webp"
-          alt="Icon 9"
-          className="w-36 h-18 cursor-pointer hover:scale-105 transition-transform"
-        />
-        <img
-          src="/assets/images/bottom motorhome.webp"
-          alt="Icon 9"
-          className="w-36 h-18 cursor-pointer hover:scale-105 transition-transform"
-        />
+  src="/assets/images/button bottom setup.webp"
+  alt="Icon Setup"
+  className="w-36 h-18 cursor-pointer hover:scale-105 transition-transform"
+  onClick={() => navigate('/Company')}
+/>
+<img
+  src="/assets/images/button bottom web.webp"
+  alt="Icon Web"
+  className="w-36 h-18 cursor-pointer hover:scale-105 transition-transform"
+  onClick={() => navigate('/Web')}
+/>
+<img
+  src="/assets/images/button bottom movie maker.webp"
+  alt="Icon Movie Maker"
+  className="w-36 h-18 cursor-pointer hover:scale-105 transition-transform"
+  onClick={() => navigate('/MovieMaker')}
+/>
+<img
+  src="/assets/images/button bottom graphic designer.webp"
+  alt="Icon Graphic Designer"
+  className="w-36 h-18 cursor-pointer hover:scale-105 transition-transform"
+  onClick={() => navigate('/GraphicDesigner')}
+/>
+<img
+  src="/assets/images/button bottom parcel.webp"
+  alt="Icon Parcel"
+  className="w-36 h-18 cursor-pointer hover:scale-105 transition-transform"
+  onClick={() => navigate('/Parcel')}
+/>
+<img
+  src="/assets/images/bottom motorhome.webp"
+  alt="Icon Motorhome"
+  className="w-36 h-18 cursor-pointer hover:scale-105 transition-transform hover:shadow-[0_10px_30px_rgba(128,0,128,0.8)]"
+  onClick={() => navigate('/Motor')}
+/>
+
+
       </div>
     </div>
   );

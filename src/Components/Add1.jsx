@@ -41,10 +41,10 @@ const TradesPeopleForm = () => {
       className="min-h-screen bg-no-repeat bg-center bg-cover py-8"
       style={{ backgroundImage: "url(/assets/images/day.jpg)" }}
     >
-      <div className="w-[450px] h-auto border-2 border-gray-300 p-4 ml-[500px] rounded-lg bg-white shadow-md">
+      <div className="w-[550px] h-auto border-2 border-gray-300 p-4 ml-[400px] rounded-lg bg-white shadow-md">
         <div className="text-center mb-4">
           <div className="text-4xl font-bold bg-gradient-to-r from-red-500 to-red-800 text-white py-2 rounded">
-            FINDING TRADES PEOPLE
+            WE NEED MORE TRADES <br /> PEOPLE, STORES + <br /> BUSINESSES
           </div>
         </div>
         <form>
@@ -82,7 +82,7 @@ const TradesPeopleForm = () => {
               value={newService}
               onChange={(e) => setNewService(e.target.value)}
               onKeyDown={handleServiceInput}
-              placeholder="Add a Service"
+              placeholder="Enter Services or products"
               className="w-full border-2 text-2xl font-bold border-gray-300 rounded p-2"
             />
           </div>
@@ -113,7 +113,7 @@ const TradesPeopleForm = () => {
             <img
               src="/assets/images/button back.webp"
               alt="Back"
-              className="w-[63px] h-[65px]"
+              className="w-[63px] h-[65px] cursor-pointer hover:scale-125 transition-transform"
             />
           </button>
 
@@ -122,7 +122,7 @@ const TradesPeopleForm = () => {
             <img
               src="/assets/images/button cancel no.webp"
               alt="Cancel"
-              className="w-[63px] h-[65px]"
+              className="w-[63px] h-[65px] cursor-pointer hover:scale-125 transition-transform"
             />
           </button>
 
@@ -131,14 +131,14 @@ const TradesPeopleForm = () => {
             <img
               src="/assets/images/button ok check.webp"
               alt="Check"
-              className="w-[63px] h-[65px]"
+              className="w-[63px] h-[65px] cursor-pointer hover:scale-125 transition-transform"
             />
           </button>
         </div>
 
         {/* Conditionally Render AddAnother Component */}
         {showAddAnother && (
-          <div className="mt-6 ml-10">
+          <div className="mt-6">
             <Add />
           </div>
         )}

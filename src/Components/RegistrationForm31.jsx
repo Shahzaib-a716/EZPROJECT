@@ -62,9 +62,9 @@ const RegistrationForm31 = () => {
              {/* Add image icon below the heading */}
   <div className="flex justify-center mb-1">
     <img
-      src="/assets/images/1.webp" // Replace with your actual image path
+      src="/assets/images/bookme (14).webp" // Replace with your actual image path
       alt="Business Icon"
-      className="w-full  h-[6.9rem] "
+      className="w-full  h-[7.9rem] "
     />
   </div>
 
@@ -179,7 +179,7 @@ const RegistrationForm31 = () => {
         e.preventDefault();
       }
     }}
-    placeholder="Your Service List"
+    placeholder="Your Services"
     style={{ fontSize: '1.8rem' }} 
     className="flex-1 h-[80px] rounded-2xl bg-white border border-black focus:outline-none placeholder-black font-extrabold text-center placeholder:font-extrabold placeholder:text-3xl"
   />

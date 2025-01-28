@@ -58,6 +58,19 @@ import FormVB1 from './Components/FormVB1';
 import CallList from './Components/CallList';
 import ContactManager from './Components/ContactManager';
 import JoinUS from './Components/JoinUS';
+import RegistrationForm32 from './Components/RegistrationForm32';
+import RegistrationForm33 from './Components/RegistrationForm33';
+import RegistrationForm34 from './Components/RegistrationForm34';
+import RegistrationForm35 from './Components/RegistrationForn35.jsx';
+import Foodpage from './Components/Foodpage';
+import Motor from './Components/Motor';
+import Product from './Components/Product';
+import WorldClock from './Components/WorldClock';
+import Company from './Components/Company';
+import Owner from './Components/Owner';
+import Recording from './Components/Recording';
+import FoodPizza from './Components/FoodPizza';
+import Timer from './Components/Timer';
 
 
 
@@ -126,6 +139,19 @@ function App() {
           <Route path="CallList" element={<CallList/>}/>
           <Route path="ContactManager" element={<ContactManager/>}/>
           <Route path="JoinUS" element={<JoinUS/>}/>
+          <Route path="/RegistrationForm32" element={<RegistrationForm32 />} /> 
+          <Route path="/RegistrationForm33" element={<RegistrationForm33 />} /> 
+          <Route path="/RegistrationForm34" element={<RegistrationForm34 />} /> 
+          <Route path="/RegistrationForm35" element={<RegistrationForm35 />} /> 
+          <Route path="/Foodpage" element={<Foodpage />} /> 
+          <Route path="/Motor" element={<Motor />} /> 
+          <Route path="/Product" element={<Product />} /> 
+          <Route path="/WorldClock" element={<WorldClock />} /> 
+          <Route path="/Company" element={<Company />} /> 
+          <Route path="/Owner" element={<Owner />} /> 
+          <Route path="/Recording" element={<Recording />} /> 
+          <Route path="/FoodPizza" element={<FoodPizza />} /> 
+          <Route path="/Timer" element={<Timer />} /> 
 
 
 
