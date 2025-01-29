@@ -17,7 +17,7 @@ const SavedEmailComponent = () => {
               <img className="hover:-translate-y-1 hover:scale-110 duration-300" src="/assets/images/eyeballs.gif" alt="Eyeballs" />
               <span className="absolute right-full ml-3 top-1/2 transform -translate-y-1/2 whitespace-nowrap bg-blue-500 text-white font-bold text-3xl rounded-md px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 JUST LOOK AROUND
-                <span className="absolute left-full top-1/2 transform -translate-y-1/2 ml-2 w-0 h-0 border-l-8 border-l-black border-t-8 border-t-transparent border-b-8 border-b-transparent"></span>
+                <span className="absolute left-full top-1/2 transform -translate-y-1/2 ml-2 w-0 h-0 border-l-8 border-l-blue-700 border-t-8 border-t-transparent border-b-8 border-b-transparent"></span>
               </span>
             </div>
           </a>
@@ -29,21 +29,21 @@ const SavedEmailComponent = () => {
               <img className="hover:-translate-y-1 hover:scale-110 duration-300" src="/assets/images/clipboard.webp" alt="Clipboard" />
               <span className="absolute left-full ml-3 top-1/2 transform -translate-y-1/2 whitespace-nowrap bg-blue-500 text-white text-3xl font-bold rounded-md px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 FREE BUSINESS REGISTRATION
-                <span className="absolute right-full top-1/2 transform -translate-y-1/2 ml-2 w-0 h-0 border-l-8 border-l-black border-t-8 border-t-transparent border-b-8 border-b-transparent"></span>
+                <span className="absolute right-full top-1/2 transform -translate-y-1/2 ml-2 w-0 h-0 border-l-8 border-l-blue-700 border-t-8 border-t-transparent border-b-8 border-b-transparent"></span>
               </span>
             </div>
           </a>
         </div>
           {/* Message Section */}
           <div className="border-black  font-bold text-3xl flex flex-col justify-center items-center text-center px-4 border-4 rounded-xl bg-yellow-200 text-2xl">
-            <h1 className="md:text-4xl font-extrabold text-blue-800">We Saved Your Email</h1>
+            <h1 className="md:text-5xl font-extrabold text-blue-800">We Saved Your Email</h1>
             <h1>NO SALES PERSON WILL CALL.</h1>
             <h1>NO FINANCIAL INFORMATION WILL BE ASKED.</h1>
             <h1>NO TECHNICAL SUPPORT REQUIRED.</h1>
             <h1>NO MANUALS TO READ.</h1>
             <h1>...</h1>
             <div className="md:w-1/2">
-              <h1 className="text-pink-700 break-words text-center">
+              <h1 className="text-pink-700 text-4xl break-words text-center">
                 WE DON’T NEED TO TRICK OUR CUSTOMERS TO BUY FROM US. WE GIVE GREAT VALUE AND YOUR SATISFACTION IS GUARANTEED.
               </h1>
             </div>
