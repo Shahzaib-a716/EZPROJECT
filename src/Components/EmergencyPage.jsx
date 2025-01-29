@@ -4,7 +4,8 @@ import { useLocation } from 'react-router-dom';
 const EmergencyPage = () => {
   // Use location hook to get the passed state from the previous page
   const location = useLocation();
-  const { textMessage, selectedFiles, audioUrl, videoUrl, imageUrl } = location.state || {};
+  const { textMessage, selectedFiles, audioUrl, videoUrl, imageUrl, formattedDate, selectedTime } = location.state || {};
+
 
   return (
     <div className="min-h-screen bg-day bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url("/assets/images/day.jpg")' }}>
@@ -17,19 +18,20 @@ const EmergencyPage = () => {
           }}
         >
           <span className="text-red-600">EZ</span>123<span className="text-gray-400">.EU</span>
-        </h1>        {/* Content Section */}
-        <div className="flex flex-col gap-4 bg-white p-4 rounded-xl font-bold text-xl md:text-4xl">
+        </h1>      
+        
+        
+           <div className="flex flex-col gap-4 bg-white p-4 rounded-xl font-bold text-xl md:text-4xl">
           <h1>
-            Friday, November 29, 2024 at 10 AM,{' '}
+            {formattedDate} at {selectedTime},{' '}
             <span className="text-red-500 text-5xl">Emergency</span>,{' '}
-            {/* Flexbox to align the icon and text */}
             <span className="flex items-center">
               <img 
                 src="/assets/images/handy.webp" // Replace with your actual icon path
                 alt="Approval Icon"
-                className="w-[140px] h-[110px] md:w-[160px] md:h-[120px] mr-2" // Icon size and spacing
+                className="w-[140px] h-[110px] md:w-[290px] md:h-[220px] mr-2" // Icon size and spacing
               />
-              <span className="text-4xl font-bold">waiting for approval</span>
+              <span className="text-5xl font-bold">waiting for approval</span>
             </span>
           </h1>
           <h1>

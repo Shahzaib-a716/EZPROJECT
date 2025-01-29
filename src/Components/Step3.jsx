@@ -47,6 +47,8 @@ const Step3 = () => {
         audioUrl,
         videoUrl,
         imageUrl,
+        formattedDate,  // Pass the formattedDate here
+        selectedTime,   // Pass the selectedTime here
       },
     });
   };
@@ -177,7 +179,7 @@ const Step3 = () => {
           
           <div className="flex justify-center items-center">
             <h1 className="md:text-3xl font-extrabold text-yellow-600">
-              Send upto 4 types of messages
+              Send up to 4 types of messages
             </h1>
           </div>
         </div>
@@ -187,32 +189,53 @@ const Step3 = () => {
         {/* Buttons */}
         <div className="grid grid-rows-2 gap-3 w-full py-3">
           <div className="grid grid-cols-3 gap-3">
-            {/* File Input */}
-            <div className="cursor-pointer" onClick={() => document.getElementById('fileInput').click()}>
-              <img className="cursor-pointer" src="/assets/images/photo.webp" alt="" />
-              <input
-                id="fileInput"
-                type="file"
-                accept="image/*,video/*"
-                onChange={handleFileSelect}
-                className="hidden"
-              />
-            </div>
+          <div className="relative group cursor-pointer" onClick={() => document.getElementById('fileInput').click()}>
+  {/* Tooltip Box */}
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-400 whitespace-nowrap text-white text-3xl rounded-lg px-3 py-2">
+    Share a file
+  </div>
+
+  {/* File Input Icon */}
+  <img className="cursor-pointer" src="/assets/images/photo.webp" alt="" />
+  <input
+    id="fileInput"
+    type="file"
+    accept="image/*,video/*"
+    onChange={handleFileSelect}
+    className="hidden"
+  />
+</div>
 
             {/* Video Recording Icon */}
-            <div className="cursor-pointer" onClick={toggleVideoCapture}>
-              <img className="cursor-pointer" src="/assets/images/video.webp" alt="" />
-              <span className="text-yellow-500 text-bold text-2xl">{isVideoRecording ? "Stop Video" : "Start Video"}</span>
-            </div>
+            <div className="relative group cursor-pointer" onClick={toggleVideoCapture}>
+  {/* Tooltip Box */}
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-400 text-white text-3xl whitespace-nowrap rounded-lg px-3 py-2">
+    Record a video
+  </div>
+
+  {/* Video Recording Button */}
+  <img className="cursor-pointer" src="/assets/images/video.webp" alt="Video Icon" />
+  <span className="text-yellow-500 text-bold text-2xl">
+    {isVideoRecording ? "Stop Video" : "Start Video"}
+  </span>
+</div>
+
 
             {/* Audio Recording Icon */}
-            <div className="cursor-pointer relative" onClick={isRecording ? stopAudioRecording : startAudioRecording}>
-              <img className="cursor-pointer" src="/assets/images/voice.webp" alt="" />
-              {audioStatus && <span className="text-yellow-500 text-bold text-2xl">{audioStatus}</span>}
-              {isRecording && (
-                <div className="w-[100px] h-11 bg-blue-700 animate-pulse rounded-full absolute right-14 top-14"></div>
-              )}
-            </div>
+            <div className="relative group cursor-pointer" onClick={isRecording ? stopAudioRecording : startAudioRecording}>
+  {/* Tooltip Box */}
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-400 text-white text-3xl whitespace-nowrap rounded-lg px-3 py-2">
+    Record a voice
+  </div>
+
+  {/* Audio Recording Button */}
+  <img className="cursor-pointer" src="/assets/images/voice.webp" alt="" />
+  {audioStatus && <span className="text-yellow-500 text-bold text-2xl">{audioStatus}</span>}
+  {isRecording && (
+    <div className="w-[100px] h-11 bg-blue-700 animate-pulse rounded-full absolute right-14 top-14"></div>
+  )}
+</div>
+
           </div>
 
           {/* Text Icon */}
@@ -239,12 +262,12 @@ const Step3 = () => {
         {/* Replace Icon D with Text Input Field */}
         {isTextInputVisible && (
           <div
-            className="absolute top-0 left-0 w-full mt-8 px-4"
-            style={{ position: 'absolute', top: '340px', left: '50%', transform: 'translateX(-50%)' }}
+            className="absolute top-0 left-0 w-full h-[200px] mt-8 px-4"
+            style={{ position: 'absolute', top: '315px', left: '50%', transform: 'translateX(-50%)' }}
           >
             <textarea
               autoFocus
-              className="resize rounded-5xl w-full border-4 border-blue-500 text-5xl hover:text-6xl text-yellow-600"
+              className="resize rounded-5xl w-full h-[250px] border-4 border-blue-500 text-5xl hover:text-5xl text-yellow-600"
               placeholder="Type Here!"
               aria-label="Message Input"
               value={textMessage}
