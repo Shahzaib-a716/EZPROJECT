@@ -33,6 +33,7 @@ const resources = {
       welcomeMessagePart2: "MA VIE, EN UTILISANT CE LOGICIEL",
       socialMediaPlatformTitle: "Nous sommes une plateforme de médias sociaux/entreprises",
       socialMediaPlatformDescription: "plateforme, où vous pouvez être protégé du monde de la fraude grâce au processus de vérification en 3 étapes et au détecteur de mensonges intégré.",
+      
     },
   },
   es: {

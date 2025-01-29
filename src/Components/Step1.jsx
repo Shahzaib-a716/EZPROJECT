@@ -37,7 +37,6 @@ const Step1 = () => {
     const formattedDate = selectedDate.toISOString().split('T')[0];
     navigate(`/Step2?date=${formattedDate}`);
   };
-  
 
   return (
     <div className="min-h-screen bg-no-repeat bg-center bg-cover bg-gray-700">
@@ -131,12 +130,8 @@ const Step1 = () => {
                   <div
                     key={day}
                     className={`group cursor-pointer ${
-                      isToday
-                        ? "bg-yellow-400 hover:bg-red-500"
-                        : isPastDay
-                        ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-blue-900 hover:bg-red-600"
-                    } border-2 border-white ${selectedDay === day ? "border-yellow-500" : ""}`}
+                      isPastDay ? "bg-gray-300 cursor-not-allowed" : ""
+                    } ${isToday ? "bg-yellow-400 hover:bg-grey" : "bg-blue-900 hover:bg-gray-600"} border-2 border-white ${selectedDay === day ? "border-blue-500" : ""}`}
                     onClick={() => {
                       if (!isPastDay || isToday) {
                         handleDayClick(day);
@@ -153,7 +148,7 @@ const Step1 = () => {
                     <div className="flex flex-col h-[45px]">
                       <div
                         className={`basis-1/3 border-t-1  border-white ${
-                          isPastDay ? "bg-gray-300" : "bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]"
+                          isPastDay ? "bg-gray-300" : "bg-gray-300]"
                         }`}
                       ></div>
                       <div
@@ -163,7 +158,7 @@ const Step1 = () => {
                       ></div>
                       <div
                         className={`basis-1/3 border-t-2 border-white ${
-                          isPastDay ? "bg-gray-300" : "bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]"
+                          isPastDay ? "bg-gray-300" : "bg-black]"
                         }`}
                       ></div>
                     </div>

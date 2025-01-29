@@ -54,7 +54,7 @@ function Home() {
                 <img
                   className="w-24 md:w-32 hover:-translate-y-1 hover:scale-110 duration-300"
                   src="/assets/images/eyeballs.gif"
-                  alt={t('lookAround')}
+                  alt={t('Justlookaround')}
                   
                 />
               </div>
@@ -71,7 +71,7 @@ function Home() {
                 <img
                   className="w-24 md:w-32 hover:-translate-y-1 hover:scale-110 duration-300"
                   src="/assets/images/clipboard.webp"
-                  alt={t('registration')}
+                  alt={t('FreeBusinessRegistration')}
                 />
               </div>
             </a>

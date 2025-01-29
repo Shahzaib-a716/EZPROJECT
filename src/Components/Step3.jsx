@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Step3 = () => {
-  const { state } = useLocation();  // Access the state passed from Step 2
+
   const [isRecording, setIsRecording] = useState(false);
   const [audioUrl, setAudioUrl] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
@@ -22,25 +22,19 @@ const Step3 = () => {
 
   const navigate = useNavigate();
 
-  // Extract selectedDate and selectedTime from state
-  const selectedDate = state?.selectedDate;
-  const selectedTime = state?.selectedTime;
+  const { state } = useLocation();  // Access the state passed from Step 2
+  const [selectedDate, setSelectedDate] = useState(state?.selectedDate);
+  const [selectedTime, setSelectedTime] = useState(state?.selectedTime);
 
-  // Format selectedDate and selectedTime
+  // Format selectedDate to display in a readable way
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    return date.toLocaleDateString('en-GB', options).toUpperCase();
-  };
-
-  const formatTime = (timeStr) => {
-    const date = new Date(`1970-01-01T${timeStr}`);
-    return date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: true }).toUpperCase();
+    return date.toLocaleDateString('en-US', options);
   };
 
   const formattedDate = selectedDate ? formatDate(selectedDate) : '';
-  const formattedTime = selectedTime ? formatTime(selectedTime) : '';
-
+  
   const handleTextMessageChange = (e) => {
     setTextMessage(e.target.value);
   };
@@ -166,6 +160,11 @@ const Step3 = () => {
   return (
     <div className="flex justify-center items-center p-2 md:p-4 w-full bg-gray-800" style={{ minHeight: '100vh' }}>
       <div className="flex flex-col w-full max-w-3xl p-4 relative">
+      <div className="text-center text-4xl mb-5 font-bold text-yellow-300 mt-4">
+          <p>{`${formattedDate} at ${selectedTime}`}</p> {/* Just display selectedTime here */}
+        </div>
+
+
         
         {/* Header */}
         <div className="flex gap-4 items-end border-b-2">
@@ -175,6 +174,7 @@ const Step3 = () => {
               3
             </h1>
           </a>
+          
           <div className="flex justify-center items-center">
             <h1 className="md:text-3xl font-extrabold text-yellow-600">
               Send upto 4 types of messages
@@ -182,10 +182,7 @@ const Step3 = () => {
           </div>
         </div>
 
-        {/* Display Selected Date and Time in required format */}
-        <div className="text-center text-xl font-extrabold text-yellow-500 mt-4">
-          <p>{`${formattedDate} AT ${formattedTime}`}</p>
-        </div>
+       
 
         {/* Buttons */}
         <div className="grid grid-rows-2 gap-3 w-full py-3">

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Step3 from './Step3';
 
 const Step2 = () => {
   const location = useLocation();
@@ -32,11 +31,11 @@ const Step2 = () => {
   // Handle time selection
   const handleTimeSelect = (time, event) => {
     event.preventDefault(); // Prevent default anchor behavior
-    setSelectedTime(time); // Update state
+    setSelectedTime(time); // Update state with selected time
     navigate('/step3', {
       state: {
-        selectedDate,
-        selectedTime: time,
+        selectedDate,  // Pass the selected date
+        selectedTime: time,  // Pass the selected time
       },
     });
   };

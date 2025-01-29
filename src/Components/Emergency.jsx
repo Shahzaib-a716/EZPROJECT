@@ -32,13 +32,14 @@ const Step1 = () => {
   const handleDayClick = (day) => {
     if (!day) return;
     setSelectedDay(day);
-    navigate(`/Step2?date=${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${day}`);
+    const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+    // Format the date properly (e.g., 2024-11-29)
+    const formattedDate = selectedDate.toISOString().split('T')[0];
+    navigate(`/Step2?date=${formattedDate}`);
   };
 
   return (
-    <div  className="flex justify-center items-center bg-gray-800 w-full"
-    style={{ minHeight: '100vh' }} // Set the minimum height to 60% of the viewport height
-  >
+    <div className="min-h-screen bg-no-repeat bg-center bg-cover bg-gray-700">
       <div className="flex justify-center items-center min-h-screen">
         <div className="p-4 w-[797px]">
           <div className="flex w-[540px] gap-4 items-end border-b-2">
@@ -106,7 +107,7 @@ const Step1 = () => {
               {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, index) => (
                 <div
                   key={index}
-                  className="flex justify-center text-white items-center rounded-t-2xl text-2xl bg-gradient-to-b from-[#A3A3A3] to-[#3d3d3d] font-bold border-2 border-white"
+                  className="flex justify-center text-white items-center rounded-t-2xl text-2xl bg-gradient-to-b from-[#A3A3A3] to-[#636363] font-bold border-2 border-white"
                 >
                   {day}
                 </div>
@@ -129,14 +130,10 @@ const Step1 = () => {
                   <div
                     key={day}
                     className={`group cursor-pointer ${
-                      isToday
-                        ? "bg-yellow-400 hover:bg-red-500"
-                        : isPastDay
-                        ? "bg-gray-300 cursor-not-allowed"
-                        : "bg-blue-900 hover:bg-red-600"
-                    } border-2 border-white ${selectedDay === day ? "border-yellow-500" : ""}`}
+                      isPastDay || isToday ? "bg-gray-300 cursor-not-allowed" : ""
+                    } ${isToday ? "bg-black hover:bg-gray-500" : "bg-blue-900 hover:bg-"} border-2 border-white ${selectedDay === day ? "border-yellow-500" : ""}`}
                     onClick={() => {
-                      if (!isPastDay || isToday) {
+                      if (!isPastDay && !isToday) {
                         handleDayClick(day);
                       }
                     }}
@@ -151,17 +148,17 @@ const Step1 = () => {
                     <div className="flex flex-col h-[45px]">
                       <div
                         className={`basis-1/3 border-t-1  border-white ${
-                          isPastDay ? "bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]" : "bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]"
+                          isPastDay || isToday ? "bg-gray-500" : "bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]"
                         }`}
                       ></div>
                       <div
                         className={`basis-1/3 border-t-2 border-white ${
-                          isPastDay ? "bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]" : "bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]"
+                          isPastDay || isToday ? "bg-gray-500" : "bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]"
                         }`}
                       ></div>
                       <div
                         className={`basis-1/3 border-t-2 border-white ${
-                          isPastDay ? "bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]" : "bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]"
+                          isPastDay || isToday ? "bg-gray-500" : "bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]"
                         }`}
                       ></div>
                     </div>

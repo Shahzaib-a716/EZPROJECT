@@ -18,7 +18,6 @@ function Home() {
       setSelectedLanguage(selectedLanguage);
       setSelectedFlag(selectedFlag);
     }
-
     const storedEmail = localStorage.getItem('email');
     if (storedEmail) {
       setEmail(storedEmail);
@@ -66,7 +65,7 @@ function Home() {
     
     {/* Tooltip */}
     <div className="absolute bottom-0 right-1/4 transform -translate-x-1/2 mb-11 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-500 text-white text-3xl font-bold rounded py-2 px-4 z-4">
-      {t('JustlookAround')}
+    {t('JustlookAround')}
     </div>
   </div>
 </a>
@@ -94,7 +93,7 @@ function Home() {
     
     {/* Tooltip */}
     <div className="absolute bottom-0 left-1/2 transform -translate-x-1/4 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-500 text-white font-bold text-3xl rounded py-2 px-4 ml-[100px] whitespace-nowrap">
-      {t('Free business registration')} {/* Tooltip text will be the translated registration text */}
+    {t('Free business registration')} {/* Tooltip text will be the translated registration text */}
     </div>
   
   </div>
@@ -191,7 +190,7 @@ function Home() {
         className="mx-auto transition-opacity duration-300 h-[220px] w-[240px] ease-out group-hover:opacity-0"
       />
       <figcaption
-        className="absolute inset-0 font-bold bg-white bg-opacity-100 flex justify-center items-center p-8 transform translate-x-full group-hover:translate-x-0 transition-all mt-[80px] duration-500 ease-out text-red-600"
+        className="absolute inset-0 font-bold bg-white bg-opacity-100 flex justify-center mb-10 text-lg p-8 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-red-600"
       >
         We would like to warn you, that there won’t be any tolerance for rude, disrespectful, offensive or insulting behavior in this community INCLUDING NUDITY OF ANY KIND FAILURE TO ABIDE BY THESE RULES WILL RESULT IN TERMINATION OF YOUR ACCOUNT AND BUSINESS SYSTEM AND NO REFUNDS WILL BE POSSIBLE AND IF YOU REALLY REALLY WANT BACK IN, IT WILL COST YOU 1 MILLION U.S.
       </figcaption>
@@ -206,7 +205,7 @@ function Home() {
         className="mx-auto transition-opacity duration-300 h-[220px] w-[220px] ease-out group-hover:opacity-0"
       />
       <figcaption
-        className="absolute inset-0  text-2xl font-bold bg-white bg-opacity-100 flex justify-center items-center text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-green-600"
+        className="absolute inset-0  text-2xl font-bold bg-white bg-opacity-100 flex justify-center  text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-green-600"
       >
         TRADES PEOPLE PAY A LOW YEARLY FEE AND THE FIRST 3 months are completely free. No strings attached.NO tricks. We do not ask for any credit card information because we do not need to trick our customers into buying from us and no sales person will call.
       </figcaption>
@@ -223,7 +222,7 @@ function Home() {
     class="mx-auto transition-opacity w-[220px] h-[220px] duration-300 ease-out group-hover:opacity-0 "
   />
   <figcaption
-    class="absolute inset-0 text-xl font-bold bg-white bg-opacity-100 flex justify-center items-center text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-blue-600"
+    class="absolute inset-0 text-3xl font-bold bg-white bg-opacity-100 flex justify-center  text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-blue-600"
   >
     WE ALSO DO NOT HIDE FROM OUR CUSTOMERS BY MAKING IT DIFFICULT OR, IMPOSSIBLE TO REACH US.CLICK ON THE GREEN BUTTON TO CALL US ANY TIME
   </figcaption>
