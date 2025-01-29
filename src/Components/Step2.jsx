@@ -1,30 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import Step3 from './Step3'; // Import Step3 component
+import { useLocation } from 'react-router-dom';
 
 const Step2 = () => {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const location = useLocation();
   const [selectedTime, setSelectedTime] = useState(null);
 
-  useEffect(() => {
-    // Update current date and time every minute
-    const interval = setInterval(() => {
-      setCurrentDate(new Date());
-    }, 60000);
+  // Extract date from the URL parameters
+  const queryParams = new URLSearchParams(location.search);
+  const selectedDate = queryParams.get('date');
 
-    // Cleanup on component unmount
-    return () => clearInterval(interval);
-  }, []);
-
-  // Format the current date and time
-  const formattedDate = currentDate.toLocaleString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-    hour12: true,
-  });
+  // Parse and format the selected date
+  const formattedDate = selectedDate
+    ? new Date(selectedDate).toLocaleString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : 'No Date Selected';
 
   // Time slots for selection
   const timeSlots = [
@@ -70,7 +64,7 @@ const Step2 = () => {
           </div>
         </div>
 
-        {/* Current Date Display */}
+        {/* Selected Date Display */}
         <div className="flex flex-col mt-8">
           <div className="flex justify-center items-center rounded-t-2xl w-full text-center md:h-16 bg-gradient-to-b from-[#4d9535] to-[#3E6B2B]">
             <h1 className="font-extrabold text-resp text-2xl text-white">{formattedDate}</h1>

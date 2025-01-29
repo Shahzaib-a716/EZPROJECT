@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Step3 = () => {
+  const { state } = useLocation();  // Access the state passed from Step 2
   const [isRecording, setIsRecording] = useState(false);
   const [audioUrl, setAudioUrl] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
@@ -9,10 +10,10 @@ const Step3 = () => {
   const [textMessage, setTextMessage] = useState('');
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [recordingTime, setRecordingTime] = useState(0);
-  const [isTextInputVisible, setIsTextInputVisible] = useState(false); // State for text input visibility
+  const [isTextInputVisible, setIsTextInputVisible] = useState(false);
   const [isVideoRecording, setIsVideoRecording] = useState(false);
-  const [audioStatus, setAudioStatus] = useState(""); // To track audio recording status
-  const [progress, setProgress] = useState(0); // To track the voice recording progress
+  const [audioStatus, setAudioStatus] = useState(""); 
+  const [progress, setProgress] = useState(0);
   const audioChunks = useRef([]);
   const mediaRecorderRef = useRef(null);
   const videoRecorderRef = useRef(null);
@@ -20,6 +21,10 @@ const Step3 = () => {
   const videoPreviewRef = useRef(null);
 
   const navigate = useNavigate();
+
+  // Extract selectedDate and selectedTime from state
+  const selectedDate = state?.selectedDate;
+  const selectedTime = state?.selectedTime;
 
   const handleTextMessageChange = (e) => {
     setTextMessage(e.target.value);
@@ -70,17 +75,16 @@ const Step3 = () => {
     setRecordingTime(0);
     setIsRecording(true);
     setAudioStatus("Recording...");
-    setProgress(0); // Reset progress
+    setProgress(0);
     mediaRecorderRef.current.start();
 
-    // Animate progress bar while recording
     let interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
-          clearInterval(interval); // Stop when progress reaches 100%
+          clearInterval(interval);
           return 100;
         }
-        return prev + 1; // Increase progress by 1% per second
+        return prev + 1;
       });
     }, 100);
   };
@@ -89,7 +93,7 @@ const Step3 = () => {
     mediaRecorderRef.current.stop();
     setIsRecording(false);
     setAudioStatus("Audio stopped");
-    setProgress(0); // Reset progress bar when recording stops
+    setProgress(0);
   };
 
   useEffect(() => {
@@ -106,13 +110,11 @@ const Step3 = () => {
 
   const toggleVideoCapture = async () => {
     if (isVideoRecording) {
-      // Stop video recording
       videoRecorderRef.current.stop();
       videoStreamRef.current.getTracks().forEach((track) => track.stop());
       setIsVideoRecording(false);
-      setVideoUrl(videoUrl); // To show the recorded video in preview
+      setVideoUrl(videoUrl);
     } else {
-      // Start video recording
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
         videoStreamRef.current = stream;
@@ -149,6 +151,7 @@ const Step3 = () => {
   return (
     <div className="flex justify-center items-center p-2 md:p-4 w-full bg-gray-800" style={{ minHeight: '100vh' }}>
       <div className="flex flex-col w-full max-w-3xl p-4 relative">
+        
         {/* Header */}
         <div className="flex gap-4 items-end border-b-2">
           <a href="#step2" className="flex flex-col gap-2 justify-center items-center">
@@ -162,6 +165,12 @@ const Step3 = () => {
               Send upto 4 types of messages
             </h1>
           </div>
+        </div>
+
+        {/* Display Selected Date and Time */}
+        <div className="mt-4 text-center text-xl font-extrabold text-yellow-500">
+          <p>{`Selected Date: ${selectedDate}`}</p>
+          <p>{`Selected Time: ${selectedTime}`}</p>
         </div>
 
         {/* Buttons */}

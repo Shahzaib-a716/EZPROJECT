@@ -18,19 +18,12 @@ const EmailFormPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const storedEmail = localStorage.getItem('email');
-    
-    if (storedEmail) {
-      // If the email has been entered before, navigate to a different page
-      navigate('/ServiceSelection', { state: { email } });
+    localStorage.setItem('email', email); // Save email to localStorage
+
+    if (email.toLowerCase() === 'les123@gmail.com') {
+      navigate('/ServiceSelection', { state: { email } }); // Navigate to service selection
     } else {
-      // First-time email submission
-      localStorage.setItem('email', email); // Save email to localStorage
-      if (email.toLowerCase() === 'les123@gmail.com') {
-        navigate('/ServiceSelection', { state: { email } });
-      } else {
-        navigate('/Enter1', { state: { email } });
-      }
+      navigate('/enter1', { state: { email } }); // Navigate to enter1 for other emails
     }
   };
 

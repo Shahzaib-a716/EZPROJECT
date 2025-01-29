@@ -30,6 +30,9 @@ import VirtualHouse from './Components/VirtualHouse';
 import Parking from './Components/Parking';
 import Booking from './Components/Booking';
 import Step1 from './Components/Step1';
+import Step3 from './Components/Step3';
+
+
 import EmergencyPage from './Components/EmergencyPage';
 import ServiceSelection from './Components/ServiceSelection';
 import WaitingList from './Components/WaitingList';
@@ -112,6 +115,7 @@ function App() {
           <Route path="Step1" element={<Step1/>}/>
           <Route path="EmergencyPage" element={<EmergencyPage/>}/>
           <Route path="ServiceSelection" element={<ServiceSelection/>}/>
+          <Route path="Step3" element={<Step3/>}/>
       
           <Route path="Estimate" element={<Estimate/>}/>
           
