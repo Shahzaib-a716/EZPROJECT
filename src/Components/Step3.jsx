@@ -26,6 +26,21 @@ const Step3 = () => {
   const selectedDate = state?.selectedDate;
   const selectedTime = state?.selectedTime;
 
+  // Format selectedDate and selectedTime
+  const formatDate = (dateStr) => {
+    const date = new Date(dateStr);
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('en-GB', options).toUpperCase();
+  };
+
+  const formatTime = (timeStr) => {
+    const date = new Date(`1970-01-01T${timeStr}`);
+    return date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: true }).toUpperCase();
+  };
+
+  const formattedDate = selectedDate ? formatDate(selectedDate) : '';
+  const formattedTime = selectedTime ? formatTime(selectedTime) : '';
+
   const handleTextMessageChange = (e) => {
     setTextMessage(e.target.value);
   };
@@ -167,10 +182,9 @@ const Step3 = () => {
           </div>
         </div>
 
-        {/* Display Selected Date and Time */}
-        <div className="mt-4 text-center text-xl font-extrabold text-yellow-500">
-          <p>{`Selected Date: ${selectedDate}`}</p>
-          <p>{`Selected Time: ${selectedTime}`}</p>
+        {/* Display Selected Date and Time in required format */}
+        <div className="text-center text-xl font-extrabold text-yellow-500 mt-4">
+          <p>{`${formattedDate} AT ${formattedTime}`}</p>
         </div>
 
         {/* Buttons */}
@@ -299,7 +313,7 @@ const Step3 = () => {
               className="w-[70px] h-[75px] cursor-pointer transform transition duration-300 ease-in-out hover:scale-110"
             />
             <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-yellow-300  text-yellow-600 text-2xl whitespace-nowrap px-3 py-2 rounded-lg">
-              Send Messages
+              Send
             </div>
           </div>
         </div>

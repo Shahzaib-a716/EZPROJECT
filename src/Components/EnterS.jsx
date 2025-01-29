@@ -21,9 +21,9 @@ const EmailFormPage = () => {
     localStorage.setItem('email', email); // Save email to localStorage
 
     if (email.toLowerCase() === 'les123@gmail.com') {
-      navigate('/Welcome', { state: { email } }); // Navigate to service selection
+      navigate('/ServiceSelection', { state: { email } }); // Navigate to service selection
     } else {
-      navigate('/SavedEmail', { state: { email } }); // Navigate to enter1 for other emails
+      navigate('/EmailNotRecognized', { state: { email } }); // Navigate to enter1 for other emails
     }
   };
 

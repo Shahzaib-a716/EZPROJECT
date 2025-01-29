@@ -74,6 +74,8 @@ import Owner from './Components/Owner';
 import Recording from './Components/Recording';
 import FoodPizza from './Components/FoodPizza';
 import Timer from './Components/Timer';
+import Welcome from './Components/Welcome';
+import EnterS from './Components/EnterS';
 
 
 
@@ -116,7 +118,7 @@ function App() {
           <Route path="EmergencyPage" element={<EmergencyPage/>}/>
           <Route path="ServiceSelection" element={<ServiceSelection/>}/>
           <Route path="Step3" element={<Step3/>}/>
-      
+          <Route path="Welcome" element={<Welcome/>}/>
           <Route path="Estimate" element={<Estimate/>}/>
           
           <Route path="WaitingList" element={<WaitingList/>}/>
@@ -156,7 +158,7 @@ function App() {
           <Route path="/Recording" element={<Recording />} /> 
           <Route path="/FoodPizza" element={<FoodPizza />} /> 
           <Route path="/Timer" element={<Timer />} /> 
-
+          <Route path="/EnterS" element={<EnterS />} /> 
 
 
    </Routes>

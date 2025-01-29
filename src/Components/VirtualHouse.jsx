@@ -211,7 +211,7 @@ const handleMicrophoneClick = () => {
         <div key={iconNumber} className="relative group">
           <img
             src={`/assets/images/${iconNumber}.png`}
-            className="mb-3 opacity-80 hover:opacity-100 cursor-pointer"
+            className="mb-3 opacity-100 hover:opacity-60 cursor-pointer"
             alt={`Menu Icon ${iconNumber}`}
             onMouseEnter={() => handleIconHover(iconNumber)}
             onMouseLeave={() => !isModalPersistent && setSelectedIcon(null)}
@@ -394,7 +394,7 @@ const handleMicrophoneClick = () => {
 
         {/* Modal */}
         {selectedIcon && (
-          <div className="z-12 border-4 opacity-60 border-gray-700 rounded-3xl w-[80%] max-w-4xl h-[60%] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[30%] bg-white p-12 overflow-visible shadow-lg">
+          <div className="z-12 border-4 opacity-100 border-gray-700 rounded-3xl w-[80%] max-w-4xl h-[60%] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[30%] bg-white p-12 overflow-visible shadow-lg">
             <h1 className="text-5xl font-bold mb-4">{iconDetails[selectedIcon]?.title}</h1>
             <button
               className="absolute bg-red-600 text-white font-extrabold text-3xl px-2 rounded-full -top-4 -right-4"

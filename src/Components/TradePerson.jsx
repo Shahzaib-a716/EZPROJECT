@@ -30,7 +30,7 @@ const LesHandyman = () => {
         </a>
         <a
           className="flex flex-col items-center justify-center"
-          href="/Enter"
+          href="/EnterS"
         >
           <img
             className="rounded-full w-28"

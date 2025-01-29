@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Step3 from './Step3'; // Import Step3 component
-import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Step3 from './Step3';
 
 const Step2 = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [selectedTime, setSelectedTime] = useState(null);
 
   // Extract date from the URL parameters
@@ -29,14 +30,16 @@ const Step2 = () => {
   ];
 
   // Handle time selection
-  const handleTimeSelect = (time) => {
-    setSelectedTime(time);
+  const handleTimeSelect = (time, event) => {
+    event.preventDefault(); // Prevent default anchor behavior
+    setSelectedTime(time); // Update state
+    navigate('/step3', {
+      state: {
+        selectedDate,
+        selectedTime: time,
+      },
+    });
   };
-
-  // Conditional rendering: Move to Step3 if time is selected
-  if (selectedTime) {
-    return <Step3 selectedTime={selectedTime} />;
-  }
 
   return (
     <div
@@ -76,7 +79,7 @@ const Step2 = () => {
               <a
                 key={index}
                 href="#"
-                onClick={() => handleTimeSelect(time)}
+                onClick={(event) => handleTimeSelect(time, event)}
                 className={`opacity-90 rounded-t-lg border-2 text-white border-white flex items-center justify-center h-20 text-2xl md:text-3xl text-center p-1 font-extrabold bg-gradient-to-b ${
                   time === '07:00 AM'
                     ? 'from-[#4188D9] to-[#393185]'

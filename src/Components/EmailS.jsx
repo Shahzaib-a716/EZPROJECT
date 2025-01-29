@@ -7,7 +7,7 @@ const EmailNotRecognized = () => {
   const { email } = location.state || { email: 'Unknown' }; // Default to 'Unknown' if no email is passed
 
   const handleReject = () => {
-    navigate('/Home');
+    navigate('/');
   };
 
   const handleSelect = () => {

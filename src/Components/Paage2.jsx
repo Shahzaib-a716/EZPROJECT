@@ -8,6 +8,14 @@ const PhotographyPage = () => {
   const toggleReadMore = () => {
     setIsExpanded(!isExpanded);
   };
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Function to navigate back
+  const navigateBack = () => {
+    window.history.back();
+  };
 
   return (
     <div className="bg-gray-50 font-sans">
@@ -273,6 +281,29 @@ const PhotographyPage = () => {
             </div>
           </article>
         </div>
+          {/* Back to Top Button (Bottom-right) */}
+      <div
+        className="fixed bottom-8 right-8 p-4 rounded-full cursor-pointer transition transform hover:scale-110"
+        onClick={scrollToTop}
+      >
+         <img
+            src="/assets/images/button page up.webp"
+            alt="Go Back"
+            className="w-[110px] h-[130px] hover:opacity-80 transition duration-300 transform hover:scale-110"
+          />
+        
+      </div>
+
+      {/* Back Button (Bottom-left) */}
+      <div className="fixed bottom-8 left-8">
+        <a href="/Proof" className="inline-block">
+          <img
+            src="/assets/images/button back.webp"
+            alt="Go Back"
+            className="w-[120px] h-[120px] hover:opacity-80 transition duration-300 transform hover:scale-110"
+          />
+        </a>
+      </div>
       </div>
     </div>
   );
