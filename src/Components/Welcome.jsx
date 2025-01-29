@@ -22,7 +22,7 @@ const HandyManPage = () => {
             <div className="tooltip-container">
               <a
                 className="flex justify-center items-center"
-                href="VBEnd"
+                href="VirtualPage"
               >
                 <img
                   className="w-48"

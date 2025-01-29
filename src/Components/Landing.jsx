@@ -124,13 +124,13 @@ function Home() {
         <div className="flex flex-col w-full justify-center items-center relative">
           {/* Conditionally Render Welcome Back Button or Email Input */}
           {isReturningUser ? (
-            <button
-              onClick={handleWelcomeBackClick}
-              className="text-5xl font-bold text-black border-2 border-black bg-yellow-600 hover:bg-green-700 rounded-lg px-12 py-3 shadow-md"
-            >
-              WELCOME B@CK
-            </button>
-          ) : (
+        <button
+          onClick={handleWelcomeBackClick}
+          className="text-5xl font-bold text-black border-2 border-black bg-yellow-600 hover:bg-green-700 rounded-lg px-12 py-3 shadow-md"
+        >
+          {t('welcomeBack')} {/* Dynamically renders "WELCOME BACK" in the selected language */}
+        </button>
+      ) :  (
             <div className="overflow-hidden flex flex-col md:gap-6 items-center">
               <form className="rounded-3xl" onSubmit={handleSubmit}>
                 <div className="flex justify-center mb-2 items-center gap-2 border-6 border-yellow-500 bg-yellow-700 rounded-5xl">
@@ -166,18 +166,18 @@ function Home() {
             </h1>
           </div>
 
-        <div className="flex flex-wrap">
+          <div className="flex flex-wrap">
   <div className="w-full h-[420px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
     <figure className="relative transition-all duration-300 ease-out">
       <img
         src="https://hm.ez123.eu/robbie/wp-content/uploads/2024/06/kezek-racs-borton.svg"
-        alt="Image for fraud awareness"
+        alt={t('fraudAwarenessCaption')}
         className="mx-auto transition-opacity duration-300 ease-out group-hover:opacity-0"
       />
       <figcaption
         className="absolute font-bold text-2xl inset-0 bg-white bg-opacity-100 flex justify-center items-center text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-black"
       >
-        We are currently working together with some agencies to make it easier for them to find those who would commit fraud against us.
+        {t('fraudAwarenessCaption')}
       </figcaption>
     </figure>
   </div>
@@ -186,51 +186,50 @@ function Home() {
     <figure className="relative transition-all duration-300 ease-out">
       <img
         src="https://hm.ez123.eu/robbie/wp-content/uploads/2024/06/zero-tolerance.svg"
-        alt="Zero tolerance policy"
+        alt={t('zeroToleranceCaption')}
         className="mx-auto transition-opacity duration-300 h-[220px] w-[240px] ease-out group-hover:opacity-0"
       />
       <figcaption
         className="absolute inset-0 font-bold bg-white bg-opacity-100 flex justify-center mb-10 text-lg p-8 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-red-600"
       >
-        We would like to warn you, that there won’t be any tolerance for rude, disrespectful, offensive or insulting behavior in this community INCLUDING NUDITY OF ANY KIND FAILURE TO ABIDE BY THESE RULES WILL RESULT IN TERMINATION OF YOUR ACCOUNT AND BUSINESS SYSTEM AND NO REFUNDS WILL BE POSSIBLE AND IF YOU REALLY REALLY WANT BACK IN, IT WILL COST YOU 1 MILLION U.S.
-      </figcaption>
-    </figure>
-  </div>
-
-  <div className="w-full [h-[420px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
-    <figure className="relative transition-all duration-300 ease-out">
-      <img
-        src="/assets/images/zero freud.webp"
-        alt="Example Icon 3"
-        className="mx-auto transition-opacity duration-300 h-[220px] w-[220px] ease-out group-hover:opacity-0"
-      />
-      <figcaption
-        className="absolute inset-0  text-2xl font-bold bg-white bg-opacity-100 flex justify-center  text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-green-600"
-      >
-        TRADES PEOPLE PAY A LOW YEARLY FEE AND THE FIRST 3 months are completely free. No strings attached.NO tricks. We do not ask for any credit card information because we do not need to trick our customers into buying from us and no sales person will call.
+        {t('zeroToleranceCaption')}
       </figcaption>
     </figure>
   </div>
 
   <div className="w-full h-[420px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
     <figure className="relative transition-all duration-300 ease-out">
-  
-    <a href="tel:+1234567890" class="flex flex-col justify-center items-center" title="Click to call us!">
-  <img
-    src="/assets/images/call.webp"
-    alt="Call"
-    class="mx-auto transition-opacity w-[220px] h-[220px] duration-300 ease-out group-hover:opacity-0 "
-  />
-  <figcaption
-    class="absolute inset-0 text-3xl font-bold bg-white bg-opacity-100 flex justify-center  text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-blue-600"
-  >
-    WE ALSO DO NOT HIDE FROM OUR CUSTOMERS BY MAKING IT DIFFICULT OR, IMPOSSIBLE TO REACH US.CLICK ON THE GREEN BUTTON TO CALL US ANY TIME
-  </figcaption>
-</a>
+      <img
+        src="/assets/images/zero freud.webp"
+        alt={t('tradesFeeCaption')}
+        className="mx-auto transition-opacity duration-300 h-[220px] w-[220px] ease-out group-hover:opacity-0"
+      />
+      <figcaption
+        className="absolute inset-0 text-2xl font-bold bg-white bg-opacity-100 flex justify-center text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-green-600"
+      >
+        {t('tradesFeeCaption')}
+      </figcaption>
+    </figure>
+  </div>
 
+  <div className="w-full h-[420px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
+    <figure className="relative transition-all duration-300 ease-out">
+      <a href="tel:+1234567890" className="flex flex-col justify-center items-center" title={t('callUsCaption')}>
+        <img
+          src="/assets/images/call.webp"
+          alt={t('callUsCaption')}
+          className="mx-auto transition-opacity w-[220px] h-[220px] duration-300 ease-out group-hover:opacity-0"
+        />
+        <figcaption
+          className="absolute inset-0 text-3xl font-bold bg-white bg-opacity-100 flex justify-center text-center p-4 transform translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-out text-blue-600"
+        >
+          {t('callUsCaption')}
+        </figcaption>
+      </a>
     </figure>
   </div>
 </div>
+
 
 
 
