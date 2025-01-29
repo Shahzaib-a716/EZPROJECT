@@ -76,6 +76,7 @@ import FoodPizza from './Components/FoodPizza';
 import Timer from './Components/Timer';
 import Welcome from './Components/Welcome';
 import EnterS from './Components/EnterS';
+import EnterS1 from './Components/EnterS1';
 
 
 
@@ -159,6 +160,7 @@ function App() {
           <Route path="/FoodPizza" element={<FoodPizza />} /> 
           <Route path="/Timer" element={<Timer />} /> 
           <Route path="/EnterS" element={<EnterS />} /> 
+          <Route path="/EnterS1" element={<EnterS1 />} /> 
 
 
    </Routes>

@@ -15,7 +15,7 @@ const SavedEmailComponent = () => {
           <a className="w-24 md:w-32" href="/LookAround">
             <div className="relative group">
               <img className="hover:-translate-y-1 hover:scale-110 duration-300" src="/assets/images/eyeballs.gif" alt="Eyeballs" />
-              <span className="absolute right-full ml-3 top-1/2 transform -translate-y-1/2 whitespace-nowrap bg-black text-white text-lg rounded-md px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span className="absolute right-full ml-3 top-1/2 transform -translate-y-1/2 whitespace-nowrap bg-blue-500 text-white font-bold text-3xl rounded-md px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 JUST LOOK AROUND
                 <span className="absolute left-full top-1/2 transform -translate-y-1/2 ml-2 w-0 h-0 border-l-8 border-l-black border-t-8 border-t-transparent border-b-8 border-b-transparent"></span>
               </span>
@@ -27,7 +27,7 @@ const SavedEmailComponent = () => {
           <a className="w-24 md:w-32" href="/FreeRegistration1">
             <div className="relative group">
               <img className="hover:-translate-y-1 hover:scale-110 duration-300" src="/assets/images/clipboard.webp" alt="Clipboard" />
-              <span className="absolute left-full ml-3 top-1/2 transform -translate-y-1/2 whitespace-nowrap bg-black text-white text-lg rounded-md px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span className="absolute left-full ml-3 top-1/2 transform -translate-y-1/2 whitespace-nowrap bg-blue-500 text-white text-3xl font-bold rounded-md px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 FREE BUSINESS REGISTRATION
                 <span className="absolute right-full top-1/2 transform -translate-y-1/2 ml-2 w-0 h-0 border-l-8 border-l-black border-t-8 border-t-transparent border-b-8 border-b-transparent"></span>
               </span>

@@ -27,9 +27,9 @@ const Enter1 = () => {
             alt="Happy Emoji"
           />
           <h1 className="p-2 text-center rounded-xl bg-green-600 text-2xl md:text-5xl text-white">
-            {email || "No email provided"} {/* Display the passed email */}
+            {email ? email : "No email provided"} {/* Display the passed email or fallback to default message */}
           </h1>
-          <h1 className="text-center text-3xl md:text-5xl">
+          <h1 className="text-center text-3xl font-semibold md:text-5xl">
             You Must Register to make bookings!
           </h1>
           <div className="flex justify-around items-center w-full">
