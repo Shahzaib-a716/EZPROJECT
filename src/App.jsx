@@ -1,7 +1,7 @@
 // src/App.js
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Landing from './Components/Landing'; // Your main page component
-import Home from './Components/Home'; // Your next page component
+
 import FreeRegistration1 from './Components/FreeRegistration1';
 import Flag1 from './Components/Flag1';
 import LookAround from './Components/LookAround.jsx';
@@ -85,7 +85,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} /> {/* Main page */}
-        <Route path="/Home" element={<Home />} /> {/* Navigating to Home component */}
+       
         <Route path="/FreeRegistration1" element={<FreeRegistration1 />} />
         <Route path="/Flag1" element={<Flag1 />}/>
         <Route path="/LookAround" element={<LookAround />}/> {/* Add FreeRegistration route */}

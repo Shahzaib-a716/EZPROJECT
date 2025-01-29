@@ -156,16 +156,16 @@ function Home() {
         </div>
 
       {/* Social Media Platform Section */}
-      <div className="text-white">
-        <div className="text-center p-8">
-          <h1 className="text-4xl font-bold">
-            <span className="text-white-300">We are a social media/business</span>
-            <br />
-            <span className="text-white-300">
-              platform, where you can be safe from the world of fraud with the 3-step verification process & built-in lie detector.
-            </span>
-          </h1>
-        </div>
+      <div className="social-media-platform text-white">
+          <div className="text-center p-8">
+            <h1 className="text-4xl font-bold">
+              <span className="text-white-300">{t('socialMediaPlatformTitle')}</span>
+              <br />
+              <span className="text-white-300">
+                {t('socialMediaPlatformDescription')}
+              </span>
+            </h1>
+          </div>
 
         <div className="flex flex-wrap">
   <div className="w-full h-[420px] bg-white md:w-1/2 lg:w-1/4 p-4 group relative overflow-hidden">
