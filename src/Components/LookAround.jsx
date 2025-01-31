@@ -85,6 +85,13 @@ const LookAround = () => {
         Texas: ['Austin', 'Houston'],
       },
     },
+    PERU: {
+      flag: '/assets/images/',
+      provinces: {
+        LALIBERTAD: ['TRUJILLO'],
+        ANCASH: ['CHIMBOTE'],
+      },
+    },
   };
 
   const handleCountrySelect = (country) => {
@@ -174,7 +181,7 @@ const LookAround = () => {
               <h1 className="m-0 pl-1 pr-1 text-white text-4xl md:text-3xl" font-bold>
                 IF YOU DO NOT SEE YOUR AREA, THEN{' '}
                 <a
-                  className="font-bold text-yellow-300 text-base md:text-xl cursor-pointer"
+                  className="font-bold text-yellow-300 text-base md:text-4xl font-bold cursor-pointer"
                   href="/ContactUs"
                 >
                   CLICK HERE
